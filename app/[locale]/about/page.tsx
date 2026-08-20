@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import AboutStory from "@/components/about/AboutStory";
 import AboutTestimonial from "@/components/about/AboutTestimonial";
 import Award from "@/components/about/Award";
@@ -14,11 +14,14 @@ import MobileMenu from "@/components/MobileMenu";
 import Preloader from "@/components/Preloader";
 import ScrollTop from "@/components/ScrollTop";
 
-export const metadata: Metadata = {
-  title: "Aior - AI & SaaS - About Us",
-};
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-export default function AboutPage() {
   return (
     <>
       <Preloader />

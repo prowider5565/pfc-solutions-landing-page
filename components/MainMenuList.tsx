@@ -1,55 +1,26 @@
-import { blogLinks, caseStudiesLinks, pagesLinks } from "@/lib/menu";
+import { getLocale, getTranslations } from "next-intl/server";
+import { localeAnchor, navAnchors } from "@/lib/menu";
 
 /**
  * The <ul> inside <nav class="main-menu">, shared by both header layouts —
- * header-layout8 on the homepage and header-layout1 on the inner pages.
- * Only the surrounding <nav> classes differ, so the list lives here.
+ * header-layout8 on the homepage and header-layout1 on the inner pages. Only
+ * the surrounding <nav> classes differ, so the list lives here.
  *
- * The template's "Home" mega-menu (a demo switcher for the 11 homepage
- * variants) has been removed — it is vendor demo navigation, not site
- * navigation. `megaMenuCards` and `homeLinks` remain in lib/menu.ts, unused.
+ * Follows the CLAUDE.md §4.1 navigation model: five flat section anchors, no
+ * dropdowns. Labels come from the `nav` namespace of the message files, and
+ * hrefs carry the active locale segment.
  */
-export default function MainMenuList() {
+export default async function MainMenuList() {
+  const locale = await getLocale();
+  const t = await getTranslations("nav");
+
   return (
     <ul>
-      <li>
-        <a href="/about">About Us</a>
-      </li>
-      <li>
-        <a href="features.html">Features</a>
-      </li>
-
-      <li className="menu-item-has-children">
-        <a href="#">Case Studies</a>
-        <ul className="sub-menu">
-          {caseStudiesLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-      <li className="menu-item-has-children">
-        <a href="#">Pages</a>
-        <ul className="sub-menu">
-          {pagesLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-
-      <li className="menu-item-has-children">
-        <a href="#">Blog</a>
-        <ul className="sub-menu">
-          {blogLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
+      {navAnchors.map((item) => (
+        <li key={item.key}>
+          <a href={localeAnchor(locale, item.hash)}>{t(item.key)}</a>
+        </li>
+      ))}
     </ul>
   );
 }

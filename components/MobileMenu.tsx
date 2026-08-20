@@ -1,6 +1,13 @@
-import { blogLinks, caseStudiesLinks, pagesLinks } from "@/lib/menu";
+import { getLocale, getTranslations } from "next-intl/server";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { localeAnchor, navAnchors } from "@/lib/menu";
 
-export default function MobileMenu() {
+const BASE_URL = process.env.BASE_URL || "/";
+
+export default async function MobileMenu() {
+  const locale = await getLocale();
+  const t = await getTranslations("nav");
+
   return (
     <div className="th-menu-wrapper">
       <div className="th-menu-area text-center">
@@ -8,52 +15,26 @@ export default function MobileMenu() {
           <i className="fal fa-times"></i>
         </button>
         <div className="mobile-logo">
-          <a href="home-ai-startup.html">
-            <img src="/assets/img/logo.svg" alt="Aior " />
+          <a href={BASE_URL}>
+            <img src="/assets/img/logo.svg" alt="PFC Solutions" />
           </a>
         </div>
 
         <div className="th-mobile-menu">
           <ul>
-            <li>
-              <a href="/about">About Us</a>
-            </li>
-            <li>
-              <a href="features.html">Features</a>
-            </li>
-
-            <li className="menu-item-has-children">
-              <a href="#">Case Studies</a>
-              <ul className="sub-menu">
-                {caseStudiesLinks.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <li className="menu-item-has-children">
-              <a href="#">Pages</a>
-              <ul className="sub-menu">
-                {pagesLinks.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li className="menu-item-has-children">
-              <a href="#">Blog</a>
-              <ul className="sub-menu">
-                {blogLinks.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </li>
+            {navAnchors.map((item) => (
+              <li key={item.key}>
+                <a href={localeAnchor(locale, item.hash)}>{t(item.key)}</a>
+              </li>
+            ))}
           </ul>
+        </div>
+
+        {/* The header's .header-button block is d-none d-xl-block, so below
+            1200px this is the only language control on the page.
+            CLAUDE.md §4.1 requires it in the collapsible nav. */}
+        <div className="mt-30">
+          <LanguageSwitcher variant="inline" />
         </div>
       </div>
     </div>

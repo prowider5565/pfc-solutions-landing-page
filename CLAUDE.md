@@ -147,7 +147,7 @@ Six items. Each pairs a line quoted in the customer's own voice with the real un
 Every item carries a `PROOF` line. The proof is not optional — a differentiator without one does not ship.
 
 **Section title**
-- UZ: `Nega PFC` · RU: `Почему PFC` · EN: `Why PFC`
+- UZ: `Nega PFC Solutions?` · RU: `Почему PFC` · EN: `Why PFC`
 
 | # | Title | Body | Proof |
 |---|---|---|---|
@@ -420,3 +420,13 @@ The build is done only when **all** of these hold:
 - **Do not name a project price** anywhere. Only Discovery tier prices are public.
 - **Do not add a live-chat widget, popup, exit-intent modal, or cookie-banner theatre.**
 - **Do not soften the "not a fit" column.** It is doing deliberate work.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

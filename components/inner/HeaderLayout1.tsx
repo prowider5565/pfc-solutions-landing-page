@@ -1,9 +1,17 @@
+import { getLocale, getTranslations } from "next-intl/server";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MainMenuList from "@/components/MainMenuList";
+import { CTA_PATH, localeHref } from "@/lib/menu";
 
-/** Inner-page header. Source: about.html:218-447 (identical in contact.html).
- *  Differs from the homepage's header-layout8 in wrapper classes, the logo
- *  asset, the extra .container nesting, and the header-button contents. */
-export default function HeaderLayout1() {
+const BASE_URL = process.env.BASE_URL || "/";
+
+/** Inner-page header (header-layout1). Differs from the homepage's
+ *  header-layout8 in wrapper classes, the logo asset, the extra .container
+ *  nesting, and the header-button contents. */
+export default async function HeaderLayout1() {
+  const locale = await getLocale();
+  const t = await getTranslations("nav");
+
   return (
     <header className="th-header header-layout1">
       <div className="container th-container">
@@ -14,8 +22,8 @@ export default function HeaderLayout1() {
               <div className="row align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="header-logo">
-                    <a href="home-ai-startup.html">
-                      <img src="/assets/img/logo.svg" alt="Aior " />
+                    <a href={BASE_URL}>
+                      <img src="/assets/img/logo.svg" alt="PFC Solutions" />
                     </a>
                   </div>
                 </div>
@@ -26,8 +34,9 @@ export default function HeaderLayout1() {
                 </div>
                 <div className="col-auto">
                   <div className="header-button">
-                    <a href="/contact" className="th-btn">
-                      Contact Us{" "}
+                    <LanguageSwitcher />
+                    <a href={localeHref(locale, CTA_PATH)} className="th-btn">
+                      {t("cta")}{" "}
                       <span className="icon">
                         <img src="/assets/img/icon/arrow-right.svg" alt="" />
                       </span>

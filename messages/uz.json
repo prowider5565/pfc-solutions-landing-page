@@ -1,0 +1,368 @@
+{
+  "meta": {
+    "title": "PFC Solutions — Biznes uchun boshqaruv tizimlari va AI yechimlari"
+  },
+  "nav": {
+    "services": "Xizmatlar",
+    "approach": "Yondashuv",
+    "industries": "Sohalar",
+    "work": "Loyihalar",
+    "about": "Biz haqimizda",
+    "cta": "Suhbatga yozilish",
+    "language": "Til"
+  },
+  "hero": {
+    "eyebrow": "Toshkent · O'zbekiston",
+    "headlineLine1": "Kod yozuvchi qo‘l emas,",
+    "headlineLine2": "Nima yozishni biladigan miyamiz",
+    "sub": "O'zbekistondagi zavod, ombor, logistika, qurilish va savdo bizneslariga ichki boshqaruv tizimlari, jarayon avtomatlashtirish va sun'iy intellekt yechimlarini quramiz.",
+    "ctaPrimary": "Biznesingizni muhokama qilamiz — 30 daqiqa",
+    "ctaSecondary": "Discovery nima?",
+    "trust": "12 ta yetkazilgan loyiha · Ishlab chiqarish · Qurilish · Moliya · Tibbiyot · Ta'lim"
+  },
+  "problem": {
+    "title": "Bu gaplar tanish tuyulsa — gaplashamiz",
+    "items": [
+      {
+        "quote": "\"Bizga CRM kerak\"",
+        "pain": "Mijoz qayerda yo'qolayotganini bilmaysiz"
+      },
+      {
+        "quote": "\"Ombor tizimi kerak\"",
+        "pain": "Qoldiq noto'g'ri, tovar yo'qoladi"
+      },
+      {
+        "quote": "\"Hisobot kerak\"",
+        "pain": "Har hisobot uch kun oladi, qaror ma'lumotsiz qabul qilinadi"
+      },
+      {
+        "quote": "\"Excel ishlamayapti\"",
+        "pain": "Bir xil raqam uch joyda uch xil"
+      },
+      {
+        "quote": "\"Xodimlar sekin ishlaydi\"",
+        "pain": "Jarayon noaniq — har kim o'zicha qiladi"
+      },
+      {
+        "quote": "\"AI qo'shmoqchimiz\"",
+        "pain": "Nima uchun kerakligi noma'lum — raqobatchida bor deb eshitdik"
+      }
+    ],
+    "closing": "Biz so'ralgan narsani emas — haqiqiy og'riqni topamiz."
+  },
+  "differentiators": {
+    "title": "Nega PFC Solutions?",
+    "items": [
+      {
+        "title": "Avval biznesni o'rganamiz, keyin kod yozamiz",
+        "body": "Har loyiha Discovery bilan boshlanadi — pullik, alohida bosqich. Texnik topshiriqni mijozdan olmaymiz, o'zimiz yozamiz.",
+        "proof": "ISBOT — Discovery hisoboti: mijoz uni bizsiz ham ishlata oladi"
+      },
+      {
+        "title": "100% moslashtirilgan yechim",
+        "body": "Biz mijozni tizimga emas, tizimni mijozga moslaymiz. Tayyor ERP joriy etilganda biznes o'z jarayonini buzishga majbur bo'ladi — bizda aksincha.",
+        "proof": "ISBOT — yechim mijozning o'z atamalari va hisobot shakllari bilan ishlaydi"
+      },
+      {
+        "title": "AI — bezak emas, natija",
+        "body": "Har bir AI komponenti aniq og'riqni yechadi va natijasi o'lchanadi. Oddiy qoida bilan yechish mumkin bo'lsa — AI ishlatilmaydi.",
+        "proof": "ISBOT — har komponent uchun aniqlik ko'rsatkichi va oylik xarajat hisobi"
+      },
+      {
+        "title": "Muhandislik sifati",
+        "body": "Kod o'qiladigan, hujjatlashtirilgan va test qilingan bo'ladi. Tizim uch yildan keyin ham qo'llab-quvvatlanadi — hatto boshqa jamoa tomonidan.",
+        "proof": "ISBOT — kod va hujjat mijozga tegishli, birga topshiriladi"
+      },
+      {
+        "title": "Yomon xabarni birinchi biz aytamiz",
+        "body": "Muddat kechikayotgan bo'lsa yoki yechim ishlamayotgan bo'lsa, buni siz o'zingiz sezishdan oldin bizdan eshitasiz.",
+        "proof": "ISBOT — haftalik holat hisoboti, muammo paydo bo'lgan kuni xabar"
+      }
+    ]
+  },
+  "approach": {
+    "title": "Qanday ishlaymiz",
+    "blockA": {
+      "freeHeading": "Bepul tahlil",
+      "paidHeading": "Pullik Discovery",
+      "rows": [
+        {
+          "free": "Mijoz jiddiy qaramaydi",
+          "paid": "Mijoz vaqt va odam ajratadi"
+        },
+        {
+          "free": "Ma'lumotga kirish berilmaydi",
+          "paid": "Kirish beriladi"
+        },
+        {
+          "free": "Biz taxmin qilamiz",
+          "paid": "Biz bilamiz"
+        },
+        {
+          "free": "Narx keyin o'zgaradi",
+          "paid": "Narx aniq va o'zgarmaydi"
+        }
+      ]
+    },
+    "blockB": {
+      "steps": [
+        "Biznes tahlili — biznes qanday pul topadi",
+        "Jarayon tahlili — ish qanday bajariladi",
+        "Og'riq nuqtalari — qayerda pul yo'qoladi",
+        "Imkoniyat baholash — nimani avtomatlashtiramiz"
+      ],
+      "caption": "Maqsad — to'g'ri muammoni topish, yechim taklif qilish emas."
+    },
+    "blockC": {
+      "tiers": [
+        {
+          "name": "Express",
+          "duration": "3–5 kun",
+          "price": "$500 – $800",
+          "when": "Bitta jarayon yoki modul"
+        },
+        {
+          "name": "To'liq",
+          "duration": "1.5–2 hafta",
+          "price": "$1,500 – $2,500",
+          "when": "Bir necha modul"
+        },
+        {
+          "name": "Chuqur",
+          "duration": "3–4 hafta",
+          "price": "$3,500 – $5,000",
+          "when": "To'liq boshqaruv tizimi"
+        }
+      ],
+      "callout": "Agar birga ishlasak — tahlil bepul bo'lib chiqadi. Discovery narxi loyiha narxidan to'liq chegiriladi. Ishlamasak — hisobot sizda qoladi va uni istagan ijrochiga bera olasiz.",
+      "finePrint": "30 kun ichida shartnoma imzolansa va loyiha narxi Discovery narxidan kamida 5 baravar katta bo'lsa."
+    },
+    "blockD": {
+      "stages": [
+        "Discovery",
+        "Reja",
+        "Ishlab chiqish",
+        "Test",
+        "Joriy etish",
+        "Qo'llab-quvvatlash"
+      ],
+      "rhythm": "Har hafta — yozma holat hisoboti · Har 2 hafta — ishlaydigan demo · Har bosqich oxirida — qabul",
+      "guarantee": "Kafolat 3 oy — topshirish aktidan boshlab."
+    }
+  },
+  "services": {
+    "title": "Xizmatlar",
+    "items": [
+      {
+        "name": "Ichki boshqaruv tizimlari",
+        "duration": "3–8 oy"
+      },
+      {
+        "name": "Jarayonlarni avtomatlashtirish",
+        "duration": "1–4 oy"
+      },
+      {
+        "name": "AI yechimlari va agentlar",
+        "duration": "1–5 oy"
+      },
+      {
+        "name": "Integratsiya va ma'lumot",
+        "duration": "1–3 oy"
+      },
+      {
+        "name": "Sayt va veb yechimlar",
+        "duration": "2–8 hafta"
+      },
+      {
+        "name": "Qo'llab-quvvatlash va rivojlantirish",
+        "duration": "—"
+      }
+    ]
+  },
+  "industries": {
+    "title": "Sohalar",
+    "subline": "Umumiy belgi sohada emas, jarayonda.",
+    "items": [
+      {
+        "name": "Ishlab chiqarish va zavodlar",
+        "entry": "Ombor va qoldiq"
+      },
+      {
+        "name": "Logistika va ombor",
+        "entry": "Inventarizatsiya"
+      },
+      {
+        "name": "Qurilish",
+        "entry": "Material va xarajat nazorati"
+      },
+      {
+        "name": "HoReCa — restoran va mehmonxona",
+        "entry": "Tannarx va qoldiq"
+      },
+      {
+        "name": "Savdo — chakana va ulgurji",
+        "entry": "Ko'p filialli qoldiq va marja"
+      }
+    ]
+  },
+  "work": {
+    "title": "Loyihalar",
+    "groupManagement": "Boshqaruv tizimlari",
+    "groupWeb": "Veb yechimlar",
+    "management": [
+      {
+        "name": "Sut yig'ish tizimi",
+        "sector": "Oziq-ovqat ishlab chiqarish"
+      },
+      {
+        "name": "Qurilish boshqaruv tizimi",
+        "sector": "Qurilish"
+      },
+      {
+        "name": "Faktoriya",
+        "sector": "B2B SaaS ERP"
+      },
+      {
+        "name": "Bekuz",
+        "sector": "Valyuta brokerligi, Dubay"
+      },
+      {
+        "name": "Fotima Medical Plaza",
+        "sector": "Tibbiyot"
+      },
+      {
+        "name": "Mezon Akademiya",
+        "sector": "Ta'lim"
+      },
+      {
+        "name": "WeAuto",
+        "sector": "Avto marketplace"
+      },
+      {
+        "name": "Midrama",
+        "sector": "Media striming"
+      }
+    ],
+    "web": [
+      {
+        "name": "UstaBarber",
+        "sector": "Koreya"
+      },
+      {
+        "name": "Ironex",
+        "sector": "Metallga ishlov berish"
+      },
+      {
+        "name": "Legal House",
+        "sector": "Yuridik"
+      },
+      {
+        "name": "Tikoncha",
+        "sector": "IT / ta'lim"
+      }
+    ],
+    "bekuzTitle": "Batafsil — Bekuz",
+    "bekuzRequirement": "Talab",
+    "bekuzSolution": "Qanday yechildi",
+    "bekuz": [
+      {
+        "requirement": "Ko'p valyutali, ko'p qismli hisob-kitob",
+        "solution": "Bitta buyurtmada bir necha olish va to'lash qismi; tranzaksiyalar avtomatik biriktiriladi"
+      },
+      {
+        "requirement": "Kursning butunligi",
+        "solution": "Har qismda kursning o'zgarmas oniy nusxasi — qiymati, manbasi, sanasi"
+      },
+      {
+        "requirement": "\"Nima bo'lardi\" tahlili",
+        "solution": "Marjani qayta hisoblash tarixga tegmasdan ishlaydi"
+      },
+      {
+        "requirement": "Ishonchli kassa",
+        "solution": "Qoldiq saqlanmaydi — u operatsiyalar jurnalidan hisoblanadi"
+      },
+      {
+        "requirement": "Xavfsiz vakolat berish",
+        "solution": "Modul bo'yicha huquqlar + \"o'z / barcha\" doirasi + o'chirilmaydigan audit jurnali"
+      },
+      {
+        "requirement": "Ko'p kanalli ish",
+        "solution": "Veb, mobil, WhatsApp va Telegram AI yordamchisi — bitta ma'lumot ustida"
+      }
+    ],
+    "note": "Har bir loyihaning o'lchanadigan natijasi mijoz roziligi bilan alohida taqdim etiladi. Taklifda faqat tekshirilgan raqam ishlatiladi."
+  },
+  "fit": {
+    "title": "Biz kim uchunmiz",
+    "goodHeading": "Bizga mos",
+    "badHeading": "Bizga mos emas",
+    "good": [
+      "Fizik operatsiyaga ega biznes",
+      "Jarayoni qo'lda yoki Excel'da",
+      "Egasi yoki direktori qaror qabul qiladi",
+      "Muammoni biladi, yechimni bilmaydi",
+      "Uzoq muddatli hamkorlik qidiradi"
+    ],
+    "bad": [
+      "Sof raqamli startap",
+      "Zamonaviy ERP allaqachon o'rnatilgan",
+      "Qaror uzoq komitetlarda qoladi",
+      "Tayyor texnik topshiriq bilan keladi va faqat bajaruvchi qidiradi",
+      "Eng arzon narx qidiradi"
+    ],
+    "closing": "Mijoz \"menga shunday tizim kerak\" deganda, biz \"nima uchun?\" deb so'raymiz. Bu savolga javob bermoqchi bo'lmagan mijoz — bizning mijozimiz emas."
+  },
+  "faq": {
+    "title": "Ko'p so'raladigan savollar",
+    "items": [
+      {
+        "q": "Nega Discovery pullik?",
+        "a": "Chunki bepul tahlil va pullik Discovery — bir xil ish emas. Bepul tahlilda: mijoz jiddiy qaramaydi, ma'lumotga kirish berilmaydi, biz taxmin qilamiz, narx keyin o'zgaradi. Pullik Discovery'da: mijoz vaqt va odam ajratadi, kirish beriladi, biz bilamiz, narx aniq va o'zgarmaydi."
+      },
+      {
+        "q": "Discovery'siz narx ayta olasizmi?",
+        "a": "Yo'q. Discovery'siz biz taxmin qilamiz va narx keyin o'zgaradi. Discovery'dan keyin narx aniq va o'zgarmaydi."
+      },
+      {
+        "q": "Kod bizniki bo'ladimi?",
+        "a": "Ha. Kod va hujjat mijozga tegishli, birga topshiriladi — to'liq to'lovdan keyin."
+      },
+      {
+        "q": "Loyiha qancha vaqt oladi?",
+        "a": "Xizmatga bog'liq. Ichki boshqaruv tizimlari — 3–8 oy, jarayonlarni avtomatlashtirish — 1–4 oy, AI yechimlari va agentlar — 1–5 oy, integratsiya va ma'lumot — 1–3 oy, sayt va veb yechimlar — 2–8 hafta."
+      },
+      {
+        "q": "To'lov qanday amalga oshiriladi?",
+        "a": "Uch qismda — 30% / 50% / 20%."
+      },
+      {
+        "q": "Topshirgandan keyin nima bo'ladi?",
+        "a": "Kafolat 3 oy — topshirish aktidan boshlab, keyin SLA bilan qo'llab-quvvatlash shartnomasi."
+      }
+    ]
+  },
+  "finalCta": {
+    "headline": "Muammoingizni tushunishdan boshlaymiz",
+    "body": "30 daqiqalik suhbat. Sotuv emas — savol. Biznesingizni tushunamiz va sizga mos kelamizmi yoki yo'qmi, ochiq aytamiz.",
+    "fields": {
+      "name": "Ismingiz",
+      "company": "Kompaniya",
+      "phone": "Telefon",
+      "problem": "Muammoingiz bir jumlada"
+    },
+    "privacy": "Ma'lumotlaringiz uchinchi tomonga berilmaydi.",
+    "success": "Rahmat. Tez orada bog'lanamiz."
+  },
+  "footer": {
+    "positioning": "[TBC — pozitsiyalash jumlasi]",
+    "navHeading": "Navigatsiya",
+    "servicesHeading": "Xizmatlar",
+    "contactHeading": "Aloqa",
+    "address": "[TBC — manzil]",
+    "phone": "[TBC — telefon]",
+    "email": "[TBC — email]",
+    "telegram": "[TBC — Telegram]",
+    "copyright": "© 2026 PFC Solutions",
+    "privacyLink": "Maxfiylik"
+  }
+}

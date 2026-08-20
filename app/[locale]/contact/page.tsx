@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 import MapArea from "@/components/contact/MapArea";
@@ -10,11 +10,14 @@ import MobileMenu from "@/components/MobileMenu";
 import Preloader from "@/components/Preloader";
 import ScrollTop from "@/components/ScrollTop";
 
-export const metadata: Metadata = {
-  title: "Aior - AI & SaaS - Contact Us",
-};
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-export default function ContactPage() {
   return (
     <>
       <Preloader />
