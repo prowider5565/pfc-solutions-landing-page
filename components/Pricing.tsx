@@ -56,7 +56,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </div>
         <div className="btn-group">
           {" "}
-          <a href="contact.html" className="th-btn2 btn-gradient fw-btn">
+          <a href="/contact" className="th-btn2 btn-gradient fw-btn">
             Get Started
           </a>
         </div>

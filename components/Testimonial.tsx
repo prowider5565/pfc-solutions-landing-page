@@ -28,7 +28,7 @@ export default function Testimonial() {
               </h2>
             </div>
             <div className=" text-xl-start text-center">
-              <a href="contact.html" className="th-btn2 btn-gradient">
+              <a href="/contact" className="th-btn2 btn-gradient">
                 Explore All
               </a>
             </div>

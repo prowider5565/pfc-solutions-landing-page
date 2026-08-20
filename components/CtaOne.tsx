@@ -20,7 +20,7 @@ export default function CtaOne() {
                 </span>
               </div>
               <div className="btn-group justify-content-center justify-content-lg-between">
-                <a href="contact.html" className="th-btn2 btn-gradient">
+                <a href="/contact" className="th-btn2 btn-gradient">
                   Try it Free
                 </a>
               </div>

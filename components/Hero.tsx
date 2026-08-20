@@ -32,10 +32,10 @@ export default function Hero() {
               </p>
               <div className="hero-wrapp">
                 <div className="btn-group justify-content-center justify-content-xl-start">
-                  <a href="contact.html" className="th-btn2 btn-gradient">
+                  <a href="/contact" className="th-btn2 btn-gradient">
                     Build Your Chatbot
                   </a>
-                  <a href="contact.html" className="th-btn2 style5">
+                  <a href="/contact" className="th-btn2 style5">
                     Book a Demo
                   </a>
                 </div>

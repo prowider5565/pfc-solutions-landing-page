@@ -24,7 +24,7 @@ export default function Faq() {
               <h2 className="sec-title h3 text-anime-style-3">Frequently Ask Questions</h2>
             </div>
             <div className="btn-group wow fadeInUp justify-content-center mb-60 text-center">
-              <a href="contact.html" className="th-btn2 btn-gradient extra style1">
+              <a href="/contact" className="th-btn2 btn-gradient extra style1">
                 View All
               </a>
             </div>

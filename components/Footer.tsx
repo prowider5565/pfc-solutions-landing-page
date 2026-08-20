@@ -1,19 +1,19 @@
 import type { MenuLink } from "@/lib/menu";
 
 const USE_CASES: MenuLink[] = [
-  { href: "contact.html", label: "Aiorchat AI" },
+  { href: "/contact", label: "Aiorchat AI" },
   { href: "faq.html", label: "Aiorchat vs Chatty AI" },
-  { href: "contact.html", label: "Convert Store visitors" },
-  { href: "contact.html", label: "Automate Support" },
-  { href: "contact.html", label: "Actionable Insights" },
+  { href: "/contact", label: "Convert Store visitors" },
+  { href: "/contact", label: "Automate Support" },
+  { href: "/contact", label: "Actionable Insights" },
 ];
 
 const PRODUCTS: MenuLink[] = [
-  { href: "about.html", label: "Tech & Agency" },
-  { href: "contact.html", label: "Affiliate Program" },
+  { href: "/about", label: "Tech & Agency" },
+  { href: "/contact", label: "Affiliate Program" },
   { href: "course.html", label: "Beacome a Partner" },
   { href: "course.html", label: "How it Works" },
-  { href: "contact.html", label: "Testimonials" },
+  { href: "/contact", label: "Testimonials" },
 ];
 
 const FEATURES: MenuLink[] = [
@@ -62,10 +62,10 @@ export default function Footer() {
                 <div className="ps-xl-5">
                   <h2 className="box-title text-white">Try Aior Today Free</h2>
                   <div className="btn-group justify-content-center justify-content-lg-start">
-                    <a href="contact.html" className="th-btn2 btn-gradient">
+                    <a href="/contact" className="th-btn2 btn-gradient">
                       Start Free Trial
                     </a>
-                    <a href="contact.html" className="th-btn2 style3">
+                    <a href="/contact" className="th-btn2 style3">
                       Book a Demo
                     </a>
                   </div>

@@ -59,7 +59,7 @@ export const pagesLinks: MenuLink[] = [
   { href: "faq.html", label: "FAQ" },
   { href: "testimonial.html", label: "Testimonial" },
   { href: "pricing.html", label: "Price Table" },
-  { href: "contact.html", label: "Contact Us" },
+  { href: "/contact", label: "Contact Us" },
   { href: "error.html", label: "Error Page" },
 ];
 

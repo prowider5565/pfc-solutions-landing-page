@@ -1,4 +1,4 @@
-import { blogLinks, caseStudiesLinks, homeLinks, pagesLinks } from "@/lib/menu";
+import { blogLinks, caseStudiesLinks, pagesLinks } from "@/lib/menu";
 
 export default function MobileMenu() {
   return (
@@ -15,18 +15,8 @@ export default function MobileMenu() {
 
         <div className="th-mobile-menu">
           <ul>
-            <li className="menu-item-has-children">
-              <a href="home-ai-startup.html">Home</a>
-              <ul className="sub-menu">
-                {homeLinks.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </li>
             <li>
-              <a href="about.html">About Us</a>
+              <a href="/about">About Us</a>
             </li>
             <li>
               <a href="features.html">Features</a>
