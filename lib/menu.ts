@@ -1,18 +1,18 @@
 export type MenuLink = { href: string; label: string };
 
 /**
- * Primary navigation, per CLAUDE.md §4.1.
+ * Primary navigation — multipage model.
  *
- * CLAUDE.md specifies a single landing page, so these are section anchors, not
- * routes. `key` indexes into the `nav` namespace of messages/{locale}.json;
- * `hash` is the section id on the landing page.
+ * Each nav item is a real route rather than an on-page anchor. `key` indexes
+ * into the `nav` namespace of messages/{locale}.json; `path` is appended after
+ * the locale segment.
  */
-export const navAnchors = [
-  { key: "services", hash: "services" },
-  { key: "approach", hash: "approach" },
-  { key: "industries", hash: "industries" },
-  { key: "work", hash: "work" },
-  { key: "about", hash: "about" },
+export const navRoutes = [
+  { key: "services", path: "/services" },
+  { key: "approach", path: "/approach" },
+  { key: "industries", path: "/industries" },
+  { key: "work", path: "/work" },
+  { key: "about", path: "/about" },
 ] as const;
 
 /**
@@ -23,11 +23,6 @@ export function localeHref(locale: string, path = "") {
   return `/${locale}${path}`;
 }
 
-/** Anchor onto the landing page, e.g. localeAnchor("uz", "services") → "/uz#services" */
-export function localeAnchor(locale: string, hash: string) {
-  return `/${locale}#${hash}`;
-}
-
-/** CLAUDE.md §4.1 `cta` — the single conversion action across the whole page.
+/** CLAUDE.md §4.1 `cta` — the single conversion action across the whole site.
  *  Label comes from messages (`nav.cta`); the target is the contact route. */
 export const CTA_PATH = "/contact";

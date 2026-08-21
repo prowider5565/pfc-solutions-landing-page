@@ -41,9 +41,6 @@ export default async function HeaderLayout1() {
                         <img src="/assets/img/icon/arrow-right.svg" alt="" />
                       </span>
                     </a>
-                    <a href="#" className="icon-btn sideMenuToggler d-none d-md-block">
-                      <img src="/assets/img/icon/grid.svg" alt="" />
-                    </a>
                     <button type="button" className="th-menu-toggle d-inline-block d-xl-none">
                       <i className="far fa-bars"></i>
                     </button>

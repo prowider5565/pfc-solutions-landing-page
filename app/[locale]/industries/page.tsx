@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageShell from "@/components/inner/PageShell";
-import Differentiators from "@/components/sections/Differentiators";
-import Fit from "@/components/sections/Fit";
+import Industries from "@/components/sections/Industries";
 
 export async function generateMetadata({
   params,
@@ -11,10 +10,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "nav" });
-  return { title: t("about") };
+  return { title: t("industries") };
 }
 
-export default async function AboutPage({
+export default async function IndustriesPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -24,9 +23,8 @@ export default async function AboutPage({
   const t = await getTranslations("nav");
 
   return (
-    <PageShell title={t("about")}>
-      <Differentiators />
-      <Fit />
+    <PageShell title={t("industries")}>
+      <Industries />
     </PageShell>
   );
 }

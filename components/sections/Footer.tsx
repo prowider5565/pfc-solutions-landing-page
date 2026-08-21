@@ -1,6 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { localeAnchor, navAnchors } from "@/lib/menu";
+import { localeHref, navRoutes } from "@/lib/menu";
 
 /**
  * CLAUDE.md §4.12 — logo + positioning line · navigation · services · contact,
@@ -21,7 +21,7 @@ export default async function Footer() {
   return (
     <footer
       className="footer-wrapper footer-layout2 footer-layout8"
-      data-bg-src="/assets/img/bg/footer_bg_3.png"
+      data-bg-src="/assets/img/bg/footer_bg_3_blue.png"
     >
       <div className="container th-container5">
         <div className="row gy-4 justify-content-between pt-60">
@@ -29,7 +29,7 @@ export default async function Footer() {
             <div className="widget footer-widget">
               <div className="th-widget-about">
                 <div className="about-logo mb-20">
-                  <img src="/assets/img/logo9.svg" alt="PFC Solutions" />
+                  <img src="/assets/img/logo.svg" alt="PFC Solutions" />
                 </div>
                 <p className="about-text">{t("positioning")}</p>
               </div>
@@ -41,9 +41,9 @@ export default async function Footer() {
               <h3 className="widget_title">{t("navHeading")}</h3>
               <div className="menu-all-pages-container">
                 <ul className="menu">
-                  {navAnchors.map((item) => (
+                  {navRoutes.map((item) => (
                     <li key={item.key}>
-                      <a href={localeAnchor(locale, item.hash)}>{tNav(item.key)}</a>
+                      <a href={localeHref(locale, item.path)}>{tNav(item.key)}</a>
                     </li>
                   ))}
                 </ul>
@@ -58,7 +58,7 @@ export default async function Footer() {
                 <ul className="menu">
                   {services.map((s) => (
                     <li key={s.name}>
-                      <a href={localeAnchor(locale, "services")}>{s.name}</a>
+                      <a href={localeHref(locale, "/services")}>{s.name}</a>
                     </li>
                   ))}
                 </ul>
@@ -92,7 +92,7 @@ export default async function Footer() {
               <div className="footer-links d-inline-block me-3">
                 <ul>
                   <li>
-                    <a href={localeAnchor(locale, "contact")}>{t("privacyLink")}</a>
+                    <a href={localeHref(locale, "/contact")}>{t("privacyLink")}</a>
                   </li>
                 </ul>
               </div>

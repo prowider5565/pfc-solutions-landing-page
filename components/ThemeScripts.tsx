@@ -57,6 +57,15 @@ export default function ThemeScripts() {
           document.body.appendChild(el);
         });
       }
+
+      // main.js registers three behaviours inside DOMContentLoaded listeners
+      // (the pinned "awards" stack at :1249, the project parallax at :1281 and
+      // the CTA fan-out at :1617). Because these scripts are injected from an
+      // effect — i.e. after hydration — that event has long since fired, so
+      // those listeners would never run. Re-dispatching it once, after every
+      // script has loaded, lets them register. It bubbles from document to
+      // window, which covers both listener targets.
+      document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }));
     })();
   }, []);
 

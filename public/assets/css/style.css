@@ -99,7 +99,7 @@ Version: 1.0.0
   --white-color: #ffffff;
   --light-color: #B7BEC8;
   --yellow-color: #FFB539;
-  --success-color: #28a745;
+  --success-color: #2E86FF;
   --error-color: #dc3545;
   --th-border-color: #E0E0E0;
   --title-font: "Sora", sans-serif;
@@ -152,8 +152,8 @@ body.theme6 {
   --theme-color: #DBD2FE;
 }
 body.theme7 {
-  --theme-color: #AEFF5D;
-  --theme-color2: #5DFFD9;
+  --theme-color: #2E86FF;
+  --theme-color2: #8FC6FF;
 }
 body.theme8 {
   --theme-color: #7B5DFF;
@@ -2640,7 +2640,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at 50% 50%, #7B5DFF 0%, transparent 50%), radial-gradient(circle at 45% 45%, #D4FF12 0%, transparent 45%), radial-gradient(circle at 55% 55%, #FF1CA4 0%, transparent 45%), radial-gradient(circle at 45% 55%, #C726FD 0%, transparent 45%), radial-gradient(circle at 55% 45%, #4E0055 0%, transparent 45%);
+  background-image: radial-gradient(circle at 50% 50%, #7B5DFF 0%, transparent 50%), radial-gradient(circle at 45% 45%, var(--theme-color2) 0%, transparent 45%), radial-gradient(circle at 55% 55%, #FF1CA4 0%, transparent 45%), radial-gradient(circle at 45% 55%, #C726FD 0%, transparent 45%), radial-gradient(circle at 55% 45%, #4E0055 0%, transparent 45%);
   -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0%, transparent 10%, black 25%);
           mask: radial-gradient(circle at 50% 50%, transparent 0%, transparent 10%, black 25%);
   -webkit-animation: transform-animation 2s infinite alternate, opacity-animation 4s infinite;
@@ -23123,8 +23123,8 @@ span.select2-selection.select2-selection--single:focus {
   }
 }
 .award-item:nth-child(4) {
-  background: #F3FFFC;
-  border: 1px solid #5DFFD9;
+  background: #EFF7FF;
+  border: 1px solid var(--theme-color2);
   border-radius: 50px;
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
@@ -28329,7 +28329,7 @@ span.select2-selection.select2-selection--single:focus {
   left: 63%;
 }
 .pricing-tabs.style8 .toggler.toggler--is-active {
-  background: linear-gradient(122.43deg, #AEFF5D 4.09%, #5DFFD9 100.57%);
+  background: linear-gradient(122.43deg, var(--theme-color) 4.09%, var(--theme-color2) 100.57%);
   border-radius: 48px;
   color: var(--title-color);
 }
@@ -32468,7 +32468,7 @@ span.select2-selection.select2-selection--single:focus {
 .feature-grid4 .shape {
   position: absolute;
   inset: 0;
-  background-image: url("../img/shape/feature-bottom-shape.png");
+  background-image: url("../img/shape/feature-bottom-shape-blue.png");
   background-position: left bottom;
   background-size: auto;
   background-repeat: no-repeat;
@@ -32490,7 +32490,7 @@ span.select2-selection.select2-selection--single:focus {
   left: -5px;
   width: 29px;
   height: 29px;
-  background: linear-gradient(122.43deg, #AEFF5D 4.09%, #5DFFD9 100.57%);
+  background: linear-gradient(122.43deg, var(--theme-color) 4.09%, var(--theme-color2) 100.57%);
   border-radius: 50%;
   z-index: -1;
 }

@@ -9,7 +9,8 @@
     "work": "Loyihalar",
     "about": "Biz haqimizda",
     "cta": "Suhbatga yozilish",
-    "language": "Til"
+    "language": "Til",
+    "home": "Bosh sahifa"
   },
   "hero": {
     "eyebrow": "Toshkent · O'zbekiston",
@@ -351,7 +352,8 @@
       "problem": "Muammoingiz bir jumlada"
     },
     "privacy": "Ma'lumotlaringiz uchinchi tomonga berilmaydi.",
-    "success": "Rahmat. Tez orada bog'lanamiz."
+    "success": "Rahmat. Tez orada bog'lanamiz.",
+    "mapTitle": "PFC Solutions — Toshkent xaritasi"
   },
   "footer": {
     "positioning": "[TBC — pozitsiyalash jumlasi]",

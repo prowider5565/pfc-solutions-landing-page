@@ -1,14 +1,17 @@
-import { setRequestLocale } from "next-intl/server";
-import ContactForm from "@/components/contact/ContactForm";
-import ContactInfo from "@/components/contact/ContactInfo";
-import MapArea from "@/components/contact/MapArea";
-import Breadcrumb from "@/components/inner/Breadcrumb";
-import FooterLayout1 from "@/components/inner/FooterLayout1";
-import HeaderLayout1 from "@/components/inner/HeaderLayout1";
-import Sidemenu from "@/components/inner/Sidemenu";
-import MobileMenu from "@/components/MobileMenu";
-import Preloader from "@/components/Preloader";
-import ScrollTop from "@/components/ScrollTop";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import PageShell from "@/components/inner/PageShell";
+import FinalCta from "@/components/sections/FinalCta";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "nav" });
+  return { title: t("cta") };
+}
 
 export default async function ContactPage({
   params,
@@ -17,19 +20,11 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("nav");
 
   return (
-    <>
-      <Preloader />
-      <Sidemenu />
-      <MobileMenu />
-      <HeaderLayout1 />
-      <Breadcrumb title="Contact Us" />
-      <ContactInfo />
-      <ContactForm />
-      <MapArea />
-      <FooterLayout1 />
-      <ScrollTop />
-    </>
+    <PageShell title={t("cta")}>
+      <FinalCta />
+    </PageShell>
   );
 }

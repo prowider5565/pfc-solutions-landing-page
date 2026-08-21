@@ -22,7 +22,7 @@ export default async function Header() {
               <div className="col-auto">
                 <div className="header-logo">
                   <a className="icon-masking" href={BASE_URL}>
-                    <img src="/assets/img/logo8.svg" alt="PFC Solutions" />
+                    <img className="zoom-130" src="/assets/img/logo.svg" alt="PFC Solutions" />
                   </a>
                 </div>
               </div>

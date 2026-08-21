@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import ContactMap from "@/components/sections/ContactMap";
 
 /**
  * CLAUDE.md §4.11 — the single conversion action on the page.
@@ -15,11 +16,12 @@ export default async function FinalCta() {
   const tNav = await getTranslations("nav");
 
   return (
-    <section
-      className="contact-sec space overflow-hidden"
-      data-bg-src="/assets/img/bg/contact_bg_1.jpg"
-      id="contact"
-    >
+    <>
+      <section
+        className="contact-sec space overflow-hidden"
+        data-bg-src="/assets/img/bg/contact_bg_1.jpg"
+        id="contact"
+      >
       <div className="container th-container4">
         <div className="contact-area">
           <div className="row justify-content-center">
@@ -93,6 +95,8 @@ export default async function FinalCta() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      <ContactMap />
+    </>
   );
 }

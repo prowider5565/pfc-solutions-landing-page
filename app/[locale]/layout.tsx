@@ -115,6 +115,23 @@ export default async function LocaleLayout({
              circle and the header-layout8 grey fill / gradient hover. */
           .lang-switcher{position:relative;display:inline-flex;align-items:center}
           .lang-switcher > .icon-btn{cursor:pointer;padding:0}
+          /* The active locale's flag fills the circle edge to edge. overflow
+             clips it to the .icon-btn border-radius; object-fit stops the
+             circular flag artwork distorting. */
+          .lang-flag-btn{overflow:hidden;border:0}
+          .lang-flag-btn img{
+            width:100%;height:100%;object-fit:cover;display:block;margin:0
+          }
+          /* The template recolours icon images on hover
+             (.icon-btn:hover img{filter:brightness(0) invert(1)}) so line-art
+             glyphs read against the theme fill. On a flag that flattens the
+             whole image to white — it looked like the button vanished. */
+          .lang-flag-btn:hover img,
+          .lang-flag-btn:focus-visible img{filter:none}
+          .lang-dropdown .lang-flag{
+            width:18px;height:18px;border-radius:50%;object-fit:cover;
+            margin:0 8px -4px 0;display:inline-block
+          }
 
           .lang-dropdown{
             position:absolute;top:calc(100% + 10px);right:0;z-index:999999;
@@ -151,6 +168,19 @@ export default async function LocaleLayout({
           .th-menu-wrapper .lang-switcher--inline a{color:var(--title-color)}
           .th-menu-wrapper .lang-switcher--inline a.is-active{color:var(--theme-color)}
 
+          /* Logo +10%. logo.svg has an intrinsic 213x80 and no CSS width, so
+             it rendered at 213px; 234px is that plus 10%. Applies to both
+             header layouts (homepage header-layout8 and the inner
+             header-layout1), which share the .header-logo wrapper. */
+          .header-logo img{width:234px;max-width:100%;height:auto}
+
+          /* Problem cards: Bootstrap columns already give equal widths, but the
+             card inside each column only grew to fit its own text, so heights
+             varied with copy length. Stretching the card to fill its column
+             equalises them; column-flex keeps the icon top-aligned. */
+          #problem .feature-grid4{height:100%;display:flex;flex-direction:column}
+          #problem .feature-grid4 > div:last-child{flex:1 1 auto}
+
           /* The white notch at the header's top-right is carved by the hero's
              corner radius, so its width is fixed. The localized CTA labels are
              longer than the template's ("Suhbatga yozilish" / "Записаться на
@@ -159,8 +189,9 @@ export default async function LocaleLayout({
              group keeps it inside the notch in every locale. */
           @media (min-width:1200px){
             .header-layout8 .header-button .th-btn2{font-size:16px;padding-left:22px;padding-right:22px}
+            /* 39px = 46px − 15%. */
             .header-layout8 .header-button > .lang-switcher > .icon-btn{
-              --btn-size:46px;--btn-font-size:16px
+              --btn-size:39px;--btn-font-size:16px
             }
             /* Russian's CTA ("Записаться на встречу") is ~39px wider than the
                Uzbek one, which closes the gap to zero. Scoped to :lang(ru) so
@@ -194,6 +225,17 @@ export default async function LocaleLayout({
           @media (max-width:1199px){.hero-style8{padding-top:190px}}
           @media (max-width:575px){.hero-style8{padding-top:135px}}
           @media (min-width:1200px){.hero-8 .hero-img7{margin-top:-25px}}
+
+          /* Hero headline uses the shared blue gradient. The background-clip
+             pair is re-declared so the clip is not left behind on the old
+             shorthand and the title stays aligned with the site-wide palette.
+             NB: no backticks in this block — it lives inside a JS template
+             literal, so a backtick would terminate the string. */
+          .hero-style8 .hero-title .title{
+            background:linear-gradient(122.43deg,var(--theme-color) 4.09%,var(--theme-color2) 100.57%);
+            -webkit-background-clip:text;background-clip:text;
+            -webkit-text-fill-color:transparent
+          }
 
           /* Hero eyebrow: .sub-title is authored for light backgrounds
              (color:$title-color + light border), so it is near-invisible on the

@@ -105,8 +105,8 @@
     }
 
     &:nth-child(4) {
-        background: #F3FFFC;
-        border: 1px solid #5DFFD9;
+        background: #EFF7FF;
+        border: 1px solid var(--theme-color2);
         border-radius: 50px;
         transform: rotate(-15deg);
         margin-left: -15%;

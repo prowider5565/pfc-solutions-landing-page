@@ -1,6 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { localeAnchor, navAnchors } from "@/lib/menu";
+import { localeHref, navRoutes } from "@/lib/menu";
 
 const BASE_URL = process.env.BASE_URL || "/";
 
@@ -22,9 +22,9 @@ export default async function MobileMenu() {
 
         <div className="th-mobile-menu">
           <ul>
-            {navAnchors.map((item) => (
+            {navRoutes.map((item) => (
               <li key={item.key}>
-                <a href={localeAnchor(locale, item.hash)}>{t(item.key)}</a>
+                <a href={localeHref(locale, item.path)}>{t(item.key)}</a>
               </li>
             ))}
           </ul>

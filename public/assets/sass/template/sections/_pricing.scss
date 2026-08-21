@@ -1475,7 +1475,7 @@
     &.style8 {
 
         .toggler.toggler--is-active {
-            background: linear-gradient(122.43deg, #AEFF5D 4.09%, #5DFFD9 100.57%);
+            background: linear-gradient(122.43deg, var(--theme-color) 4.09%, var(--theme-color2) 100.57%);
             border-radius: 48px;
             color: $title-color;
         }

@@ -2,6 +2,10 @@ import { getTranslations } from "next-intl/server";
 
 type Item = { quote: string; pain: string };
 
+/** Placeholder icon, identical on all six cards — a quote mark suits cards that
+ *  are literally customer quotes. To be replaced by the dedicated icon set. */
+const PLACEHOLDER_ICON = "/assets/img/icon/quote6.svg";
+
 /** CLAUDE.md §4.3 — six customer quotes paired with the real underlying pain.
  *  Uses the same feature-grid4 6-card shape as Services (exact count match). */
 export default async function Problem() {
@@ -23,6 +27,9 @@ export default async function Problem() {
             <div className="col-md-6 col-xl-4" key={i}>
               <div className="feature-grid4">
                 <div className="shape"></div>
+                <div className="box-icon">
+                  <img src={PLACEHOLDER_ICON} alt="" />
+                </div>
                 <div>
                   <h3 className="box-title">{item.quote}</h3>
                   <p className="box-text">{item.pain}</p>

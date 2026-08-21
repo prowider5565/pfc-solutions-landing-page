@@ -81,13 +81,14 @@ export default function LanguageSwitcher({
       <button
         ref={triggerRef}
         type="button"
-        className="icon-btn"
+        className="icon-btn lang-flag-btn"
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={t("language")}
         onClick={() => setOpen((v) => !v)}
       >
-        <i className="fa-solid fa-globe" aria-hidden="true"></i>
+        {/* The active locale's flag fills the circle edge to edge. */}
+        <img src={`/assets/img/flags/${active}.svg`} alt="" aria-hidden="true" />
       </button>
 
       <ul className={`lang-dropdown${open ? " is-open" : ""}`} role="menu">
@@ -101,6 +102,12 @@ export default function LanguageSwitcher({
               aria-current={locale === active ? "true" : undefined}
               onClick={() => setOpen(false)}
             >
+              <img
+                className="lang-flag"
+                src={`/assets/img/flags/${locale}.svg`}
+                alt=""
+                aria-hidden="true"
+              />
               {locale.toUpperCase()}
             </Link>
           </li>

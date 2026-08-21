@@ -9,12 +9,13 @@
     "work": "Work",
     "about": "About",
     "cta": "Book a call",
-    "language": "Language"
+    "language": "Language",
+    "home": "Home"
   },
   "hero": {
     "eyebrow": "Tashkent · Uzbekistan",
-    "headlineLine1": "We are not the hands that write code.",
-    "headlineLine2": "We are the mind that knows what to write.",
+    "headlineLine1": "We are not the hands that write code,",
+    "headlineLine2": "but the mind that knows what to write.",
     "sub": "We build internal management systems, process automation and AI solutions for factories, warehouses, logistics, construction and retail businesses in Uzbekistan.",
     "ctaPrimary": "Let's discuss your business — 30 minutes",
     "ctaSecondary": "What is Discovery?",
@@ -351,7 +352,8 @@
       "problem": "Your problem in one sentence"
     },
     "privacy": "We don't share your data with third parties.",
-    "success": "Thank you. We'll be in touch shortly."
+    "success": "Thank you. We'll be in touch shortly.",
+    "mapTitle": "PFC Solutions — Tashkent map"
   },
   "footer": {
     "positioning": "[TBC — one-line positioning statement]",
