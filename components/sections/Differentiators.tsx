@@ -15,9 +15,9 @@ export default async function Differentiators() {
 
   return (
     <section
-      className="award-area overflow-hidden space"
+      className="award-area overflow-hidden space background-image"
       id="about"
-      data-bg-src="/assets/img/bg/dots_bg_1.png"
+      style={{ backgroundImage: "url('/assets/img/bg/dots_bg_1.png')" }}
     >
       <div className="title-area text-center">
         <h2 className="sec-title style2 text-anime-style-3">{t("title")}</h2>

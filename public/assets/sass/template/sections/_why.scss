@@ -37,6 +37,14 @@
         height: 100%;
     }
 
+    &:not(.style2):nth-child(n + 2) {
+        margin-left: -15%;
+
+        @include xs {
+            margin-left: 0;
+        }
+    }
+
     &.style2 {
         width: 312px;
         height: 300px;

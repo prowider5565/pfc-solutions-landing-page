@@ -23054,6 +23054,14 @@ span.select2-selection.select2-selection--single:focus {
     height: 100%;
   }
 }
+.award-item:not(.style2):nth-child(n+2) {
+  margin-left: -15%;
+}
+@media (max-width: 575px) {
+  .award-item:not(.style2):nth-child(n+2) {
+    margin-left: 0;
+  }
+}
 .award-item.style2 {
   width: 312px;
   height: 300px;

@@ -20,8 +20,8 @@ export default async function Footer() {
 
   return (
     <footer
-      className="footer-wrapper footer-layout2 footer-layout8"
-      data-bg-src="/assets/img/bg/footer_bg_3_blue.png"
+      className="footer-wrapper footer-layout2 footer-layout8 background-image"
+      style={{ backgroundImage: "url('/assets/img/bg/footer_bg_3_blue.png')" }}
     >
       <div className="container th-container5">
         <div className="row gy-4 justify-content-between pt-60">

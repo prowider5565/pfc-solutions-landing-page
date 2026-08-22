@@ -8,7 +8,10 @@ export default async function Breadcrumb({ title }: { title: string }) {
   const t = await getTranslations("nav");
 
   return (
-    <div className="breadcumb-wrapper " data-bg-src="/assets/img/bg/breadcumb-bg.jpg">
+    <div
+      className="breadcumb-wrapper background-image"
+      style={{ backgroundImage: "url('/assets/img/bg/breadcumb-bg.jpg')" }}
+    >
       <div className="container">
         <div className="breadcumb-content">
           <h1 className="breadcumb-title text-anime-style-3">{title}</h1>

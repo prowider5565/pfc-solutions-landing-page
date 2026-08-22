@@ -290,14 +290,6 @@
 
 
     /*---------- 06. Set Background Image Color & Mask ----------*/
-    if ($("[data-bg-src]").length > 0) {
-        $("[data-bg-src]").each(function () {
-            var src = $(this).attr("data-bg-src");
-            $(this).css("background-image", "url(" + src + ")");
-            $(this).removeAttr("data-bg-src").addClass("background-image");
-        });
-    }
-
     if ($('[data-bg-color]').length > 0) {
         $('[data-bg-color]').each(function () {
             var color = $(this).attr('data-bg-color');
@@ -1345,53 +1337,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     
-    const tl = gsap.timeline();
-
-    tl.from(".line span", 1.8, {
-    y: 100,
-    ease: "power4.out",
-    delay: 1,
-    skewY: 7,
-    stagger: {
-        amount: 0.3
-    }
-    })
-
-    //cta  SplitText
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
-let wrapper = document.querySelector(".slide-text");
-let text = document.querySelector(".th-title");
-let split = SplitText.create(".th-title", { type: "chars, words" });
-
-const scrollTween = gsap.to(text, { 
-  xPercent: -100,
-  ease: "none",
-  scrollTrigger: {
-    trigger: wrapper,
-    pin: true,
-    
-    end: "+=500px",
-    scrub: true
-  }
-});
-
-split.chars.forEach((char) => {
-  gsap.from(char, {
-    yPercent: "random(-150, 0)",
-    rotation: "random(-20, 0)",
-    ease: "back.out(1.1)", 
-    scrollTrigger: {
-      trigger: char,
-      containerAnimation: scrollTween,
-      start: "left 100%",
-      end: "left 30%",
-      scrub: 1
-    }
-  });
-});
-
-
 ////////////////////////////
 	// card add one by one
     ////////////////////////////
@@ -1660,32 +1605,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-gsap.registerPlugin(ScrollTrigger);
-
-// First image scroll effect
-gsap.to(".video-thumb-img", {
-  y: 1010, // distance to move down
-  scrollTrigger: {
-    trigger: ".video-area",
-    start: "top bottom", // when video-area enters viewport
-    end: "bottom top",   // until video-area leaves viewport
-    scrub: true,         // smooth scrubbing
-    toggleActions: "play none none reverse"
-  }
-});
-
-// Second image scroll effect
-gsap.to(".video-thumb-img2", {
-  y: 1010, // distance to move up
-  scrollTrigger: {
-    trigger: ".video-area",
-    start: "top bottom",
-    end: "bottom top",
-    scrub: true,
-    toggleActions: "play none none reverse"
-  }
-});
-
   // ---------- Smooth Scroll ----------
     gsap.registerPlugin(ScrollTrigger);
 
@@ -1708,32 +1627,6 @@ gsap.to(".video-thumb-img2", {
             el.addEventListener("touchmove", (e) => e.stopPropagation(), { passive: true });
         });
     }
-
-
-
-
-if (document.querySelector('.th-hero-wrapper ')) {
-		const pw = gsap.matchMedia();
-		pw.add("(min-width: 991px)", () => {
-			gsap.set('.hero-img-one', { x: -1000, rotate: -10,});
-			gsap.set('.hero-img-two', { x: 1000, rotate: 10, });
-			gsap.set('.hero-image', { y: 400, opacity: 0, "margin-top":"-100px" });
-			document.querySelectorAll('.th-hero-wrapper ').forEach(item => {
-				let tl = gsap.timeline({
-					scrollTrigger: {
-						trigger: item,
-						start: 'top 100%',
-						end: 'bottom center',
-                        duration: 10,
-						scrub: 1,
-					}
-				});
-				tl.to(item.querySelector('.hero-img-one'), { x: 400, rotate: 0 })
-				.to(item.querySelector('.hero-img-two'), { x: -400, rotate: 0 }, 0)
-				.to(item.querySelector('.hero-image'), { y: 0, opacity: 1, "margin-top":"-200px" , rotate: 0 }, 0);
-			});
-		});
-	}
 
 
 

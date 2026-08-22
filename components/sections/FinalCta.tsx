@@ -18,8 +18,8 @@ export default async function FinalCta() {
   return (
     <>
       <section
-        className="contact-sec space overflow-hidden"
-        data-bg-src="/assets/img/bg/contact_bg_1.jpg"
+        className="contact-sec space overflow-hidden background-image"
+        style={{ backgroundImage: "url('/assets/img/bg/contact_bg_1.jpg')" }}
         id="contact"
       >
       <div className="container th-container4">

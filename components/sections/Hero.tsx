@@ -10,9 +10,9 @@ export default async function Hero() {
 
   return (
     <div
-      className="th-hero-wrapper hero-8"
+      className="th-hero-wrapper hero-8 background-image"
       id="hero"
-      data-bg-src="/assets/img/bg/hero_bg_8_blue.png"
+      style={{ backgroundImage: "url('/assets/img/bg/hero_bg_8_blue.png')" }}
     >
       <div className="container th-container5">
         <div className="row align-items-center">
