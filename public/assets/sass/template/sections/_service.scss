@@ -347,10 +347,12 @@
 
 .serviceSlider9 {
     position: relative;
-    margin-right: -52% !important;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 
     @media(max-width: 1599px) {
-        margin-right: -40% !important;
+        margin-right: 0 !important;
     }
 
     @include ml {

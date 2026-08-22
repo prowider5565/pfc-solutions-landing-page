@@ -1,10 +1,8 @@
 import { getTranslations } from "next-intl/server";
+import ProjectCarousel from "./ProjectCarousel";
 
 type Project = { name: string; sector: string };
 type BekuzRow = { requirement: string; solution: string };
-
-const SLIDER_OPTIONS =
-  '{"loop":false,"mousewheel": {"enabled": true,"sensitivity": 4, "releaseOnEdges":true},"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"991":{"slidesPerView":"2"},"1356":{"slidesPerView":"3"},"1500":{"slidesPerView":"4"}}}';
 
 /**
  * CLAUDE.md §4.8 — twelve projects in two groups, plus the Bekuz deep-dive.
@@ -35,27 +33,7 @@ export default async function Work() {
           </div>
         </div>
 
-        <div
-          className="swiper th-slider has-shadow serviceSlider9"
-          id="workSlider"
-          data-slider-options={SLIDER_OPTIONS}
-        >
-          <div className="swiper-wrapper">
-            {all.map((project, i) => (
-              <div className="swiper-slide" key={`${project.name}-${i}`}>
-                <div className="service-box style2">
-                  <div className="box-wrapp">
-                    <div className="box-content">
-                      <span className="sub-title style2">{project.group}</span>
-                      <h3 className="box-title">{project.name}</h3>
-                      <p className="box-text">{project.sector}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProjectCarousel projects={all} />
 
         {/* Featured deep-dive — the only project with detailed content */}
         <div className="row justify-content-center mt-60">

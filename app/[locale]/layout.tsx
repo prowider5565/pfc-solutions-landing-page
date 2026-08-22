@@ -193,6 +193,9 @@ export default async function LocaleLayout({
             .header-layout8 .header-button > .lang-switcher > .icon-btn{
               --btn-size:39px;--btn-font-size:16px
             }
+            .header-layout1 .header-button > .lang-switcher > .icon-btn{
+              --btn-size:39px;--btn-font-size:16px
+            }
             /* Russian's CTA ("Записаться на встречу") is ~39px wider than the
                Uzbek one, which closes the gap to zero. Scoped to :lang(ru) so
                the other two locales keep the fuller button. */
@@ -254,6 +257,15 @@ export default async function LocaleLayout({
             border-color:rgba(255,255,255,.25)
           }
           .hero-style8 .sub-title:before{background-color:var(--theme-color2)}
+
+          /* The template cursor uses difference blending, which turns the
+             site blue green/orange over light and photographic backgrounds.
+             Keep every cursor state on the actual PFC blue instead. */
+          body.theme7 .cursor-outer,
+          body.theme7 .cursor-inner,
+          body.theme7 .cursor-inner span{mix-blend-mode:normal!important}
+          body.theme7 .cursor-outer.cursor-hover,
+          body.theme7 .cursor-outer.cursor-big{background-color:var(--theme-color)}
 
         `}</style>
       </head>

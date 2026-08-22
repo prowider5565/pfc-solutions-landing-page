@@ -37,7 +37,7 @@ export default async function Header() {
                   <LanguageSwitcher />
                   <a
                     href={localeHref(locale, CTA_PATH)}
-                    className="th-btn2 btn-gradient"
+                    className="th-btn2"
                   >
                     {t("cta")}
                   </a>

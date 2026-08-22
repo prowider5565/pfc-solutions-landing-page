@@ -34,11 +34,8 @@ export default async function HeaderLayout1() {
                 <div className="col-auto">
                   <div className="header-button">
                     <LanguageSwitcher />
-                    <a href={localeHref(locale, CTA_PATH)} className="th-btn">
-                      {t("cta")}{" "}
-                      <span className="icon">
-                        <img src="/assets/img/icon/arrow-right.svg" alt="" />
-                      </span>
+                    <a href={localeHref(locale, CTA_PATH)} className="th-btn2">
+                      {t("cta")}
                     </a>
                     <button type="button" className="th-menu-toggle d-inline-block d-xl-none">
                       <i className="far fa-bars"></i>

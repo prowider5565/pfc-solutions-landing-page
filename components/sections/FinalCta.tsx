@@ -85,7 +85,7 @@ export default async function FinalCta() {
                     />
                   </div>
                   <div className="form-btn col-12 text-center">
-                    <button className="th-btn2 btn-gradient">{tNav("cta")}</button>
+                    <button type="submit" className="th-btn2">{tNav("cta")}</button>
                     <p className="box-text mt-20 mb-0">{t("privacy")}</p>
                   </div>
                 </div>

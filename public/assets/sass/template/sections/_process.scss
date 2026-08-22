@@ -154,9 +154,38 @@
 
     &:hover {
         &:before {
-            background: linear-gradient(122.43deg, $theme-color 4.09%, $theme-color2 100.57%);
+            background-color: $title-color;
+            background-image: url("../img/shape/feature-bottom-shape-blue.png");
+            background-position: left bottom;
+            background-repeat: no-repeat;
         }
 
+        .number,
+        .box-title,
+        .box-text {
+            color: $white-color;
+        }
+
+    }
+}
+
+.delivery-stages {
+    > [class*="col-"] {
+        display: flex;
+    }
+
+    .process-card2--stage {
+        width: 100%;
+        min-height: 178px;
+        padding: 30px 20px;
+
+        .box-title {
+            max-width: 100%;
+            font-size: clamp(20px, 1.35vw, 26px);
+            line-height: 1.08;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
     }
 }
 

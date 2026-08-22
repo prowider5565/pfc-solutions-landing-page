@@ -181,9 +181,12 @@
             inset: 0;
             top: -5px;
             left: -5px;
-            background-image: url("../img/shape/faq-shape.png");
+            background-image: radial-gradient(circle at top left,
+                rgba(46, 134, 255, 0.58) 0%,
+                rgba(143, 198, 255, 0.32) 42%,
+                rgba(143, 198, 255, 0) 76%);
             background-repeat: no-repeat;
-            background-size: auto;
+            background-size: 260px 210px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease-in-out;

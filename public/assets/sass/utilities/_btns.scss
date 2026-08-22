@@ -222,6 +222,7 @@
     position: relative;
     z-index: 2;
     background-color: $theme-color;
+    background-image: linear-gradient(122.43deg, $theme-color 4.09%, $theme-color2 100.57%);
     font-family: $body-font;
     font-weight: 500;
     font-size: 18px;
@@ -229,8 +230,8 @@
     display: inline-flex;
     justify-content: center;
     height: 100%;
-    color: $white-color;
-    background-size: 400%;
+    color: $title-color;
+    background-size: 100% 100%;
     padding: 19px 24px;
     border-radius: 48px;
     overflow: hidden;
@@ -250,7 +251,7 @@
         width: 100%;
         height: inherit;
         border-radius: inherit;
-        background-color: $title-color;
+        background: linear-gradient(122.43deg, $theme-color2 4.09%, #CFE9FF 100.57%);
         transition: all 0.8s ease;
         z-index: -1;
     }
@@ -407,7 +408,7 @@
     }
 
     &:hover {
-        color: $white-color;
+        color: $title-color;
 
         &:before {
             transform: scaleX(1);

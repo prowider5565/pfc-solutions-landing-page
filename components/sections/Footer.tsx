@@ -29,7 +29,7 @@ export default async function Footer() {
             <div className="widget footer-widget">
               <div className="th-widget-about">
                 <div className="about-logo mb-20">
-                  <img src="/assets/img/logo.svg" alt="PFC Solutions" />
+                  <img src="/assets/img/logo-footer.svg" alt="PFC Solutions" />
                 </div>
                 <p className="about-text">{t("positioning")}</p>
               </div>

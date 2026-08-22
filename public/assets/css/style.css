@@ -2985,6 +2985,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
   position: relative;
   z-index: 2;
   background-color: var(--theme-color);
+  background-image: linear-gradient(122.43deg, var(--theme-color) 4.09%, var(--theme-color2) 100.57%);
   font-family: var(--body-font);
   font-weight: 500;
   font-size: 18px;
@@ -2996,8 +2997,8 @@ input[type=time]::-webkit-calendar-picker-indicator {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100%;
-  color: var(--white-color);
-  background-size: 400%;
+  color: var(--title-color);
+  background-size: 100% 100%;
   padding: 19px 24px;
   border-radius: 48px;
   overflow: hidden;
@@ -3021,7 +3022,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
   width: 100%;
   height: inherit;
   border-radius: inherit;
-  background-color: var(--title-color);
+  background: linear-gradient(122.43deg, var(--theme-color2) 4.09%, #CFE9FF 100.57%);
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
   z-index: -1;
@@ -3155,7 +3156,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
   color: var(--title-color);
 }
 .th-btn2:hover {
-  color: var(--white-color);
+  color: var(--title-color);
 }
 .th-btn2:hover:before {
   -webkit-transform: scaleX(1);
@@ -24037,9 +24038,9 @@ span.select2-selection.select2-selection--single:focus {
   inset: 0;
   top: -5px;
   left: -5px;
-  background-image: url("../img/shape/faq-shape.png");
+  background-image: radial-gradient(circle at top left, rgba(46, 134, 255, 0.58) 0%, rgba(143, 198, 255, 0.32) 42%, rgba(143, 198, 255, 0) 76%);
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 260px 210px;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.4s ease-in-out;
@@ -25880,12 +25881,14 @@ span.select2-selection.select2-selection--single:focus {
 
 .serviceSlider9 {
   position: relative;
-  margin-right: -52% !important;
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   /* Medium Large devices */
 }
 @media (max-width: 1599px) {
   .serviceSlider9 {
-    margin-right: -40% !important;
+    margin-right: 0 !important;
   }
 }
 @media (max-width: 1399px) {
@@ -30971,7 +30974,33 @@ span.select2-selection.select2-selection--single:focus {
   margin-bottom: 0;
 }
 .process-card2:hover:before {
-  background: linear-gradient(122.43deg, var(--theme-color) 4.09%, var(--theme-color2) 100.57%);
+  background-color: var(--title-color);
+  background-image: url("../img/shape/feature-bottom-shape-blue.png");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+}
+.process-card2:hover .number,
+.process-card2:hover .box-title,
+.process-card2:hover .box-text {
+  color: var(--white-color);
+}
+
+.delivery-stages > [class*=col-] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.delivery-stages .process-card2--stage {
+  width: 100%;
+  min-height: 178px;
+  padding: 30px 20px;
+}
+.delivery-stages .process-card2--stage .box-title {
+  max-width: 100%;
+  font-size: clamp(20px, 1.35vw, 26px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .process-image {

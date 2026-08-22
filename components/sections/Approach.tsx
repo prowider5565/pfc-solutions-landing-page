@@ -114,10 +114,10 @@ export default async function Approach() {
         </div>
 
         {/* Block D — the six delivery stages */}
-        <div className="row gy-4 justify-content-center mt-60">
+        <div className="row gy-4 justify-content-center mt-60 delivery-stages">
           {stages.map((stage, i) => (
             <div className="col-6 col-md-4 col-xl-2" key={i}>
-              <div className="process-card2 wow fadeInUp" data-wow-delay={`.${i + 1}s`}>
+              <div className="process-card2 process-card2--stage wow fadeInUp" data-wow-delay={`.${i + 1}s`}>
                 <span className="number">{`0${i + 1}`}</span>
                 <div className="box-content">
                   <h3 className="box-title">{stage}</h3>

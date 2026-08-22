@@ -66,6 +66,7 @@ export default function ThemeScripts() {
       // script has loaded, lets them register. It bubbles from document to
       // window, which covers both listener targets.
       document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }));
+      window.dispatchEvent(new Event("theme:scripts-ready"));
     })();
   }, []);
 

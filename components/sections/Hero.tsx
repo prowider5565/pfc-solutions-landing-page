@@ -33,13 +33,13 @@ export default async function Hero() {
                 <div className="btn-group justify-content-center justify-content-xl-start">
                   <a
                     href={localeHref(locale, CTA_PATH)}
-                    className="th-btn2 btn-gradient"
+                    className="th-btn2"
                   >
                     {t("ctaPrimary")}
                   </a>
                   <a
                     href={localeHref(locale, "/approach")}
-                    className="th-btn2 style5"
+                    className="th-btn2"
                   >
                     {t("ctaSecondary")}
                   </a>
