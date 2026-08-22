@@ -202,6 +202,15 @@ export default async function LocaleLayout({
             }
           }
 
+          /* Keep the desktop logo and action group centred in the hero
+             artwork's white corner cutouts. A fixed template container can
+             pull both controls inward on wide and zoom-adjusted viewports. */
+          @media (min-width:1300px){
+            .header-layout8 .th-container{
+              max-width:100%;padding-left:24px;padding-right:28px
+            }
+          }
+
           /* --- Hero tuning -------------------------------------------------
              1) Hero headline 5% smaller than the template's h1 scale.
                 Template: 84 / 67 (<=1500) / 57 (<=1199) / 44 (<=575) / 38 (<=375)

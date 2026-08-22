@@ -13058,9 +13058,14 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
   position: relative;
   z-index: 2;
   margin: 8px 20px 0;
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   /* Extra large devices */
+}
+@media (min-width: 1501px) {
+  .hero-8 {
+    min-height: calc(55.93vw - 22.37px);
+  }
 }
 @media (max-width: 1500px) {
   .hero-8 {

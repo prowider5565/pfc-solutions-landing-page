@@ -1122,8 +1122,15 @@
     position: relative;
     z-index: 2;
     margin: 8px 20px 0;
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+
+    // The artwork is 1838x1028. Keep the desktop hero at that proportion even
+    // when a translated headline wraps onto fewer lines, otherwise the
+    // content-driven section height vertically squashes the background.
+    @media (min-width: 1501px) {
+        min-height: calc(55.93vw - 22.37px);
+    }
 
     @include xxl {
         background-size: cover;
