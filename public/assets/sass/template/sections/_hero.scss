@@ -1156,7 +1156,24 @@
 }
 
 .hero-style8 {
+    position: relative;
     padding: 325px 0 211px 0;
+
+    .hero-title-star {
+        position: absolute;
+        top: 225px;
+        left: -125px;
+        z-index: 1;
+        width: 52px;
+        height: 52px;
+        pointer-events: none;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
 
     @include lg {
         padding: 225px 0 111px 0;

@@ -18,6 +18,12 @@ export default async function Hero() {
         <div className="row align-items-center">
           <div className="col-xl-8">
             <div className="hero-style8">
+              <div
+                className="hero-title-star d-none d-xxl-block spin"
+                aria-hidden="true"
+              >
+                <img src="/assets/img/shape/element-15.svg" alt="" />
+              </div>
               <h1 className="hero-title">
                 {t("headlineLine1")}{" "}
                 <span className="title">{t("headlineLine2")}</span>
@@ -47,13 +53,6 @@ export default async function Hero() {
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="shape-mockup d-none d-xxl-block spin"
-        data-top="21%"
-        data-left="8%"
-      >
-        <img src="/assets/img/shape/element-15.svg" alt="" />
       </div>
     </div>
   );
