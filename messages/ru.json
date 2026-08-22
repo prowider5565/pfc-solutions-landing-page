@@ -356,14 +356,17 @@
     "mapTitle": "PFC Solutions — карта Ташкента"
   },
   "footer": {
-    "positioning": "[TBC — позиционирующая строка]",
+    "positioning": "Инженерия программных систем для работающего бизнеса.",
     "navHeading": "Навигация",
     "servicesHeading": "Услуги",
     "contactHeading": "Контакты",
-    "address": "[TBC — адрес]",
-    "phone": "[TBC — телефон]",
-    "email": "[TBC — email]",
-    "telegram": "[TBC — Telegram]",
+    "address": "г. Наманган, Узбекистан",
+    "phoneLabel": "Телефон",
+    "phone": "+998 92 096 56 70",
+    "emailLabel": "Почта",
+    "email": "info@pfcsolutions.uz",
+    "telegramLabel": "Telegram",
+    "telegram": "@pfcsolutions",
     "copyright": "© 2026 PFC Solutions",
     "privacyLink": "Конфиденциальность"
   }

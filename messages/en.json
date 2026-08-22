@@ -356,14 +356,17 @@
     "mapTitle": "PFC Solutions — Tashkent map"
   },
   "footer": {
-    "positioning": "[TBC — one-line positioning statement]",
+    "positioning": "Software systems engineering for operating businesses.",
     "navHeading": "Navigation",
     "servicesHeading": "Services",
     "contactHeading": "Contact",
-    "address": "[TBC — address]",
-    "phone": "[TBC — phone]",
-    "email": "[TBC — email]",
-    "telegram": "[TBC — Telegram]",
+    "address": "Namangan, Uzbekistan",
+    "phoneLabel": "Phone",
+    "phone": "+998 92 096 56 70",
+    "emailLabel": "Email",
+    "email": "info@pfcsolutions.uz",
+    "telegramLabel": "Telegram",
+    "telegram": "@pfcsolutions",
     "copyright": "© 2026 PFC Solutions",
     "privacyLink": "Privacy"
   }

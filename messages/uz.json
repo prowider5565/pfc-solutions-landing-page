@@ -356,14 +356,17 @@
     "mapTitle": "PFC Solutions — Toshkent xaritasi"
   },
   "footer": {
-    "positioning": "[TBC — pozitsiyalash jumlasi]",
+    "positioning": "Ishlayotgan biznes uchun dasturiy tizimlar muhandisligi.",
     "navHeading": "Navigatsiya",
     "servicesHeading": "Xizmatlar",
     "contactHeading": "Aloqa",
-    "address": "[TBC — manzil]",
-    "phone": "[TBC — telefon]",
-    "email": "[TBC — email]",
-    "telegram": "[TBC — Telegram]",
+    "address": "Namangan shahri, O‘zbekiston",
+    "phoneLabel": "Telefon",
+    "phone": "+998 92 096 56 70",
+    "emailLabel": "Pochta",
+    "email": "info@pfcsolutions.uz",
+    "telegramLabel": "Telegram",
+    "telegram": "@pfcsolutions",
     "copyright": "© 2026 PFC Solutions",
     "privacyLink": "Maxfiylik"
   }

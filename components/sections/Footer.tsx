@@ -7,9 +7,9 @@ import { localeHref, navRoutes } from "@/lib/menu";
  * with a bottom bar carrying the copyright, a privacy link and a repeat of the
  * language switcher.
  *
- * The positioning statement and all four contact details are `[TBC — …]`
- * placeholders: CLAUDE.md describes what the footer contains but supplies none
- * of the actual values. They are rendered visibly so they cannot ship unnoticed.
+ * The positioning statement and the contact details live in `messages/*.json`;
+ * phone, email and Telegram are the same value in every locale, only their
+ * labels are translated.
  */
 export default async function Footer() {
   const locale = await getLocale();
@@ -72,9 +72,24 @@ export default async function Footer() {
               <div className="menu-all-pages-container">
                 <ul className="menu">
                   <li>{t("address")}</li>
-                  <li>{t("phone")}</li>
-                  <li>{t("email")}</li>
-                  <li>{t("telegram")}</li>
+                  <li>
+                    {t("phoneLabel")}:{" "}
+                    <a href={`tel:${t("phone").replace(/\s/g, "")}`}>{t("phone")}</a>
+                  </li>
+                  <li>
+                    {t("emailLabel")}:{" "}
+                    <a href={`mailto:${t("email")}`}>{t("email")}</a>
+                  </li>
+                  <li>
+                    {t("telegramLabel")}:{" "}
+                    <a
+                      href={`https://t.me/${t("telegram").replace("@", "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t("telegram")}
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
