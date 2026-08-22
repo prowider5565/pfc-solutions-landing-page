@@ -1,12 +1,8 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MainMenuList from "@/components/MainMenuList";
+import { Link } from "@/i18n/navigation";
 import { CTA_PATH, localeHref } from "@/lib/menu";
-
-// Server-only env var, so no NEXT_PUBLIC_ prefix is needed — this component
-// renders on the server. Falls back to "/" so the logo is never a dead link
-// when BASE_URL is unset (e.g. a fresh clone with no .env).
-const BASE_URL = process.env.BASE_URL || "/";
 
 export default async function Header() {
   const locale = await getLocale();
@@ -21,9 +17,9 @@ export default async function Header() {
             <div className="row align-items-center justify-content-between">
               <div className="col-auto">
                 <div className="header-logo">
-                  <a className="icon-masking" href={BASE_URL}>
+                  <Link className="icon-masking" href="/">
                     <img className="zoom-130" src="/assets/img/logo.svg" alt="PFC Solutions" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-auto">

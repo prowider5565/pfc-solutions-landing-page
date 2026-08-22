@@ -1,9 +1,8 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MainMenuList from "@/components/MainMenuList";
+import { Link } from "@/i18n/navigation";
 import { CTA_PATH, localeHref } from "@/lib/menu";
-
-const BASE_URL = process.env.BASE_URL || "/";
 
 /** Inner-page header (header-layout1). Differs from the homepage's
  *  header-layout8 in wrapper classes, the logo asset, the extra .container
@@ -22,9 +21,9 @@ export default async function HeaderLayout1() {
               <div className="row align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="header-logo">
-                    <a href={BASE_URL}>
+                    <Link href="/">
                       <img src="/assets/img/logo.svg" alt="PFC Solutions" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-auto">

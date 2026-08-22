@@ -1,8 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Link } from "@/i18n/navigation";
 import { localeHref, navRoutes } from "@/lib/menu";
-
-const BASE_URL = process.env.BASE_URL || "/";
 
 export default async function MobileMenu() {
   const locale = await getLocale();
@@ -15,9 +14,9 @@ export default async function MobileMenu() {
           <i className="fal fa-times"></i>
         </button>
         <div className="mobile-logo">
-          <a href={BASE_URL}>
+          <Link href="/">
             <img src="/assets/img/logo.svg" alt="PFC Solutions" />
-          </a>
+          </Link>
         </div>
 
         <div className="th-mobile-menu">

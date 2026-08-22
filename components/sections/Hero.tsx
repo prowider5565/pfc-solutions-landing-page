@@ -43,7 +43,7 @@ export default async function Hero() {
           </div>
           <div className="col-xl-4">
             <div className="hero-img7 movingX">
-              <img src="/assets/img/hero/hero-img6-blue.png" alt="" />
+              <img src="/assets/img/hero/hero-img6.png" alt="" />
             </div>
           </div>
         </div>
