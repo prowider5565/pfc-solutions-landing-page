@@ -26,15 +26,15 @@
     "items": [
       {
         "quote": "\"Bizga CRM kerak\"",
-        "pain": "Mijoz qayerda yo'qolayotganini bilmaysiz"
+        "pain": "Mijoz qayerda yo'qolayotganini bilmamiz"
       },
       {
         "quote": "\"Ombor tizimi kerak\"",
-        "pain": "Qoldiq noto'g'ri, tovar yo'qoladi"
+        "pain": "Qoldiq noto'g'ri, tovar yo'qolyapti"
       },
       {
         "quote": "\"Hisobot kerak\"",
-        "pain": "Har hisobot uch kun oladi, qaror ma'lumotsiz qabul qilinadi"
+        "pain": "Har hisobot uch kun oladi, qaror ma'lumotsiz qabul qilinyapti"
       },
       {
         "quote": "\"Excel ishlamayapti\"",
@@ -42,7 +42,7 @@
       },
       {
         "quote": "\"Xodimlar sekin ishlaydi\"",
-        "pain": "Jarayon noaniq — har kim o'zicha qiladi"
+        "pain": "Jarayon noaniq — har kim o'zicha qilyapti"
       },
       {
         "quote": "\"AI qo'shmoqchimiz\"",
@@ -352,11 +352,10 @@
       "problem": "Muammoingiz bir jumlada"
     },
     "privacy": "Ma'lumotlaringiz uchinchi tomonga berilmaydi.",
-    "botInstruction": "Formani yuborgach, Telegram botda Start tugmasini bosing.",
     "sending": "Yuborilmoqda...",
-    "success": "Telegram bot ochilmoqda. Botda Start tugmasini bosing.",
+    "success": "Rahmat! Murojaatingiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.",
     "error": "Xabar yuborilmadi. Iltimos, qayta urinib ko'ring.",
-    "mapTitle": "PFC Solutions — Toshkent xaritasi"
+    "mapTitle": "PFC Solutions — 5-kichik tuman, Namangan xaritasi"
   },
   "footer": {
     "positioning": "Ishlayotgan biznes uchun dasturiy tizimlar muhandisligi.",

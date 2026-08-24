@@ -218,14 +218,19 @@
     $(".th-menu-wrapper").thmobilemenu();
 
     /*---------- 04. Sticky fix ----------*/
-    $(window).scroll(function () {
+    var stickyPoint = $('.sticky-wrapper').first().outerHeight() || 100;
+
+    function updateStickyHeader() {
         var topPos = $(this).scrollTop();
-        if (topPos > 500) {
+        if (topPos >= stickyPoint) {
             $('.sticky-wrapper').addClass('sticky');
         } else {
             $('.sticky-wrapper').removeClass('sticky')
         }
-    })
+    }
+
+    $(window).on('scroll', updateStickyHeader);
+    updateStickyHeader.call(window);
 
     /*----------- 04.1.  One Page Nav ----------*/
     function onePageNav(element) {

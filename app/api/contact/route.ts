@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createPendingContact } from "@/lib/contact-store";
+import { sendContactToTelegram } from "@/lib/telegram-bot";
 
 export const runtime = "nodejs";
 
@@ -49,12 +49,6 @@ export async function POST(request: Request) {
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-  const botUsername = (
-    process.env.TELEGRAM_BOT_USERNAME ?? "pfc_solutions_bot"
-  )
-    .trim()
-    .replace(/^@/, "");
-
   if (!botToken || !chatId) {
     console.error(
       "Telegram sozlanmagan: TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID kerak.",
@@ -65,23 +59,24 @@ export async function POST(request: Request) {
     );
   }
 
-  const botUrl = `https://t.me/${botUsername}`;
-
   // Silently accept bot submissions without persisting them.
   if (typeof payload.website === "string" && payload.website.trim()) {
-    return NextResponse.json({ ok: true, botUrl });
+    return NextResponse.json({ ok: true });
   }
 
   try {
-    const contact = await createPendingContact({ name, company, phone, problem });
-    return NextResponse.json({
-      ok: true,
-      botUrl: `${botUrl}?start=${contact.id}`,
+    await sendContactToTelegram(botToken, chatId, {
+      name,
+      company,
+      phone,
+      problem,
+      createdAt: new Date().toISOString(),
     });
+    return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("Murojaatni vaqtincha saqlashda xato:", error);
+    console.error("Telegram murojaatini yuborishda xato:", error);
     return NextResponse.json(
-      { message: "Murojaatni saqlab bo‘lmadi." },
+      { message: "Murojaatni yuborib bo‘lmadi." },
       { status: 500 },
     );
   }

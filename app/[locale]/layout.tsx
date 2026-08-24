@@ -257,14 +257,54 @@ export default async function LocaleLayout({
           }
           .hero-style8 .sub-title:before{background-color:var(--theme-color2)}
 
-          /* The template cursor uses difference blending, which turns the
-             site blue green/orange over light and photographic backgrounds.
-             Keep every cursor state on the actual PFC blue instead. */
+          /* Keep the cursor blue without letting its enlarged outer ring hide
+             headings and links underneath it. */
           body.theme7 .cursor-outer,
           body.theme7 .cursor-inner,
           body.theme7 .cursor-inner span{mix-blend-mode:normal!important}
           body.theme7 .cursor-outer.cursor-hover,
-          body.theme7 .cursor-outer.cursor-big{background-color:var(--theme-color)}
+          body.theme7 .cursor-outer.cursor-big{background-color:rgba(46,134,255,.25)}
+
+          /* Contact rows mix plain labels with links. Give the whole row an
+             explicit light colour so address and labels remain readable. */
+          .footer-layout2 .footer-widget.widget_nav_menu li{color:#D4D4D4}
+
+          /* The shared pill button is inline-flex but does not set its cross-
+             axis alignment. Centre the contact form label vertically. */
+          .contact-form .th-btn2{align-items:center}
+
+          /* Contact success confirmation: a short-lived modal-style toast
+             with a clear success icon, without blocking user interaction. */
+          .contact-success-popup{
+            position:fixed;inset:0;z-index:10000002;display:grid;place-items:center;
+            padding:20px;background:rgba(6,5,11,.12);pointer-events:none;
+            animation:contactSuccessBackdrop .2s ease-out,
+              contactSuccessFade .2s ease-in 1.8s forwards
+          }
+          .contact-success-popup__panel{
+            width:min(520px,calc(100vw - 40px));padding:34px 30px;
+            display:flex;flex-direction:column;align-items:center;gap:18px;
+            color:var(--title-color);background:var(--white-color);
+            border:1px solid rgba(46,134,255,.22);border-radius:20px;
+            box-shadow:0 24px 70px rgba(6,5,11,.2);
+            text-align:center;animation:contactSuccessPop .25s ease-out
+          }
+          .contact-success-popup__panel i{
+            color:var(--theme-color);font-size:68px;line-height:1
+          }
+          .contact-success-popup__panel p{
+            margin:0;max-width:430px;font-size:18px;font-weight:600;line-height:1.55
+          }
+          @keyframes contactSuccessBackdrop{
+            from{opacity:0}to{opacity:1}
+          }
+          @keyframes contactSuccessPop{
+            from{opacity:0;transform:translateY(18px) scale(.96)}
+            to{opacity:1;transform:translateY(0) scale(1)}
+          }
+          @keyframes contactSuccessFade{
+            to{opacity:0}
+          }
 
         `}</style>
       </head>

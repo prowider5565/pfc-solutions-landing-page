@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 type ContactFormProps = {
   labels: {
@@ -13,7 +13,6 @@ type ContactFormProps = {
     success: string;
     error: string;
     privacy: string;
-    botInstruction: string;
   };
 };
 
@@ -21,6 +20,13 @@ export default function ContactForm({ labels }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
+
+  useEffect(() => {
+    if (status !== "success") return;
+
+    const timeoutId = window.setTimeout(() => setStatus("idle"), 2_000);
+    return () => window.clearTimeout(timeoutId);
+  }, [status]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,14 +48,13 @@ export default function ContactForm({ labels }: ContactFormProps) {
         }),
       });
 
-      const result = (await response.json()) as { botUrl?: string };
-      if (!response.ok || !result.botUrl) {
+      const result = (await response.json()) as { ok?: boolean };
+      if (!response.ok || !result.ok) {
         throw new Error("Contact request failed");
       }
 
       form.reset();
       setStatus("success");
-      window.setTimeout(() => window.location.assign(result.botUrl!), 600);
     } catch {
       setStatus("error");
     }
@@ -135,18 +140,27 @@ export default function ContactForm({ labels }: ContactFormProps) {
           <button type="submit" className="th-btn2" disabled={status === "sending"}>
             {status === "sending" ? labels.sending : labels.submit}
           </button>
-          <p className="box-text mt-20 mb-0">{labels.botInstruction}</p>
           <p className="box-text mt-2 mb-0">{labels.privacy}</p>
         </div>
       </div>
-      <p
-        className={`form-messages mb-0 mt-3 ${status === "success" ? "success" : ""} ${status === "error" ? "error" : ""}`}
-        role="status"
-        aria-live="polite"
-      >
-        {status === "success" && labels.success}
-        {status === "error" && labels.error}
-      </p>
+      {status === "success" && (
+        <div
+          className="contact-success-popup"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <div className="contact-success-popup__panel">
+            <i className="fa-solid fa-circle-check" aria-hidden="true" />
+            <p>{labels.success}</p>
+          </div>
+        </div>
+      )}
+      {status === "error" && (
+        <p className="form-messages error mb-0 mt-3" role="alert">
+          {labels.error}
+        </p>
+      )}
     </form>
   );
 }

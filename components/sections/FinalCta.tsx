@@ -36,7 +36,6 @@ export default async function FinalCta() {
                   success: t("success"),
                   error: t("error"),
                   privacy: t("privacy"),
-                  botInstruction: t("botInstruction"),
                 }}
               />
             </div>

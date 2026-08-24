@@ -1,33 +1,15 @@
-import {
-  deletePendingContact,
-  getPendingContact,
-  type PendingContact,
-} from "@/lib/contact-store";
-
-type TelegramUser = {
-  id: number;
-  first_name?: string;
-  last_name?: string;
-  username?: string;
-};
-
-type TelegramUpdate = {
-  update_id: number;
-  message?: {
-    text?: string;
-    chat: { id: number };
-    from?: TelegramUser;
-  };
+export type TelegramContact = {
+  name: string;
+  company: string;
+  phone: string;
+  problem: string;
+  createdAt: string;
 };
 
 type TelegramResponse<T> = {
   ok: boolean;
   result?: T;
   description?: string;
-};
-
-const telegramGlobal = globalThis as typeof globalThis & {
-  telegramContactBotStarted?: boolean;
 };
 
 function escapeTelegramHtml(value: string) {
@@ -37,14 +19,7 @@ function escapeTelegramHtml(value: string) {
     .replaceAll(">", "&gt;");
 }
 
-function telegramUserLabel(user?: TelegramUser) {
-  if (!user) return "Noma’lum";
-  const fullName = [user.first_name, user.last_name].filter(Boolean).join(" ");
-  const username = user.username ? `@${user.username}` : "username yo‘q";
-  return `${fullName || "Noma’lum"} (${username}, ID: ${user.id})`;
-}
-
-function formatContactMessage(contact: PendingContact, user?: TelegramUser) {
+function formatContactMessage(contact: TelegramContact) {
   return [
     "<b>📩 Yangi murojaat</b>",
     "",
@@ -52,7 +27,6 @@ function formatContactMessage(contact: PendingContact, user?: TelegramUser) {
     `<b>Kompaniya:</b> ${escapeTelegramHtml(contact.company)}`,
     `<b>Telefon:</b> ${escapeTelegramHtml(contact.phone)}`,
     `<b>Muammo:</b> ${escapeTelegramHtml(contact.problem)}`,
-    `<b>Telegram foydalanuvchisi:</b> ${escapeTelegramHtml(telegramUserLabel(user))}`,
     "",
     `<b>Qabul qilingan vaqt:</b> ${new Intl.DateTimeFormat("uz-UZ", {
       dateStyle: "medium",
@@ -86,7 +60,7 @@ async function telegramRequest<T>(
   return result.result as T;
 }
 
-async function sendMessage(botToken: string, chatId: string | number, text: string) {
+async function sendMessage(botToken: string, chatId: string, text: string) {
   await telegramRequest(botToken, "sendMessage", {
     chat_id: chatId,
     text,
@@ -94,101 +68,10 @@ async function sendMessage(botToken: string, chatId: string | number, text: stri
   });
 }
 
-async function handleStart(
+export async function sendContactToTelegram(
   botToken: string,
   adminChatId: string,
-  chatId: number,
-  payload: string | undefined,
-  user?: TelegramUser,
+  contact: TelegramContact,
 ) {
-  if (!payload) {
-    await sendMessage(
-      botToken,
-      chatId,
-      "Assalomu alaykum! Murojaat yuborish uchun saytdagi aloqa formasini to‘ldiring.",
-    );
-    return;
-  }
-
-  const contact = await getPendingContact(payload);
-  if (!contact) {
-    await sendMessage(
-      botToken,
-      chatId,
-      "Bu murojaat havolasi topilmadi yoki uning muddati tugagan. Iltimos, saytdagi formani qayta to‘ldiring.",
-    );
-    return;
-  }
-
-  try {
-    await sendMessage(botToken, adminChatId, formatContactMessage(contact, user));
-    await deletePendingContact(contact.id);
-    await sendMessage(
-      botToken,
-      chatId,
-      "Rahmat! Murojaatingiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.",
-    );
-  } catch (error) {
-    console.error("Telegram murojaatini yuborishda xato:", error);
-    await sendMessage(
-      botToken,
-      chatId,
-      "Murojaatni yuborishda vaqtinchalik xato yuz berdi. Iltimos, Start tugmasini yana bosing.",
-    ).catch(() => undefined);
-  }
-}
-
-async function pollingLoop(botToken: string, adminChatId: string) {
-  let offset = 0;
-
-  while (true) {
-    try {
-      const updates = await telegramRequest<TelegramUpdate[]>(
-        botToken,
-        "getUpdates",
-        {
-          offset,
-          timeout: 25,
-          allowed_updates: ["message"],
-        },
-        30_000,
-      );
-
-      for (const update of updates) {
-        offset = update.update_id + 1;
-        const text = update.message?.text;
-        const match = text?.match(/^\/start(?:\s+([A-Za-z0-9_-]+))?$/);
-        if (!match || !update.message) continue;
-
-        await handleStart(
-          botToken,
-          adminChatId,
-          update.message.chat.id,
-          match[1],
-          update.message.from,
-        );
-      }
-    } catch (error) {
-      console.error("Telegram bot polling xatosi:", error);
-      await new Promise((resolve) => setTimeout(resolve, 5_000));
-    }
-  }
-}
-
-export function startTelegramBot() {
-  if (telegramGlobal.telegramContactBotStarted) return;
-  if (process.env.TELEGRAM_BOT_POLLING_ENABLED === "false") return;
-
-  const botToken = process.env.TELEGRAM_BOT_TOKEN;
-  const adminChatId = process.env.TELEGRAM_CHAT_ID;
-  if (!botToken || !adminChatId) {
-    console.warn(
-      "Telegram bot ishga tushmadi: TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID kerak.",
-    );
-    return;
-  }
-
-  telegramGlobal.telegramContactBotStarted = true;
-  console.log("Telegram contact bot ishga tushdi.");
-  void pollingLoop(botToken, adminChatId);
+  await sendMessage(botToken, adminChatId, formatContactMessage(contact));
 }

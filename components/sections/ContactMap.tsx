@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 
 const MAP_SRC =
-  "https://www.google.com/maps?q=Tashkent%2C%20Uzbekistan&output=embed";
+  "https://www.google.com/maps?q=40.997087%2C71.601802&z=16&output=embed";
 
-/** City-level map below the contact form until a confirmed address is supplied. */
+/** Exact office location: Microdistrict 5, Namangan (40.997087, 71.601802). */
 export default async function ContactMap() {
   const t = await getTranslations("finalCta");
 

@@ -352,11 +352,10 @@
       "problem": "Your problem in one sentence"
     },
     "privacy": "We don't share your data with third parties.",
-    "botInstruction": "After submitting, press Start in our Telegram bot.",
     "sending": "Sending...",
-    "success": "Opening Telegram. Please press Start in the bot.",
+    "success": "Thank you! Your message has been received. We’ll contact you soon.",
     "error": "The message wasn't sent. Please try again.",
-    "mapTitle": "PFC Solutions — Tashkent map"
+    "mapTitle": "PFC Solutions — Microdistrict 5, Namangan map"
   },
   "footer": {
     "positioning": "Software systems engineering for operating businesses.",

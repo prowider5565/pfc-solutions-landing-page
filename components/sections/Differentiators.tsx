@@ -24,12 +24,9 @@ export default async function Differentiators() {
       </div>
       <div className="container th-container5">
         <div className="award-wrapp">
-          {items.map((item, i) => (
-            <div className="award-item" key={i}>
-              <h3 className="box-title">
-                <span className="number">{i + 1}.</span>
-                {item.title}
-              </h3>
+          {items.map((item) => (
+            <div className="award-item" key={item.title}>
+              <h3 className="box-title">{item.title}</h3>
               <div className="box-content">
                 <p className="box-text mb-10">{item.body}</p>
                 <span className="year">{item.proof}</span>

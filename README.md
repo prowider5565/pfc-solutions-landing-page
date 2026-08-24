@@ -18,18 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Telegram contact notifications
 
-Copy `.env.example` to `.env.local`, then set `TELEGRAM_BOT_TOKEN`,
-`TELEGRAM_BOT_USERNAME`, and `TELEGRAM_CHAT_ID`. Add the bot to the destination
-group or channel and grant it permission to post messages.
+Copy `.env.example` to `.env.local`, then set `TELEGRAM_BOT_TOKEN` and
+`TELEGRAM_CHAT_ID`. Add the bot to the destination group or channel and grant
+it permission to post messages.
 
-After a visitor submits the form, the site stores the request for 24 hours and
-opens the bot using a unique Telegram deep link. The request is sent to the
-configured admin chat only when that visitor presses Start. The polling bot is
-started automatically with `npm run dev` or `npm start`.
-
-Pending requests are stored in `.data/pending-contacts.json`. This works for a
-single persistent Node.js server. Serverless or multi-instance deployments
-need shared persistent storage or a database instead.
+Submitting the contact form sends the request directly to the configured admin
+chat. Visitors do not need to open Telegram or press Start in the bot.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
