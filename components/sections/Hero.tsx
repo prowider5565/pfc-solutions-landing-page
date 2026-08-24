@@ -48,10 +48,11 @@ export default async function Hero() {
             </div>
           </div>
           <div className="col-xl-5">
-            <div className="hero-img7 hero-img7--photo movingX">
+            <div className="hero-img7 hero-img7--photo hero-img7--pulse">
               <img
-                src="/assets/img/hero/digital_brain.png"
-                alt="Human and digital brain visualization"
+                src="/assets/img/hero/digital_brain_pulse.gif"
+                alt="Human brain transitioning into animated cyan computational circuitry"
+                draggable={false}
               />
             </div>
           </div>

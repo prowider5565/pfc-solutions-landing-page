@@ -13108,6 +13108,7 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
   position: relative;
   z-index: 2;
   margin: 8px 20px 0;
+  overflow: hidden;
   background-size: 100% 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -13140,6 +13141,14 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
   display: block;
   width: 100%;
   height: auto;
+}
+.hero-img7--pulse {
+  line-height: 0;
+}
+@media (min-width: 1200px) {
+  .hero-8 .hero-img7.hero-img7--pulse {
+    margin-top: 0;
+  }
 }
 @media (max-width: 1500px) {
   .hero-8 .hero-img7 {
