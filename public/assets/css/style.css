@@ -8333,6 +8333,9 @@ ol.widget_recent_comments,
   position: relative;
   z-index: 41;
 }
+.th-header.sticky-header-active:not(.header-absolute) {
+  min-height: var(--sticky-header-height);
+}
 
 .header-absolute {
   position: absolute;

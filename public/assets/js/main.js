@@ -218,14 +218,20 @@
     $(".th-menu-wrapper").thmobilemenu();
 
     /*---------- 04. Sticky fix ----------*/
-    var stickyPoint = $('.sticky-wrapper').first().outerHeight() || 100;
+    var stickyWrappers = $('.sticky-wrapper');
+    var stickyHeaders = stickyWrappers.closest('.th-header');
+    var stickyPoint = stickyWrappers.first().outerHeight() || 100;
+
+    stickyHeaders.css('--sticky-header-height', stickyPoint + 'px');
 
     function updateStickyHeader() {
         var topPos = $(this).scrollTop();
         if (topPos >= stickyPoint) {
-            $('.sticky-wrapper').addClass('sticky');
+            stickyWrappers.addClass('sticky');
+            stickyHeaders.addClass('sticky-header-active');
         } else {
-            $('.sticky-wrapper').removeClass('sticky')
+            stickyWrappers.removeClass('sticky');
+            stickyHeaders.removeClass('sticky-header-active');
         }
     }
 
