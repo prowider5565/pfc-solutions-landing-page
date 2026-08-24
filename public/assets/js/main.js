@@ -707,31 +707,6 @@
     };
     popupSideMenu('.shopping-cart', '.sideMenuToggler2', '.sideMenuCls', 'show');
 
-    /*----------- 12. Magnific Popup ----------*/
-    /* magnificPopup img view */
-    $(".th-popup-image").magnificPopup({
-        type: "image",
-        mainClass: 'mfp-zoom-in',
-        removalDelay: 260,
-        gallery: {
-            enabled: true,
-        },
-    });
-
-    /* magnificPopup video view */
-    $(".popup-video").magnificPopup({
-        type: "iframe",
-        mainClass: 'mfp-zoom-in',
-        removalDelay: 260,
-    });
-
-    /* magnificPopup video view */
-    $(".popup-content").magnificPopup({
-        type: "inline",
-        midClick: true,
-    });
-
-
     if ($('[data-theme-color]').length > 0) {
         $('[data-theme-color]').each(function () {
             var $color = $(this).attr('data-theme-color');

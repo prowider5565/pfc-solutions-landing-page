@@ -3,16 +3,14 @@
 import { useEffect } from "react";
 
 /**
- * The template's 17 scripts, in the exact order the original page loads them
- * (home-ai-chatbot-tool.html:1267-1298). Order is load-bearing: every jQuery
- * plugin needs jQuery present, the GSAP plugins need gsap, and main.js must be
- * last because it initialises everything else.
+ * The active template scripts in dependency order. Every jQuery plugin needs
+ * jQuery present, the GSAP plugins need gsap, and main.js must be last because
+ * it initialises everything else.
  */
 const SCRIPTS = [
   "/assets/js/vendor/jquery-3.7.1.min.js",
   "/assets/js/swiper-bundle.min.js",
   "/assets/js/bootstrap.min.js",
-  "/assets/js/jquery.magnific-popup.min.js",
   "/assets/js/jquery.counterup.min.js",
   "/assets/js/circle-progress.js",
   "/assets/js/jquery-ui.min.js",

@@ -13059,7 +13059,8 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
   position: relative;
   z-index: 2;
   margin: 8px 20px 0;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-position: center top;
   background-repeat: no-repeat;
   /* Extra large devices */
 }
@@ -13070,10 +13071,11 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
 }
 @media (max-width: 1500px) {
   .hero-8 {
-    background-size: cover;
+    background-size: 100% 100%;
+    background-position: center top;
     margin: 0 0px 0;
-    background-repeat: center center;
-    background-color: var(--title-color);
+    background-repeat: no-repeat;
+    background-color: transparent;
   }
 }
 .hero-8 .hero-img7 {
@@ -24038,9 +24040,10 @@ span.select2-selection.select2-selection--single:focus {
   inset: 0;
   top: -5px;
   left: -5px;
-  background-image: radial-gradient(circle at top left, rgba(46, 134, 255, 0.58) 0%, rgba(143, 198, 255, 0.32) 42%, rgba(143, 198, 255, 0) 76%);
+  background-image: radial-gradient(ellipse 58% 180% at left center, rgba(46, 134, 255, 0.58) 0%, rgba(143, 198, 255, 0.28) 44%, rgba(143, 198, 255, 0) 78%);
   background-repeat: no-repeat;
-  background-size: 260px 210px;
+  background-size: 100% 100%;
+  background-position: left center;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.4s ease-in-out;
