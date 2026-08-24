@@ -13145,9 +13145,30 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item) > .
 .hero-img7--pulse {
   line-height: 0;
 }
+/* The pulse GIF is 2:1 — its left half is the original square artwork, its
+   right half is circuitry meant to bleed off the edge of the hero rather than
+   stop on a hard line. Width is therefore read as a percentage of *half* the
+   image: 200% renders the brain at exactly the container width, so 160% draws
+   it at 80% of that. Without this rule the file falls back to width:100% and
+   the brain draws at half size. .hero-8 already clips the overflow. */
+.hero-8 .hero-img7--photo.hero-img7--pulse img {
+  width: 200%;
+  max-width: none;
+}
 @media (min-width: 1200px) {
   .hero-8 .hero-img7.hero-img7--pulse {
     margin-top: 0;
+  }
+  .hero-8 .hero-img7--photo.hero-img7--pulse {
+    margin-left: 0;
+  }
+  .hero-8 .hero-img7--photo.hero-img7--pulse img {
+    width: 160%;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .hero-8 .hero-img7--photo.hero-img7--pulse {
+    margin-left: -4%;
   }
 }
 @media (max-width: 1500px) {
