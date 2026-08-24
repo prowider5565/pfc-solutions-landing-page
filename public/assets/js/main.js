@@ -221,17 +221,23 @@
     var stickyWrappers = $('.sticky-wrapper');
     var stickyHeaders = stickyWrappers.closest('.th-header');
     var stickyPoint = stickyWrappers.first().outerHeight() || 100;
+    var stickyExitTimer;
 
     stickyHeaders.css('--sticky-header-height', stickyPoint + 'px');
 
     function updateStickyHeader() {
         var topPos = $(this).scrollTop();
         if (topPos >= stickyPoint) {
+            window.clearTimeout(stickyExitTimer);
+            stickyWrappers.removeClass('sticky-leaving');
             stickyWrappers.addClass('sticky');
             stickyHeaders.addClass('sticky-header-active');
-        } else {
-            stickyWrappers.removeClass('sticky');
-            stickyHeaders.removeClass('sticky-header-active');
+        } else if (stickyWrappers.hasClass('sticky') && !stickyWrappers.hasClass('sticky-leaving')) {
+            stickyWrappers.addClass('sticky-leaving');
+            stickyExitTimer = window.setTimeout(function () {
+                stickyWrappers.removeClass('sticky sticky-leaving');
+                stickyHeaders.removeClass('sticky-header-active');
+            }, 320);
         }
     }
 

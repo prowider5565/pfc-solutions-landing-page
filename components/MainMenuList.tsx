@@ -1,4 +1,7 @@
-import { getLocale, getTranslations } from "next-intl/server";
+"use client";
+
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { localeHref, navRoutes } from "@/lib/menu";
 
 /**
@@ -9,17 +12,28 @@ import { localeHref, navRoutes } from "@/lib/menu";
  * Multipage model: each item is a real route. Labels come from the `nav`
  * namespace of the message files, hrefs carry the active locale segment.
  */
-export default async function MainMenuList() {
-  const locale = await getLocale();
-  const t = await getTranslations("nav");
+export default function MainMenuList() {
+  const locale = useLocale();
+  const pathname = usePathname();
+  const t = useTranslations("nav");
 
   return (
     <ul>
-      {navRoutes.map((item) => (
-        <li key={item.key}>
-          <a href={localeHref(locale, item.path)}>{t(item.key)}</a>
-        </li>
-      ))}
+      {navRoutes.map((item) => {
+        const isActive =
+          pathname === item.path || pathname.startsWith(`${item.path}/`);
+
+        return (
+          <li className={isActive ? "active" : undefined} key={item.key}>
+            <a
+              href={localeHref(locale, item.path)}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {t(item.key)}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 }

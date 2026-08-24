@@ -19,7 +19,9 @@ export default async function Breadcrumb({ title }: { title: string }) {
             <li>
               <a href={localeHref(locale)}>{t("home")}</a>
             </li>
-            <li>{title}</li>
+            <li>
+              <span aria-current="page">{title}</span>
+            </li>
           </ul>
         </div>
       </div>

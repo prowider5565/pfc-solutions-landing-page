@@ -183,6 +183,7 @@
   "industries": {
     "title": "Industries",
     "subline": "What they share isn't the industry — it's the process.",
+    "entryLabel": "Typical entry point",
     "items": [
       {
         "name": "Manufacturing and factories",

@@ -16,7 +16,7 @@ export default async function Hero() {
     >
       <div className="container th-container5">
         <div className="row align-items-center">
-          <div className="col-xl-8">
+          <div className="col-xl-7">
             <div className="hero-style8">
               <div
                 className="hero-title-star d-none d-xxl-block spin"
@@ -47,9 +47,12 @@ export default async function Hero() {
               </div>
             </div>
           </div>
-          <div className="col-xl-4">
-            <div className="hero-img7 movingX">
-              <img src="/assets/img/hero/hero-img6.png" alt="" />
+          <div className="col-xl-5">
+            <div className="hero-img7 hero-img7--photo movingX">
+              <img
+                src="/assets/img/hero/digital_brain.png"
+                alt="Human and digital brain visualization"
+              />
             </div>
           </div>
         </div>

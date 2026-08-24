@@ -13,13 +13,11 @@ export default async function ContactMap() {
         <iframe
           src={MAP_SRC}
           title={t("mapTitle")}
-          allowFullScreen
           loading="lazy"
+          tabIndex={-1}
+          aria-label={t("mapTitle")}
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="contact-icon" aria-hidden="true">
-          <img src="/assets/img/icon/location-dot.svg" alt="" />
-        </div>
       </div>
     </div>
   );
