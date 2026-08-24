@@ -2694,6 +2694,8 @@ input[type=time]::-webkit-calendar-picker-indicator {
 }
 .loader-letter {
   display: inline-block;
+  width: auto;
+  height: 51px;
   opacity: 0;
   -webkit-animation: loader-letter-anim 4s infinite linear;
           animation: loader-letter-anim 4s infinite linear;

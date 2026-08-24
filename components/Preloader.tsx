@@ -42,10 +42,27 @@ export default function Preloader() {
           <div
             className="loader-wrapper"
             style={{ opacity: exiting ? 0 : undefined }}
+            role="img"
+            aria-label="PFC Solutions"
           >
-            <span className="loader-letter">P</span>
-            <span className="loader-letter">F</span>
-            <span className="loader-letter">C</span>
+            <img
+              className="loader-letter"
+              src="/assets/img/pfc-loading/P.svg"
+              alt=""
+              draggable={false}
+            />
+            <img
+              className="loader-letter"
+              src="/assets/img/pfc-loading/F.svg"
+              alt=""
+              draggable={false}
+            />
+            <img
+              className="loader-letter"
+              src="/assets/img/pfc-loading/C.svg"
+              alt=""
+              draggable={false}
+            />
             <div className="loader"></div>
           </div>
         </div>
