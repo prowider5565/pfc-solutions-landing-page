@@ -352,7 +352,10 @@
       "problem": "Your problem in one sentence"
     },
     "privacy": "We don't share your data with third parties.",
-    "success": "Thank you. We'll be in touch shortly.",
+    "botInstruction": "After submitting, press Start in our Telegram bot.",
+    "sending": "Sending...",
+    "success": "Opening Telegram. Please press Start in the bot.",
+    "error": "The message wasn't sent. Please try again.",
     "mapTitle": "PFC Solutions — Tashkent map"
   },
   "footer": {

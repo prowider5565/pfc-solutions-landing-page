@@ -352,7 +352,10 @@
       "problem": "Muammoingiz bir jumlada"
     },
     "privacy": "Ma'lumotlaringiz uchinchi tomonga berilmaydi.",
-    "success": "Rahmat. Tez orada bog'lanamiz.",
+    "botInstruction": "Formani yuborgach, Telegram botda Start tugmasini bosing.",
+    "sending": "Yuborilmoqda...",
+    "success": "Telegram bot ochilmoqda. Botda Start tugmasini bosing.",
+    "error": "Xabar yuborilmadi. Iltimos, qayta urinib ko'ring.",
     "mapTitle": "PFC Solutions — Toshkent xaritasi"
   },
   "footer": {
