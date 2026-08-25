@@ -1,11 +1,23 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { localeHref } from "@/lib/menu";
 
+export type BreadcrumbItem = {
+  href?: string;
+  label: string;
+};
+
 /** Inner-page title banner. The template's own misspelling "breadcumb" is
  *  preserved, because style.css targets those class names. */
-export default async function Breadcrumb({ title }: { title: string }) {
+export default async function Breadcrumb({
+  items,
+  title,
+}: {
+  items?: BreadcrumbItem[];
+  title: string;
+}) {
   const locale = await getLocale();
   const t = await getTranslations("nav");
+  const trail = items ?? [{ label: title }];
 
   return (
     <div
@@ -19,9 +31,21 @@ export default async function Breadcrumb({ title }: { title: string }) {
             <li>
               <a href={localeHref(locale)}>{t("home")}</a>
             </li>
-            <li>
-              <span aria-current="page">{title}</span>
-            </li>
+            {trail.map((item, index) => {
+              const current = index === trail.length - 1;
+
+              return (
+                <li key={`${item.label}-${index}`}>
+                  {!current && item.href ? (
+                    <a href={localeHref(locale, item.href)}>{item.label}</a>
+                  ) : (
+                    <span aria-current={current ? "page" : undefined}>
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

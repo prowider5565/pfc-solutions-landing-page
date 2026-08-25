@@ -1,62 +1,61 @@
 import { getTranslations } from "next-intl/server";
-import ProjectCarousel from "./ProjectCarousel";
 
-type Project = { name: string; sector: string };
-type BekuzRow = { requirement: string; solution: string };
+type Project = { name: string; sector: string; description: string };
+
+const PROJECT_IMAGES: Record<string, string> = {
+  "Sut yig'ish tizimi": "/assets/img/projects-images/lactalis.avif",
+  "Mezon Akademiya": "/assets/img/projects-images/mezon-akademiya.avif",
+  UstaBarber: "/assets/img/projects-images/ustabarber.avif",
+  Tikoncha: "/assets/img/projects-images/tikoncha.avif",
+};
+
+const PROJECT_FALLBACK_IMAGES = [
+  "/assets/img/case-studies/case_study_1_1.jpg",
+  "/assets/img/case-studies/case_study_1_2.jpg",
+  "/assets/img/case-studies/case_study_1_3.jpg",
+  "/assets/img/case-studies/case_study_1_4.jpg",
+  "/assets/img/case-studies/case_study_1_5.jpg",
+  "/assets/img/case-studies/case_study_1_6.jpg",
+] as const;
 
 /**
- * CLAUDE.md §4.8 — twelve projects in two groups, plus the Bekuz deep-dive.
- *
- * Project names are proper nouns and stay untranslated. Only Bekuz has detail
- * in CLAUDE.md; the other eleven are name + sector, which is all the source
- * provides. The accompanying note about measurable results is rendered verbatim.
+ * Twelve projects presented in the alternating Case Studies 2 layout.
  */
 export default async function Work() {
   const t = await getTranslations("work");
   const management = t.raw("management") as Project[];
   const web = t.raw("web") as Project[];
-  const bekuz = t.raw("bekuz") as BekuzRow[];
-
-  const all = [
-    ...management.map((p) => ({ ...p, group: t("groupManagement") })),
-    ...web.map((p) => ({ ...p, group: t("groupWeb") })),
-  ];
+  const all = [...management, ...web];
 
   return (
-    <section className="service-area3 overflow-hidden space" id="work">
+    <section className="overflow-hidden space" id="work">
       <div className="container th-container5">
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div className="title-area text-center">
-              <h2 className="sec-title h3 text-anime-style-3">{t("title")}</h2>
-            </div>
-          </div>
-        </div>
+        <div className="row justify-content-center case-study-list">
+          {all.map((project, index) => {
+            const image =
+              PROJECT_IMAGES[project.name] ??
+              PROJECT_FALLBACK_IMAGES[index % PROJECT_FALLBACK_IMAGES.length];
 
-        <ProjectCarousel projects={all} />
-
-        {/* Featured deep-dive — the only project with detailed content */}
-        <div className="row justify-content-center mt-60">
-          <div className="col-lg-10">
-            <div className="title-area text-center mb-30">
-              <h3 className="sec-title h4 mb-0">{t("bekuzTitle")}</h3>
-            </div>
-            <div className="available-list">
-              <ul>
-                {bekuz.map((row, i) => (
-                  <li key={i}>
-                    <strong>{row.requirement}</strong> — {row.solution}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="row justify-content-center mt-40">
-          <div className="col-lg-10">
-            <p className="box-text text-center mb-0">{t("note")}</p>
-          </div>
+            return (
+              <div className="col-12 case-study_wrapp" key={project.name}>
+                <article className="case-study style2 case-study--clean">
+                  <div className="box-img">
+                    <img
+                      src={image}
+                      alt={project.name}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="box-content2">
+                    <p className="case-study__eyebrow">{project.sector}</p>
+                    <h2 className="box-title">{project.name}</h2>
+                    <p className="box-text">{project.description}</p>
+                  </div>
+                </article>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

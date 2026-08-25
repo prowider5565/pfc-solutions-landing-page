@@ -384,18 +384,125 @@ export default async function LocaleLayout({
             }
           }
 
-          /* --- Work carousel ------------------------------------------------
-             12 slides, but the slider shipped with no pagination, arrows or
-             scrollbar, so nothing indicated more projects existed. Bullets
-             give a position cue and a way to jump on touch. */
-          #workSlider{padding-bottom:46px}
-          #workSlider .swiper-pagination{bottom:0;line-height:0}
-          #workSlider .swiper-pagination-bullet{
-            width:9px;height:9px;margin:0 5px;opacity:.35;
-            background:var(--title-color);transition:opacity .2s,width .2s
+          /* ================================================================
+             WORKFLOW TIMELINE
+             Everything here is authored in its FINISHED state: rail drawn,
+             dots lit, rows opaque. The dimmed/animated states hang off .wt-js,
+             which WorkflowTimelineMotion adds only once GSAP is present AND
+             motion is allowed. If the theme scripts never load, or the visitor
+             prefers reduced motion, this degrades to a static readable
+             timeline rather than an invisible section.
+             ================================================================ */
+          .wt-timeline{position:relative}
+          .wt-list{list-style:none;margin:0;padding:0;position:relative}
+
+          /* Spans first dot centre to last dot centre. Those two custom
+             properties are measured by WorkflowTimelineMotion, because CSS
+             cannot express "stop at the last dot" - left to span the whole
+             list the rail overshoots the final dot by ~430px of empty track.
+             The fallbacks below are the no-JS state: a full-height rail, which
+             is untidy at the tail but perfectly readable.
+             Bounding it this way also makes the scrub exact - the fill maps
+             directly onto the dot positions. See WorkflowTimelineMotion. */
+          .wt-rail{
+            position:absolute;width:2px;
+            top:var(--wt-rail-top,0px);
+            height:var(--wt-rail-height,100%);
+            background:var(--th-border-color);pointer-events:none;z-index:0
           }
-          #workSlider .swiper-pagination-bullet-active{
-            opacity:1;width:26px;border-radius:5px;background:var(--theme-color)
+          .wt-rail__fill{
+            position:absolute;left:0;top:0;width:100%;height:100%;display:block;
+            background:linear-gradient(180deg,var(--theme-color),#8FC6FF)
+          }
+
+          .wt-row{position:relative;display:grid}
+          .wt-dot{
+            position:relative;z-index:2;
+            display:inline-flex;align-items:center;justify-content:center;
+            border-radius:50%;
+            font-family:var(--title-font);font-weight:700;line-height:1;
+            background:var(--theme-color);color:var(--white-color)
+          }
+
+          /* Cancels .box-title's text-transform:capitalize, which would
+             otherwise render "Этап Планирования" and "Discovery Jarayoni". */
+          .wt-title{text-transform:none;margin-bottom:16px}
+          .wt-text{margin-bottom:14px}
+          .wt-text:last-child{margin-bottom:0}
+
+          .wt-media__frame{
+            overflow:hidden;border-radius:20px;
+            border:1px solid rgba(6,5,11,.08);background:var(--smoke-color4)
+          }
+          .wt-media__frame img{object-fit:cover;display:block}
+          .wt-media__placeholder{
+            display:flex;align-items:center;justify-content:center;
+            background:linear-gradient(135deg,rgba(46,134,255,.10),rgba(143,198,255,.22))
+          }
+          .wt-media__placeholder span{
+            font-family:var(--title-font);font-size:64px;font-weight:700;
+            line-height:1;color:rgba(46,134,255,.30)
+          }
+
+          /* --- states owned by JS ---------------------------------------- */
+          .wt-js .wt-dot{
+            background:var(--smoke-color2);color:var(--body-color);
+            transition:background-color .35s ease,color .35s ease,
+              box-shadow .35s ease
+          }
+          .wt-js .wt-dot.is-lit{
+            background:var(--theme-color);color:var(--white-color);
+            box-shadow:0 0 0 6px rgba(46,134,255,.16)
+          }
+
+          /* --- mobile / tablet: rail in the left gutter, single column ---- */
+          @media (max-width:991.98px){
+            .wt-rail{left:21px}
+            .wt-row{
+              grid-template-columns:44px 1fr;column-gap:18px;align-items:start
+            }
+            .wt-row + .wt-row{margin-top:48px}
+            .wt-dot{grid-column:1;grid-row:1;width:44px;height:44px;font-size:15px}
+            .wt-media{grid-column:2;grid-row:1;margin-bottom:18px}
+            .wt-body{grid-column:2;grid-row:2}
+            .wt-title{font-size:22px}
+          }
+
+          /* --- desktop: rail centred, columns alternate ------------------- */
+          @media (min-width:992px){
+            .wt-rail{left:50%;margin-left:-1px}
+            .wt-row{grid-template-columns:1fr 72px 1fr;align-items:start}
+            .wt-row + .wt-row{margin-top:88px}
+            .wt-dot{
+              grid-column:2;grid-row:1;justify-self:center;
+              width:56px;height:56px;font-size:18px
+            }
+            /* Explicit grid placement rather than a DOM reorder, so reading
+               order never diverges from the markup. Stage 1 keeps its natural
+               order (text left, image right); even stages flip. */
+            .wt-body{grid-column:1;grid-row:1;padding-right:8px;align-self:start}
+            .wt-media{grid-column:3;grid-row:1;padding-left:8px;align-self:start}
+            .wt-row--flip .wt-body{grid-column:3;padding-right:0;padding-left:8px}
+            .wt-row--flip .wt-media{grid-column:1;padding-left:0;padding-right:8px}
+            .wt-title{font-size:28px}
+          }
+
+          @media (prefers-reduced-motion:reduce){
+            .wt-dot{transition:none}
+          }
+
+          /* ================================================================
+             CLAUDE.md acceptance criterion 10 - prefers-reduced-motion must
+             disable all reveal animations. WOW.js 1.3.0 has no such support
+             and writes visibility:hidden inline on every .wow box, so without
+             this, Approach / Industries / Faq / Breadcrumb still animate and
+             can even stay hidden. An author !important rule outranks a
+             non-important inline declaration, so this un-hides them.
+             ================================================================ */
+          @media (prefers-reduced-motion:reduce){
+            .wow,.wow.animated{
+              visibility:visible!important;animation:none!important
+            }
           }
         `}</style>
       </head>

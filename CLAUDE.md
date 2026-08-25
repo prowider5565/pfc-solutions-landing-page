@@ -209,14 +209,37 @@ Fine print:
 
 **Block D — The six delivery stages.**
 
+> **Superseded.** The six one-word labels this block used to specify have been
+> replaced by the full stage narrative, which is the single source of truth for
+> the delivery pipeline. It lives in the **`workflow`** namespace of
+> `messages/{uz,ru,en}.json` — six stages, each with a `title`, a `body` array of
+> one or two paragraphs, and an `imageAlt`. Do not re-add `approach.blockD.stages`.
+>
+> It renders through one component, `components/sections/WorkflowTimelineList.tsx`,
+> in two places: the homepage (wrapped by `WorkflowTimeline.tsx`, which supplies
+> the `approach.title` heading) and `/approach`, where Block D's grid used to be
+> and where the section's own h2 already carries that heading.
+
 | # | UZ | RU | EN |
 |---|---|---|---|
-| 1 | `Discovery` | `Discovery` | `Discovery` |
-| 2 | `Reja` | `Планирование` | `Planning` |
-| 3 | `Ishlab chiqish` | `Разработка` | `Build` |
-| 4 | `Test` | `Тестирование` | `Test` |
-| 5 | `Joriy etish` | `Внедрение` | `Rollout` |
-| 6 | `Qo'llab-quvvatlash` | `Поддержка` | `Support` |
+| 1 | `Discovery jarayoni` | `Discovery — этап исследования` | `Discovery Phase` |
+| 2 | `Rejalashtirish jarayoni` | `Этап планирования` | `Planning Phase` |
+| 3 | `Ishlab chiqish jarayoni` | `Этап разработки` | `Development Phase` |
+| 4 | `Test jarayoni` | `Этап тестирования` | `Testing Phase` |
+| 5 | `Joriy qilish jarayoni` | `Этап внедрения` | `Deployment Phase` |
+| 6 | `Qo'llab-quvvatlash` | `Поддержка` | `Ongoing Support` |
+
+Presented as a vertical timeline: a connector rail that draws itself on scroll,
+a numbered dot per stage, and alternating text/image columns from `lg` up —
+stage 1 text-left/image-right, stage 2 reversed, and so on. Stage imagery is
+16:9, at `public/assets/img/workflow/workflow-{nn}-{slug}.webp`; until a file
+exists its `STAGE_IMAGES` entry stays `null` and a placeholder of identical size
+renders in its place.
+
+The markup and CSS are authored in their **finished** state (rail drawn, dots
+lit, text opaque); the animation opts *into* the hidden state via a `wt-js`
+class. So no-JS and `prefers-reduced-motion` both degrade to a plain readable
+timeline rather than an invisible section — see §5 and acceptance criterion 10.
 
 Delivery rhythm:
 - UZ: `Har hafta — yozma holat hisoboti · Har 2 hafta — ishlaydigan demo · Har bosqich oxirida — qabul`

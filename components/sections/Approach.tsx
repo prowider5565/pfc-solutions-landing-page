@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import WorkflowTimelineList from "./WorkflowTimelineList";
 
 type Row = { free: string; paid: string };
 type Tier = { name: string; duration: string; price: string; when: string };
@@ -19,7 +20,6 @@ export default async function Approach() {
   const rows = t.raw("blockA.rows") as Row[];
   const steps = t.raw("blockB.steps") as string[];
   const tiers = t.raw("blockC.tiers") as Tier[];
-  const stages = t.raw("blockD.stages") as string[];
 
   return (
     <section className="space overflow-hidden position-relative" id="approach">
@@ -117,18 +117,12 @@ export default async function Approach() {
           </div>
         </div>
 
-        {/* Block D — the six delivery stages */}
-        <div className="row gy-4 justify-content-center mt-60 delivery-stages">
-          {stages.map((stage, i) => (
-            <div className="col-6 col-md-4 col-xl-2" key={i}>
-              <div className="process-card2 process-card2--stage wow fadeInUp" data-wow-delay={`.${i + 1}s`}>
-                <span className="number">{`0${i + 1}`}</span>
-                <div className="box-content">
-                  <h3 className="box-title">{stage}</h3>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Block D — the six delivery stages, as the shared timeline. Rendered
+            without a heading of its own: this section's h2 above already reads
+            "Qanday ishlaymiz", and the homepage wrapper (WorkflowTimeline)
+            supplies that heading only where there isn't one already. */}
+        <div className="mt-60">
+          <WorkflowTimelineList />
         </div>
         <div className="row justify-content-center mt-40">
           <div className="col-lg-10 text-center">

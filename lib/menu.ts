@@ -13,6 +13,7 @@ export const navRoutes = [
   { key: "industries", path: "/industries" },
   { key: "work", path: "/work" },
   { key: "about", path: "/about" },
+  { key: "faq", path: "/faq" },
 ] as const;
 
 /**

@@ -8,6 +8,7 @@
     "industries": "Industries",
     "work": "Work",
     "about": "About",
+    "faq": "FAQ",
     "cta": "Book a call",
     "language": "Language",
     "home": "Home"
@@ -50,6 +51,31 @@
       }
     ],
     "closing": "We don't build what's requested. We find what's actually wrong."
+  },
+  "aboutOverview": {
+    "service": {
+      "title": "What Service Do We Offer?",
+      "paragraphs": [
+        "Our service is a digital solution designed to digitize your business workflows, reduce the number of repetitive operations, and bring your company's internal activities into a single system. Such a service automates tasks that are performed repeatedly and can be handled by software, saves your employees' time, and reduces unnecessary actions throughout the workflow.",
+        "Our service can be thought of as the digital brain of your business. It keeps track of how your business is performing, how each particular area of the company is doing, what changes are happening in your sales, and how other important business indicators are moving. When information from different processes is collected, aggregated, and presented in one place, you gain a much clearer understanding of what is actually happening inside your business. This allows you to make decisions based on comprehensive information rather than isolated numbers and plan your next steps with greater accuracy.",
+        "A properly designed system also allows you to use your workforce more efficiently. Instead of spending employees' time on tasks that software can perform, you can direct their attention toward work that requires human thinking, supervision, judgment, and decision-making. In some processes, the system does not replace an employee entirely but works alongside them by preparing the information they need, handling calculations, or taking repetitive operations off their hands. This ultimately allows your business to use valuable resources such as time, human labor, and money more efficiently."
+      ]
+    },
+    "mission": {
+      "title": "Our Mission",
+      "paragraphs": [
+        "We provide customized digital solutions for businesses that want to improve their internal processes, grow their operations, and use technology in a practical way. Our goal is not to force your business into a predefined system, but to understand how your business actually works and build a solution around its specific needs. The systems we create should simplify workflows, improve management, and provide a reliable technical foundation for the company's future growth.",
+        "We deliberately intend to build long-term relationships with our clients rather than treating a project as something that ends the moment the product is delivered. We want to continue working with businesses, growing within our field, and constantly researching new technologies and opportunities that can provide businesses with unique solutions. For us, a new technology is not simply another tool to add to our stack. It is an opportunity to look at a business problem from a different perspective and find a solution beyond conventional approaches."
+      ]
+    },
+    "feedback": {
+      "title": "We Value Our Clients and Their Feedback",
+      "paragraphs": [
+        "For us, completing a project is not defined simply by delivering the finished product. One of the most important measures of our work is what the client actually thinks about the result. That is why we place significant value on your genuine feedback after using our service. What you liked, what could have been done better, or where we failed to meet your expectations — all of this becomes a source of experience and a learning point that we carry into our future work.",
+        "We do not consider a project successfully delivered simply because the system is technically complete. The real result is achieved when the client is genuinely satisfied with the system, sees real value in it for their business, and wants to continue working with us in the future.",
+        "We do not build projects simply to mark the next item on a task list as completed. We are genuinely committed to the work we do, and we take responsibility for the outcome of every project and the value it is expected to create for your business."
+      ]
+    }
   },
   "differentiators": {
     "title": "Why PFC",
@@ -139,44 +165,91 @@
       "finePrint": "Applies when the contract is signed within 30 days and the project is at least 5× the Discovery fee."
     },
     "blockD": {
-      "stages": [
-        "Discovery",
-        "Planning",
-        "Build",
-        "Test",
-        "Rollout",
-        "Support"
-      ],
       "rhythm": "Weekly — a written status report · Every 2 weeks — a working demo · End of each stage — sign-off",
       "guarantee": "Three-month warranty from the handover date."
     }
   },
+  "workflow": {
+    "stages": [
+      {
+        "title": "Discovery Phase",
+        "body": [
+          "During the Discovery phase, we gain a comprehensive understanding of your business, workflows, and goals. We do not organize this process simply to get to know you and your business. During our 30-minute conversation, we identify problems within your workflows that may have gone unnoticed and gain a deeper understanding of your existing challenges in order to find effective solutions."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Planning Phase",
+        "body": [
+          "After reaching an agreement with you, we use the information collected during the Discovery phase to develop a detailed technical plan. During this stage, our team works together to analyze the internal infrastructure of the required system, its system design, and other technical aspects, and then develops a comprehensive implementation plan.",
+          "You also take an active role in this process. Throughout the planning stage, we work with you to determine and approve what each part of the system should contain and how it should work. We move to the development stage only after the entire plan has been fully approved, at which point the approved plan becomes the fixed foundation for development. This is essential for delivering a high-quality and consistent system."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Development Phase",
+        "body": [
+          "Once the planning phase is complete, we begin developing the system according to the detailed and carefully prepared technical plan. The development is carried out by our team of experienced developers with years of professional experience.",
+          "One of the things that distinguishes us from other IT companies is our emphasis on open communication throughout the development process. Our team openly discusses technical decisions, points out each other’s mistakes, and critically evaluates technical conclusions. This approach makes a significant contribution to continuously improving the quality of our work."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Testing Phase",
+        "body": [
+          "Throughout the testing phase, our experienced QA testers continuously test the developed product. We examine various aspects of the system, including internal errors, design issues, inconsistent animations, long-term concerns, system performance under high loads, and other potential problems."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Deployment Phase",
+        "body": [
+          "Once the product is complete, we move to the deployment stage, which means placing the system on an online server. In order for the finished product to remain continuously available and operate reliably for users, it needs to be deployed to a dedicated server accessible through the internet."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Ongoing Support",
+        "body": [
+          "We do not consider our cooperation complete once the finished product has been delivered. We continue to support you in maintaining the system’s stable operation, resolving issues that may arise, and adding new features whenever necessary."
+        ],
+        "imageAlt": ""
+      }
+    ]
+  },
   "services": {
     "title": "Services",
+    "viewDetails": "View details",
     "items": [
       {
         "name": "Internal management systems",
-        "duration": "3–8 months"
+        "duration": "3–8 months",
+        "description": "Manage daily operations, teams, and reporting in one connected system."
       },
       {
         "name": "Process automation",
-        "duration": "1–4 months"
+        "duration": "1–4 months",
+        "description": "Automate repetitive work to reduce time, operating costs, and errors."
       },
       {
         "name": "AI solutions and agents",
-        "duration": "1–5 months"
+        "duration": "1–5 months",
+        "description": "Accelerate communication, analysis, and internal work with practical AI agents."
       },
       {
         "name": "Integration and data",
-        "duration": "1–3 months"
+        "duration": "1–3 months",
+        "description": "Connect scattered software and data into one reliable business ecosystem."
       },
       {
         "name": "Websites and web solutions",
-        "duration": "2–8 weeks"
+        "duration": "2–8 weeks",
+        "description": "Build fast, accessible web solutions shaped around your business goals."
       },
       {
         "name": "Support and evolution",
-        "duration": "—"
+        "duration": "—",
+        "description": "Keep systems stable, resolve issues, and expand their capabilities over time."
       }
     ]
   },
@@ -187,112 +260,97 @@
     "items": [
       {
         "name": "Manufacturing and factories",
-        "entry": "Warehouse and stock"
+        "entry": "Warehouse and stock",
+        "description": "Track raw materials, production, warehouse stock, and costs in one system to establish clear operational control."
       },
       {
         "name": "Logistics and warehousing",
-        "entry": "Stock-taking"
+        "entry": "Stock-taking",
+        "description": "Manage inventory movement, stock-taking, dispatches, and balances in real time to reduce warehouse discrepancies."
       },
       {
         "name": "Construction",
-        "entry": "Material and cost control"
+        "entry": "Material and cost control",
+        "description": "Monitor sites, materials, completed work, and costs in one place for transparent control of every project."
       },
       {
         "name": "HoReCa — restaurants and hotels",
-        "entry": "Cost of goods and stock"
+        "entry": "Cost of goods and stock",
+        "description": "Connect ingredient use, recipes, cost of goods, and stock to control restaurant and hotel operations."
       },
       {
         "name": "Retail and wholesale",
-        "entry": "Multi-branch stock and margin"
+        "entry": "Multi-branch stock and margin",
+        "description": "Track sales, stock, pricing, and margins by branch while managing retail and wholesale operations centrally."
       }
     ]
   },
   "work": {
     "title": "Work",
-    "groupManagement": "Management systems",
-    "groupWeb": "Web solutions",
     "management": [
       {
         "name": "Sut yig'ish tizimi",
-        "sector": "Food manufacturing"
+        "sector": "Food manufacturing",
+        "description": "Built for a major dairy producer in Namangan to manage milk intake, laboratory indicators, and supplier settlements in one system."
       },
       {
         "name": "Qurilish boshqaruv tizimi",
-        "sector": "Construction"
+        "sector": "Construction",
+        "description": "Tracks construction sites, materials, completed work, and expenses in a single register, giving management transparent operational control."
       },
       {
         "name": "Faktoriya",
-        "sector": "B2B SaaS ERP"
+        "sector": "B2B SaaS ERP",
+        "description": "A multi-tenant B2B SaaS ERP that securely separates and manages companies, branches, roles, and operations for corporate customers."
       },
       {
         "name": "Bekuz",
-        "sector": "Currency brokerage, Dubai"
+        "sector": "Currency brokerage, Dubai",
+        "description": "A multi-currency, multi-leg settlement platform for a Dubai currency broker, with trustworthy cash balances calculated directly from the transaction ledger."
       },
       {
         "name": "Fotima Medical Plaza",
-        "sector": "Healthcare"
+        "sector": "Healthcare",
+        "description": "A healthcare platform designed to manage patient flow, services, appointments, and the clinic’s internal operations in one environment."
       },
       {
         "name": "Mezon Akademiya",
-        "sector": "Education"
+        "sector": "Education",
+        "description": "Centralizes groups, class schedules, payments, and learning outcomes to manage the academy’s daily education processes from one place."
       },
       {
         "name": "WeAuto",
-        "sector": "Auto marketplace"
+        "sector": "Auto marketplace",
+        "description": "An automotive marketplace that brings vehicle listings, dealers, model comparisons, and transaction flows together on one accessible platform."
       },
       {
         "name": "Midrama",
-        "sector": "Media streaming"
+        "sector": "Media streaming",
+        "description": "A media streaming platform for centrally managing the content catalog, video playback, user subscriptions, and access permissions."
       }
     ],
     "web": [
       {
         "name": "UstaBarber",
-        "sector": "Korea"
+        "sector": "Services, Korea",
+        "description": "A web platform for a premium Uzbek barbershop in Korea, bringing services, products, gallery content, contact details, and customer information together."
       },
       {
         "name": "Ironex",
-        "sector": "Metalworking"
+        "sector": "Metalworking",
+        "description": "A corporate web solution that clearly presents metalworking services, production capabilities, and customer order enquiries."
       },
       {
         "name": "Legal House",
-        "sector": "Legal"
+        "sector": "Legal services",
+        "description": "A trusted corporate website that presents legal services and areas of expertise while helping organize incoming client enquiries."
       },
       {
         "name": "Tikoncha",
-        "sector": "IT / education"
+        "sector": "IT / education",
+        "description": "A parental-control platform for managing screen time, applications, and focus mode while monitoring clear device-usage statistics."
       }
-    ],
-    "bekuzTitle": "Featured deep-dive — Bekuz",
-    "bekuzRequirement": "Requirement",
-    "bekuzSolution": "How it was solved",
-    "bekuz": [
-      {
-        "requirement": "Multi-currency, multi-leg settlement",
-        "solution": "One order carries several receive and pay legs; transactions auto-pair to legs"
-      },
-      {
-        "requirement": "Rate integrity",
-        "solution": "An immutable rate snapshot per leg — value, source, timestamp"
-      },
-      {
-        "requirement": "What-if analysis",
-        "solution": "Margin recalculation runs without mutating history"
-      },
-      {
-        "requirement": "Trustworthy treasury",
-        "solution": "Balances are never stored — always derived from the ledger"
-      },
-      {
-        "requirement": "Safe delegation",
-        "solution": "Per-module permissions, own/all data scope, append-only audit log"
-      },
-      {
-        "requirement": "Omnichannel",
-        "solution": "Web, mobile, WhatsApp and a Telegram AI agent over one data set"
-      }
-    ],
-    "note": "Measurable results per project are shared separately, with the client's consent. Only verified numbers go into a proposal."
+    ]
   },
   "fit": {
     "title": "Who we're for",

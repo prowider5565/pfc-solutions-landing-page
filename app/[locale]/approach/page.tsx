@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageShell from "@/components/inner/PageShell";
 import Approach from "@/components/sections/Approach";
-import Faq from "@/components/sections/Faq";
 
 export async function generateMetadata({
   params,
@@ -26,7 +25,6 @@ export default async function ApproachPage({
   return (
     <PageShell title={t("approach")}>
       <Approach />
-      <Faq />
     </PageShell>
   );
 }

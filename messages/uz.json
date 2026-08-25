@@ -8,6 +8,7 @@
     "industries": "Sohalar",
     "work": "Loyihalar",
     "about": "Biz haqimizda",
+    "faq": "Savol-javoblar",
     "cta": "Suhbatga yozilish",
     "language": "Til",
     "home": "Bosh sahifa"
@@ -50,6 +51,31 @@
       }
     ],
     "closing": "Biz so'ralgan narsani emas — haqiqiy og'riqni topamiz."
+  },
+  "aboutOverview": {
+    "service": {
+      "title": "Biz qanday xizmat ko‘rsatamiz?",
+      "paragraphs": [
+        "Bizning xizmatimiz — biznesingizdagi kundalik ish jarayonlarini raqamlashtirish, takroriy operatsiyalar sonini kamaytirish va kompaniyaning ichki faoliyatini yagona tizim orqali boshqarish uchun ishlab chiqiladigan raqamli yechimdir. Bunday xizmat biznesingizda doimiy ravishda takrorlanadigan va dasturiy ta’minot tomonidan bajarilishi mumkin bo‘lgan vazifalarni avtomatlashtiradi, xodimlarning vaqtini tejaydi va ish jarayonidagi ortiqcha harakatlarni kamaytiradi.",
+        "Bizning xizmatimizni ma’lum ma’noda biznesingizning raqamli miyasi sifatida tasavvur qilish mumkin. U biznesingiz qanday ishlayotganini, qaysi yo‘nalish qanday natija berayotganini, sotuvlaringizda qanday o‘zgarishlar yuz berayotganini va boshqa muhim ko‘rsatkichlarni bir joyda jamlaydi. Turli jarayonlardan kelayotgan ma’lumotlar umumlashtirilgan va tushunarli ko‘rinishda taqdim etilgani sababli, siz biznesda nima sodir bo‘layotganini yaxshiroq tushunishingiz, mavjud ma’lumotlarga asoslangan qarorlar qabul qilishingiz va kelajakdagi harakatlaringizni aniqroq rejalashtirishingiz mumkin.",
+        "To‘g‘ri ishlab chiqilgan tizim kompaniyadagi ishchi kuchidan ham samaraliroq foydalanish imkonini beradi. Dastur bajarishi mumkin bo‘lgan vazifalar uchun ortiqcha resurs sarflash o‘rniga, xodimlaringizni ko‘proq insoniy fikrlash, nazorat va qaror qabul qilish talab qiladigan ishlarga yo‘naltirish mumkin. Ba’zi jarayonlarda tizim xodimni to‘liq almashtirmaydi, balki unga kerakli ma’lumotlarni tayyorlash, hisob-kitoblarni bajarish yoki takroriy vazifalarni o‘z zimmasiga olish orqali yordam beradi. Natijada vaqt, inson mehnati va mablag‘ kabi biznes uchun qimmatli resurslardan ancha oqilona foydalanish imkoniyati paydo bo‘ladi."
+      ]
+    },
+    "mission": {
+      "title": "Bizning maqsadimiz",
+      "paragraphs": [
+        "Biz siz kabi o‘z biznesini rivojlantirishni, ichki jarayonlarini yaxshilashni va texnologiyadan amaliy foydalanishni istaydigan kompaniyalar uchun moslashtirilgan raqamli yechimlarni ishlab chiqamiz. Bizning vazifamiz biznesingizni tayyor qolipga moslashtirish emas, balki biznesingiz qanday ishlashini tushunib, uning ehtiyojlariga mos keladigan tizimni yaratishdir. Biz ishlab chiqadigan yechimlar ish jarayonlarini soddalashtirishi, boshqaruvni yaxshilashi va kompaniyaning kelajakdagi o‘sishi uchun mustahkam texnik asos yaratishi kerak.",
+        "Biz mijoz bilan loyihani topshirishgacha bo‘lgan qisqa muddatli hamkorlik bilan cheklanib qolishni maqsad qilmaymiz. Biz ular bilan doimiy ishlashni, o‘z sohamizda rivojlanishni va ayni paytda yangi texnologiyalar hamda biznes uchun yangi imkoniyatlarni izlashni davom ettirishni istaymiz. Biz uchun yangi texnologiya — shunchaki foydalanish mumkin bo‘lgan vosita emas, balki biznes muammosiga boshqacha nuqtai nazardan qarash va odatiy yondashuvlardan tashqarida yangi yechim topish imkoniyatidir."
+      ]
+    },
+    "feedback": {
+      "title": "Biz mijozlarimiz va ularning fikrlarini qadrlaymiz",
+      "paragraphs": [
+        "Biz uchun loyiha tugashi mahsulotni topshirish bilan o‘lchanmaydi. Biz qilgan ishimizga baho berishda mijozning fikrini eng muhim mezonlardan biri deb hisoblaymiz. Shu sababli xizmatimizdan foydalanganingizdan keyingi sof fikringiz biz uchun muhim. Sizga nima yoqqani, qaysi qismni yaxshilash kerakligi yoki qayerda kutgan natijangizga erisha olmaganimiz — bularning barchasi keyingi loyihalarimiz uchun tajriba va o‘rganish nuqtasiga aylanadi.",
+        "Biz loyihani muvaffaqiyatli topshirdik deb faqat tizim texnik jihatdan tayyor bo‘lgani uchun hisoblamaymiz. Haqiqiy natija mijoz tizimdan qoniqqanida, uning biznesiga foyda keltirayotganini ko‘rganida va keyingi loyihalarida ham biz bilan ishlashni istaganida namoyon bo‘ladi.",
+        "Biz loyihalarni shunchaki vazifalar ro‘yxatidagi navbatdagi bandni yakunlandi deb belgilab qo‘yish uchun bajarmaymiz. Biz har bir loyiha uchun uning natijasi va biznesingizga keltiradigan foydasiga mas’uliyat bilan yondashamiz."
+      ]
+    }
   },
   "differentiators": {
     "title": "Nega PFC Solutions?",
@@ -139,44 +165,91 @@
       "finePrint": "30 kun ichida shartnoma imzolansa va loyiha narxi Discovery narxidan kamida 5 baravar katta bo'lsa."
     },
     "blockD": {
-      "stages": [
-        "Discovery",
-        "Reja",
-        "Ishlab chiqish",
-        "Test",
-        "Joriy etish",
-        "Qo'llab-quvvatlash"
-      ],
       "rhythm": "Har hafta — yozma holat hisoboti · Har 2 hafta — ishlaydigan demo · Har bosqich oxirida — qabul",
       "guarantee": "Kafolat 3 oy — topshirish aktidan boshlab."
     }
   },
+  "workflow": {
+    "stages": [
+      {
+        "title": "Discovery jarayoni",
+        "body": [
+          "Discovery jarayoni orqali biznesingiz, ish jarayonlaringiz va maqsadlaringiz haqida to‘liqroq ma’lumotga ega bo‘lamiz. Bu jarayonni shunchaki siz bilan tanishish uchun tashkil qilmaganmiz. Siz bilan o‘tkazadigan 30 daqiqalik muloqot davomida ish jarayonlaringizda o‘zingiz ilg‘amagan muammolarni aniqlashimiz va mavjud muammolaringizga samarali yechimlar topishimiz mumkin."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Rejalashtirish jarayoni",
+        "body": [
+          "Siz bilan kelishuv amalga oshirilgandan so‘ng, Discovery jarayonida to‘plangan ma’lumotlarimiz asosida puxta texnik reja ishlab chiqamiz. Ushbu jarayonda jamoamiz birgalikda sizga kerak bo‘ladigan tizimning ichki infratuzilmasi, system design va boshqa texnik jihatlarini chuqur tahlil qilib, batafsil reja tuzadi.",
+          "Bu jarayonda siz ham bevosita ishtirok etasiz. Rejalashtirish davomida tizimning qaysi qismida nima bo‘lishini siz bilan birgalikda belgilaymiz va tasdiqlaymiz. Reja to‘liq tasdiqlangandan keyingina ishlab chiqish jarayoniga o‘tamiz va tasdiqlangan rejani o‘zgarmas asos sifatida qabul qilamiz. Bu tizimning sifatli va izchil ishlab chiqilishi uchun muhim."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Ishlab chiqish jarayoni",
+        "body": [
+          "Rejalashtirish jarayonida ishlab chiqilgan puxta va batafsil reja asosida tizimni ishlab chiqishga kirishamiz. Bu jarayonda ko‘p yillik tajribaga ega dasturchilardan tashkil topgan jamoamiz professional yondashuv asosida ishlaydi.",
+          "Bizni boshqa IT kompaniyalardan ajratib turadigan jihatlardan biri — ish jarayonida ochiq va faol muloqotga katta e’tibor berishimiz. Jamoa a’zolari bir-birining xatolari, texnik qarorlari va xulosalarini ochiq muhokama va tanqid qiladilar. Bu yondashuv ish sifatini doimiy ravishda oshirishga katta hissa qo‘shadi."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Test jarayoni",
+        "body": [
+          "Ishlab chiqilgan mahsulotni tajribali QA testerlarimiz tomonidan doimiy ravishda testdan o‘tkazamiz. Tizimning turli jihatlarini, jumladan, ichki xatoliklar, dizayn kamchiliklari, nomuvofiq animatsiyalar, uzoq muddatli foydalanish bilan bog‘liq muammolar, tizimning yuqori yuklamalarga bardoshliligi va boshqa ehtimoliy xatoliklarni tekshiramiz."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Joriy qilish jarayoni",
+        "body": [
+          "Mahsulot tayyor bo‘lgach, uni joriy qilish, ya’ni onlayn serverga joylashtirish jarayoniga o‘tamiz. Tayyor mahsulot foydalanuvchilar uchun doimiy va barqaror ishlashi uchun uni internet orqali foydalanish mumkin bo‘lgan maxsus serverga joylashtirish zarur."
+        ],
+        "imageAlt": ""
+      },
+      {
+        "title": "Qo‘llab-quvvatlash",
+        "body": [
+          "Mahsulotni sizga topshirish bilan hamkorligimizni yakunlamaymiz. Tizimning uzluksiz va barqaror ishlashini ta’minlashda, yuzaga kelishi mumkin bo‘lgan xatoliklarni bartaraf etishda yoki yangi funksiyalarni qo‘shishda sizni doimiy ravishda qo‘llab-quvvatlaymiz."
+        ],
+        "imageAlt": ""
+      }
+    ]
+  },
   "services": {
     "title": "Xizmatlar",
+    "viewDetails": "Batafsil ko‘rish",
     "items": [
       {
         "name": "Ichki boshqaruv tizimlari",
-        "duration": "3–8 oy"
+        "duration": "3–8 oy",
+        "description": "Kundalik operatsiyalar, xodimlar va hisobotlarni bitta tizimda boshqaring."
       },
       {
         "name": "Jarayonlarni avtomatlashtirish",
-        "duration": "1–4 oy"
+        "duration": "1–4 oy",
+        "description": "Takroriy vazifalarni avtomatlashtirib, vaqt, xarajat va xatolarni kamaytiring."
       },
       {
         "name": "AI yechimlari va agentlar",
-        "duration": "1–5 oy"
+        "duration": "1–5 oy",
+        "description": "AI agentlar yordamida aloqa, tahlil va ichki vazifalarni tezlashtiring."
       },
       {
         "name": "Integratsiya va ma'lumot",
-        "duration": "1–3 oy"
+        "duration": "1–3 oy",
+        "description": "Tarqoq dastur va ma’lumotlarni yagona ishlaydigan ekotizimga birlashtiring."
       },
       {
         "name": "Sayt va veb yechimlar",
-        "duration": "2–8 hafta"
+        "duration": "2–8 hafta",
+        "description": "Biznes maqsadiga mos, tezkor va qulay veb yechimlarni yarating."
       },
       {
         "name": "Qo'llab-quvvatlash va rivojlantirish",
-        "duration": "—"
+        "duration": "—",
+        "description": "Tizimni barqaror saqlang, xatolarni tuzating va imkoniyatlarini kengaytiring."
       }
     ]
   },
@@ -187,112 +260,97 @@
     "items": [
       {
         "name": "Ishlab chiqarish va zavodlar",
-        "entry": "Ombor va qoldiq"
+        "entry": "Ombor va qoldiq",
+        "description": "Xom ashyo, ishlab chiqarish, ombor qoldig‘i va tannarxni yagona tizimda kuzatib, jarayonlar ustidan aniq nazorat o‘rnating."
       },
       {
         "name": "Logistika va ombor",
-        "entry": "Inventarizatsiya"
+        "entry": "Inventarizatsiya",
+        "description": "Tovar harakati, inventarizatsiya, jo‘natmalar va qoldiqlarni real vaqt rejimida boshqarib, ombordagi farqlarni kamaytiring."
       },
       {
         "name": "Qurilish",
-        "entry": "Material va xarajat nazorati"
+        "entry": "Material va xarajat nazorati",
+        "description": "Obyektlar, materiallar, bajarilgan ish hajmi va xarajatlarni bir joyda kuzatib, loyiha holatini shaffof boshqaring."
       },
       {
         "name": "HoReCa — restoran va mehmonxona",
-        "entry": "Tannarx va qoldiq"
+        "entry": "Tannarx va qoldiq",
+        "description": "Mahsulot sarfi, retseptlar, tannarx va qoldiqlarni bog‘lab, restoran hamda mehmonxona operatsiyalarini nazorat qiling."
       },
       {
         "name": "Savdo — chakana va ulgurji",
-        "entry": "Ko'p filialli qoldiq va marja"
+        "entry": "Ko'p filialli qoldiq va marja",
+        "description": "Filiallar kesimida sotuv, qoldiq, narx va marjani kuzatib, chakana hamda ulgurji savdoni markazdan boshqaring."
       }
     ]
   },
   "work": {
     "title": "Loyihalar",
-    "groupManagement": "Boshqaruv tizimlari",
-    "groupWeb": "Veb yechimlar",
     "management": [
       {
         "name": "Sut yig'ish tizimi",
-        "sector": "Oziq-ovqat ishlab chiqarish"
+        "sector": "Oziq-ovqat ishlab chiqarish",
+        "description": "Namangandagi yirik sut mahsulotlari ishlab chiqaruvchisi uchun sut qabuli, laboratoriya ko‘rsatkichlari va yetkazib beruvchilar bilan hisob-kitobni yagona tizimda boshqaradi."
       },
       {
         "name": "Qurilish boshqaruv tizimi",
-        "sector": "Qurilish"
+        "sector": "Qurilish",
+        "description": "Qurilish obyektlari, materiallar, bajarilgan ish hajmi va xarajatlarni yagona registrda kuzatib, rahbariyat uchun shaffof nazorat yaratadi."
       },
       {
         "name": "Faktoriya",
-        "sector": "B2B SaaS ERP"
+        "sector": "B2B SaaS ERP",
+        "description": "Korporativ mijozlar uchun kompaniyalar, filiallar, rollar va operatsiyalarni xavfsiz ajratib boshqaradigan ko‘p ijarali B2B SaaS ERP platformasi."
       },
       {
         "name": "Bekuz",
-        "sector": "Valyuta brokerligi, Dubay"
+        "sector": "Valyuta brokeri, Dubay",
+        "description": "Dubaydagi valyuta brokeri uchun ko‘p valyutali, ko‘p qismli hisob-kitoblar va operatsiyalar jurnalidan avtomatik hisoblanadigan ishonchli kassa."
       },
       {
         "name": "Fotima Medical Plaza",
-        "sector": "Tibbiyot"
+        "sector": "Tibbiyot",
+        "description": "Bemorlar oqimi, xizmatlar, qabul jarayoni va klinikaning ichki operatsiyalarini yagona muhitda boshqarishga mo‘ljallangan tibbiy platforma."
       },
       {
         "name": "Mezon Akademiya",
-        "sector": "Ta'lim"
+        "sector": "Ta’lim",
+        "description": "Guruhlar, dars jadvali, to‘lovlar va o‘quv natijalarini birlashtirib, akademiyaning kundalik ta’lim jarayonlarini markazdan boshqaradi."
       },
       {
         "name": "WeAuto",
-        "sector": "Avto marketplace"
+        "sector": "Avto marketpleys",
+        "description": "Avtomobil e’lonlari, dilerlar, modellarni taqqoslash va bitimlar oqimini bitta qulay platformada birlashtirgan avto marketpleys."
       },
       {
         "name": "Midrama",
-        "sector": "Media striming"
+        "sector": "Media striming",
+        "description": "Kontent katalogi, video ijrosi, foydalanuvchi obunalari va kirish huquqlarini bir joyda boshqaradigan media striming platformasi."
       }
     ],
     "web": [
       {
         "name": "UstaBarber",
-        "sector": "Koreya"
+        "sector": "Xizmatlar, Koreya",
+        "description": "Koreyadagi premium o‘zbek sartaroshxonasi uchun xizmatlar, mahsulotlar, galereya, aloqa va mijozlarga ma’lumot berishni birlashtirgan veb platforma."
       },
       {
         "name": "Ironex",
-        "sector": "Metallga ishlov berish"
+        "sector": "Metallga ishlov berish",
+        "description": "Metallga ishlov berish xizmatlari, ishlab chiqarish imkoniyatlari va buyurtma so‘rovlarini mijozlarga aniq taqdim etadigan korporativ veb yechim."
       },
       {
         "name": "Legal House",
-        "sector": "Yuridik"
+        "sector": "Yuridik xizmatlar",
+        "description": "Yuridik xizmatlar, mutaxassislik yo‘nalishlari va mijoz murojaatlarini tartibli boshqarishga yordam beradigan ishonchli korporativ sayt."
       },
       {
         "name": "Tikoncha",
-        "sector": "IT / ta'lim"
+        "sector": "IT / ta’lim",
+        "description": "Ota-onalarga ekran vaqti, ilovalar va fokus rejimini boshqarish hamda foydalanish statistikasini kuzatish imkonini beradigan nazorat platformasi."
       }
-    ],
-    "bekuzTitle": "Batafsil — Bekuz",
-    "bekuzRequirement": "Talab",
-    "bekuzSolution": "Qanday yechildi",
-    "bekuz": [
-      {
-        "requirement": "Ko'p valyutali, ko'p qismli hisob-kitob",
-        "solution": "Bitta buyurtmada bir necha olish va to'lash qismi; tranzaksiyalar avtomatik biriktiriladi"
-      },
-      {
-        "requirement": "Kursning butunligi",
-        "solution": "Har qismda kursning o'zgarmas oniy nusxasi — qiymati, manbasi, sanasi"
-      },
-      {
-        "requirement": "\"Nima bo'lardi\" tahlili",
-        "solution": "Marjani qayta hisoblash tarixga tegmasdan ishlaydi"
-      },
-      {
-        "requirement": "Ishonchli kassa",
-        "solution": "Qoldiq saqlanmaydi — u operatsiyalar jurnalidan hisoblanadi"
-      },
-      {
-        "requirement": "Xavfsiz vakolat berish",
-        "solution": "Modul bo'yicha huquqlar + \"o'z / barcha\" doirasi + o'chirilmaydigan audit jurnali"
-      },
-      {
-        "requirement": "Ko'p kanalli ish",
-        "solution": "Veb, mobil, WhatsApp va Telegram AI yordamchisi — bitta ma'lumot ustida"
-      }
-    ],
-    "note": "Har bir loyihaning o'lchanadigan natijasi mijoz roziligi bilan alohida taqdim etiladi. Taklifda faqat tekshirilgan raqam ishlatiladi."
+    ]
   },
   "fit": {
     "title": "Biz kim uchunmiz",

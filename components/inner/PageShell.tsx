@@ -2,7 +2,9 @@ import type { ReactNode } from "react";
 import MobileMenu from "@/components/MobileMenu";
 import Preloader from "@/components/Preloader";
 import ScrollTop from "@/components/ScrollTop";
-import Breadcrumb from "@/components/inner/Breadcrumb";
+import Breadcrumb, {
+  type BreadcrumbItem,
+} from "@/components/inner/Breadcrumb";
 import HeaderLayout1 from "@/components/inner/HeaderLayout1";
 import Footer from "@/components/sections/Footer";
 
@@ -15,9 +17,11 @@ import Footer from "@/components/sections/Footer";
  * removed from HeaderLayout1 rather than left opening an empty drawer.
  */
 export default function PageShell({
+  breadcrumbs,
   title,
   children,
 }: {
+  breadcrumbs?: BreadcrumbItem[];
   title: string;
   children: ReactNode;
 }) {
@@ -26,7 +30,7 @@ export default function PageShell({
       <Preloader />
       <MobileMenu />
       <HeaderLayout1 />
-      <Breadcrumb title={title} />
+      <Breadcrumb items={breadcrumbs} title={title} />
       <main>{children}</main>
       <Footer />
       <ScrollTop />
