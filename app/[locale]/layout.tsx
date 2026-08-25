@@ -306,6 +306,97 @@ export default async function LocaleLayout({
             to{opacity:0}
           }
 
+          /* ================================================================
+             RESPONSIVE — mobile & tablet
+             Lives here rather than in style.css so template regeneration
+             cannot drop it, and so it cascades after style.css without
+             needing !important.
+             ================================================================ */
+
+          /* --- Approach Block C callout -----------------------------------
+             Replaces the .cta-card-wrapp overlay this box used to borrow.
+             A plain in-flow card: no absolute positioning, so Block D can no
+             longer render on top of it, and no opacity:0 to hide it. */
+          .approach-callout{
+            background:var(--smoke-color4);
+            border:1px solid rgba(6,5,11,.08);
+            border-radius:16px;
+            padding:28px 30px;
+          }
+          .approach-callout .box-text{margin-bottom:10px}
+          .approach-callout small{color:var(--body-color);line-height:1.6;display:block}
+          @media (max-width:575.98px){
+            .approach-callout{padding:22px 20px;border-radius:14px}
+          }
+
+          /* --- Edge gutters -----------------------------------------------
+             Bootstrap's container gutter is 12px, which leaves body copy
+             almost touching the screen edge on phones (most visible in the
+             footer, where nothing else adds inset). Rows use a -12px margin
+             and columns a +12px padding, so raising the container padding
+             moves content in without disturbing the grid maths. */
+          @media (max-width:575.98px){
+            .container,.th-container,.th-container2,.th-container3,
+            .th-container4,.th-container5{
+              padding-left:20px;padding-right:20px
+            }
+          }
+
+          /* --- Header logo contrast ---------------------------------------
+             header-layout8 sits over the hero. Above ~992px the logo lands on
+             the hero card's white notch, but below that the card is
+             full-bleed and the black logo falls on near-black (#0A0A0A) —
+             about 1.1:1, invisible. logo-footer.svg is the same 213x80
+             artwork with fill #FFFFFF, so it is a drop-in swap. */
+          .header-layout8 .header-logo .logo-light{display:none}
+          @media (max-width:991.98px){
+            .header-layout8 .header-logo .logo-dark{display:none}
+            .header-layout8 .header-logo .logo-light{display:inline-block}
+          }
+
+          /* --- Touch targets ----------------------------------------------
+             WCAG 2.5.8 asks for 24px minimum, Apple/Material for ~44px. The
+             menu, language and breadcrumb links rendered 19-26px tall. Height
+             is added with padding so nothing reflows horizontally. */
+          @media (max-width:991.98px){
+            .th-menu-area .menu li a,
+            .th-menu-wrapper .menu li a{
+              display:flex;align-items:center;min-height:44px
+            }
+            .lang-switcher--inline a{
+              display:inline-flex;align-items:center;justify-content:center;
+              min-height:44px;min-width:44px;padding:0 10px
+            }
+            .breadcumb-menu li a,.breadcumb-menu li{
+              display:inline-flex;align-items:center;min-height:32px
+            }
+            .header-logo a,.mobile-logo a{display:inline-block;padding:6px 0}
+            /* Footer nav/services columns render 21px-tall links. 40px clears
+               WCAG 2.5.8 (24px) with room to spare and doubles as breathing
+               space between stacked links, without the height blow-up a full
+               44px on twelve links would cause. */
+            .footer-wrapper .widget_nav_menu .menu li a{
+              display:inline-flex;align-items:center;min-height:40px
+            }
+            /* Copyright-bar links (privacy, language repeat). */
+            .footer-links li a{
+              display:inline-flex;align-items:center;min-height:40px
+            }
+          }
+
+          /* --- Work carousel ------------------------------------------------
+             12 slides, but the slider shipped with no pagination, arrows or
+             scrollbar, so nothing indicated more projects existed. Bullets
+             give a position cue and a way to jump on touch. */
+          #workSlider{padding-bottom:46px}
+          #workSlider .swiper-pagination{bottom:0;line-height:0}
+          #workSlider .swiper-pagination-bullet{
+            width:9px;height:9px;margin:0 5px;opacity:.35;
+            background:var(--title-color);transition:opacity .2s,width .2s
+          }
+          #workSlider .swiper-pagination-bullet-active{
+            opacity:1;width:26px;border-radius:5px;background:var(--theme-color)
+          }
         `}</style>
       </head>
       <body className="theme7">

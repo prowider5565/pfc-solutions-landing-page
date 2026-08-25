@@ -26,6 +26,13 @@ const SWIPER_OPTIONS = {
   loop: true,
   speed: 900,
   autoplay: AUTOPLAY_OPTIONS,
+  // The slider shipped with no arrows, bullets or scrollbar, so on a phone
+  // (1 slide per view of 12) nothing signalled that more projects existed.
+  // Scoped by id because main.js resolves this selector against the document.
+  pagination: {
+    el: "#workSlider .swiper-pagination",
+    clickable: true,
+  },
   mousewheel: {
     enabled: true,
     sensitivity: 4,
@@ -100,6 +107,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
           </div>
         ))}
       </div>
+      <div className="swiper-pagination" />
     </div>
   );
 }

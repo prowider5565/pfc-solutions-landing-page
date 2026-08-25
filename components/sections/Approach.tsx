@@ -104,7 +104,11 @@ export default async function Approach() {
         </div>
         <div className="row justify-content-center mt-40">
           <div className="col-lg-10">
-            <div className="cta-card-wrapp p-4">
+            {/* Not .cta-card-wrapp: that template class is the floating
+                pop-up overlay (position:absolute, opacity:0, scale(0)) which
+                JS reveals on a trigger. Used here it took the callout out of
+                flow — invisible above 525px, overlapping Block D below it. */}
+            <div className="approach-callout">
               <p className="box-text mb-10">{t("blockC.callout")}</p>
               <p className="fs-18 mb-0">
                 <small>{t("blockC.finePrint")}</small>

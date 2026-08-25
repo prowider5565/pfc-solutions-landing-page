@@ -17,8 +17,22 @@ export default async function Header() {
             <div className="row align-items-center justify-content-between">
               <div className="col-auto">
                 <div className="header-logo">
+                  {/* Two variants: this header is absolute over the hero, and
+                      below ~992px the hero card goes full-bleed so the black
+                      logo would sit on near-black. The light variant is the
+                      same artwork filled #FFFFFF; CSS swaps them by width, so
+                      only one is ever visible and the alt text lives on it. */}
                   <Link className="icon-masking" href="/">
-                    <img className="zoom-130" src="/assets/img/logo.svg" alt="PFC Solutions" />
+                    <img
+                      className="zoom-130 logo-dark"
+                      src="/assets/img/logo.svg"
+                      alt="PFC Solutions"
+                    />
+                    <img
+                      className="zoom-130 logo-light"
+                      src="/assets/img/logo-footer.svg"
+                      alt="PFC Solutions"
+                    />
                   </Link>
                 </div>
               </div>
