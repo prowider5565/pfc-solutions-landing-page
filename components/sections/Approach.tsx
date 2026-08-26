@@ -19,7 +19,6 @@ export default async function Approach() {
   const t = await getTranslations("approach");
   const rows = t.raw("blockA.rows") as Row[];
   const steps = t.raw("blockB.steps") as string[];
-  const tiers = t.raw("blockC.tiers") as Tier[];
 
   return (
     <section className="space overflow-hidden position-relative" id="approach">
@@ -83,38 +82,8 @@ export default async function Approach() {
           </div>
         </div>
 
-        {/* Block C — Discovery pricing */}
-        <div className="row gy-4 justify-content-center">
-          {tiers.map((tier, i) => (
-            <div className="col-xl-4 col-md-6" key={tier.name}>
-              <div className={`price-card style2 extra th-ani ${i === 1 ? "active" : ""}`}>
-                <div className="box-content">
-                  <h3 className="box-title">{tier.name}</h3>
-                  <h4 className="box-price">{tier.price}</h4>
-                  <p className="subtitle">{tier.duration}</p>
-                </div>
-                <div className="available-list">
-                  <ul>
-                    <li>{tier.when}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
         <div className="row justify-content-center mt-40">
-          <div className="col-lg-10">
-            {/* Not .cta-card-wrapp: that template class is the floating
-                pop-up overlay (position:absolute, opacity:0, scale(0)) which
-                JS reveals on a trigger. Used here it took the callout out of
-                flow — invisible above 525px, overlapping Block D below it. */}
-            <div className="approach-callout">
-              <p className="box-text mb-10">{t("blockC.callout")}</p>
-              <p className="fs-18 mb-0">
-                <small>{t("blockC.finePrint")}</small>
-              </p>
-            </div>
-          </div>
+
         </div>
 
         {/* Block D — the six delivery stages, as the shared timeline. Rendered
