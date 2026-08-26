@@ -240,7 +240,7 @@ export default async function LocaleLayout({
 
           /* Closing proof line added beneath the template's pinned cards. */
           .testimonial-closing{
-            margin:96px auto 0;max-width:1120px;
+            margin:128px auto 0;max-width:1120px;
             font-family:var(--title-font);font-size:22px;font-weight:600;
             color:var(--title-color)
           }
@@ -258,17 +258,17 @@ export default async function LocaleLayout({
              ratio than logo9.svg, so width matches the template while height
              stays natural instead of being flattened. */
           .pfc-footer-top-area{
-            padding-top:90px!important;padding-bottom:72px!important;
-            border-bottom:1px solid rgba(255,255,255,.2);margin-bottom:57px
+            padding-top:77px!important;padding-bottom:62px!important;
+            border-bottom:1px solid rgba(255,255,255,.2);margin-bottom:48px
           }
           .pfc-footer-hero-logo{width:428px;max-width:none}
           .pfc-footer-hero-logo img{
             display:block;width:428px!important;height:auto!important;
             max-width:none!important
           }
-          .pfc-footer-main{padding-top:0;padding-bottom:126px}
+          .pfc-footer-main{padding-top:0;padding-bottom:107px}
           .pfc-footer-main .th-widget-about{max-width:420px}
-          .pfc-footer-main .footer-widget{margin-bottom:102px}
+          .pfc-footer-main .footer-widget{margin-bottom:87px}
           .pfc-footer-social{margin-top:34px}
 
           /* The white notch at the header's top-right is carved by the hero's
@@ -445,17 +445,17 @@ export default async function LocaleLayout({
             .technology-template-area .integration-icon img{width:36px;height:36px}
             .testimonial-section .testi-card2 .box-text,
             .testimonial-section .testi-card2 .box-info{padding-left:0}
-            .testimonial-closing{margin-top:64px;font-size:19px;line-height:1.5}
+            .testimonial-closing{margin-top:84px;font-size:19px;line-height:1.5}
             .pfc-footer-top-area{
-              padding-top:42px!important;padding-bottom:35px!important;
-              margin-bottom:30px
+              padding-top:36px!important;padding-bottom:30px!important;
+              margin-bottom:26px
             }
             .pfc-footer-hero-logo{width:100%;max-width:360px;margin:0 auto}
             .pfc-footer-hero-logo img{
               width:100%!important;height:auto!important;max-width:100%!important
             }
-            .pfc-footer-main{padding-top:0;padding-bottom:42px}
-            .pfc-footer-main .footer-widget{margin-bottom:40px}
+            .pfc-footer-main{padding-top:0;padding-bottom:36px}
+            .pfc-footer-main .footer-widget{margin-bottom:34px}
           }
 
           /* --- Header logo contrast ---------------------------------------
