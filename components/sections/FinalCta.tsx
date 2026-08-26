@@ -1,10 +1,25 @@
 import { getTranslations } from "next-intl/server";
 import ContactMap from "@/components/sections/ContactMap";
 import ContactForm from "@/components/ContactForm";
+import { INDUSTRY_CARD_KEYS } from "@/lib/industries";
 
 export default async function FinalCta() {
   const t = await getTranslations("finalCta");
   const tNav = await getTranslations("nav");
+  const tIndustries = await getTranslations("industries");
+
+  // Options are assembled here rather than in the client component so the
+  // industry names stay in the message files and out of the JS bundle. The
+  // five card industries are index-matched to INDUSTRY_CARD_KEYS — the same
+  // coupling /industries relies on for its icons — then "other" is appended.
+  const industryNames = tIndustries.raw("items") as { name: string }[];
+  const industryOptions = [
+    ...INDUSTRY_CARD_KEYS.map((value, index) => ({
+      value,
+      label: industryNames[index].name,
+    })),
+    { value: "other", label: tIndustries("other") },
+  ];
 
   return (
     <>
@@ -26,9 +41,11 @@ export default async function FinalCta() {
           <div className="row justify-content-center">
             <div className="col-xl-9">
               <ContactForm
+                industries={industryOptions}
                 labels={{
                   name: t("fields.name"),
                   company: t("fields.company"),
+                  industry: t("fields.industry"),
                   phone: t("fields.phone"),
                   problem: t("fields.problem"),
                   submit: tNav("cta"),

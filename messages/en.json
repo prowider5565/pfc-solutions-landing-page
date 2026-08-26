@@ -257,6 +257,7 @@
     "title": "Industries",
     "subline": "What they share isn't the industry — it's the process.",
     "entryLabel": "Typical entry point",
+    "other": "Other",
     "items": [
       {
         "name": "Manufacturing and factories",
@@ -439,6 +440,7 @@
     "fields": {
       "name": "Your name",
       "company": "Company",
+      "industry": "Industry (optional)",
       "phone": "Phone",
       "problem": "Your problem in one sentence"
     },

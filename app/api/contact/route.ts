@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { INDUSTRY_TELEGRAM_LABELS, isIndustryKey } from "@/lib/industries";
 import { sendContactToTelegram } from "@/lib/telegram-bot";
 
 export const runtime = "nodejs";
@@ -6,6 +7,7 @@ export const runtime = "nodejs";
 type ContactPayload = {
   name?: unknown;
   company?: unknown;
+  industry?: unknown;
   phone?: unknown;
   problem?: unknown;
   website?: unknown;
@@ -40,6 +42,15 @@ export async function POST(request: Request) {
   const phone = cleanField(payload.phone, FIELD_LIMITS.phone);
   const problem = cleanField(payload.problem, FIELD_LIMITS.problem);
 
+  // Optional, and validated against the fixed key list rather than trusted as
+  // free text — the select only ever submits one of these or an empty string,
+  // so anything else is a hand-rolled request and is dropped rather than
+  // rejected. Resolved to its canonical Uzbek name here because the Telegram
+  // message is Uzbek whatever locale the visitor was browsing in.
+  const industry = isIndustryKey(payload.industry)
+    ? INDUSTRY_TELEGRAM_LABELS[payload.industry]
+    : "";
+
   if (!name || !company || !phone || !problem || phone.length < 7) {
     return NextResponse.json(
       { message: "Barcha maydonlarni to‘g‘ri to‘ldiring." },
@@ -68,6 +79,7 @@ export async function POST(request: Request) {
     await sendContactToTelegram(botToken, chatId, {
       name,
       company,
+      industry,
       phone,
       problem,
       createdAt: new Date().toISOString(),

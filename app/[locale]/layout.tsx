@@ -504,6 +504,78 @@ export default async function LocaleLayout({
           }
 
           /* ================================================================
+             INDUSTRIES GRID
+             The cards themselves are the template's own .service-box2 from
+             features.html - see assets/css/style.css:26385. Only two things
+             are added here, both consequences of dropping that reference's
+             "View Details" button.
+             ================================================================ */
+          /* .service-box2 is sized by its content, which is fine in the
+             reference where every card carries the same two lines of filler.
+             Real copy in three languages is not that even - the Russian
+             HoReCa card runs a line longer than the English one - so without
+             this the row bottoms stagger. */
+          /* .sec-text is hardcoded #E5E5E5 in style.css:3759 - it is only ever
+             used on the template's dark sections, so on this white one it is
+             invisible (1.1:1). Scoped rather than fixing .sec-text globally,
+             which would break it everywhere it is correctly used.
+             #484848 on #FFFFFF is 8.9:1 - CLAUDE.md acceptance criterion 4. */
+          .industry-subline{color:var(--body-color)}
+
+          /* Same cancellation .wt-title needs: .box-title capitalizes every
+             word, which renders "Производство И Заводы" and "Manufacturing And
+             Factories" - and CLAUDE.md 4.7 fixes that copy as "Manufacturing
+             and factories". The reference's own titles are short enough that
+             the template never trips over this. */
+          .industry-grid .box-title{text-transform:none}
+
+          .industry-grid .service-box2{height:100%;display:flex;flex-direction:column}
+          .industry-grid .box-content{display:flex;flex-direction:column;flex:1 1 auto}
+          /* Takes up the slack so the entry-point line sits on the card floor
+             on every card, whatever the description length. Also overrides
+             .service-box2 .box-text's 35px, which was spacing for the button. */
+          .industry-grid .box-text{flex:1 1 auto;margin-bottom:24px}
+
+          /* Card floor: the entry point (CLAUDE.md 4.7) under the rule, the
+             CTA under that on the right.
+             Always stacked, never side by side. Sharing one line only fits
+             when the entry point is short: "Stock-taking" fits, "Material va
+             xarajat nazorati" does not, so a wrap-if-it-fits row makes the
+             footer one line tall in some cards and two in others - and since
+             .box-text pushes the footer to the card floor, that lifts the rule
+             to a different height in each card of the same row. Stacking is
+             one line taller and identical in all three locales. */
+          .industry-foot{
+            padding-top:18px;
+            border-top:1px solid rgba(6,5,11,.08);
+            display:flex;flex-direction:column;align-items:flex-start;gap:14px
+          }
+          .industry-entry{
+            margin:0;
+            font-family:var(--title-font);font-size:15px;font-weight:600;
+            line-height:1.5;color:var(--title-color)
+          }
+          /* .th-btn2, the site's primary CTA - the header button and the
+             contact submit are the same thing, which is the point: CLAUDE.md
+             acceptance criterion 7 allows one CTA repeating, not a second
+             competing style. Deliberately NOT the reference's .th-btn
+             .th-border: its sliding fill is a fixed 56x56 block geometrically
+             tied to a full-height button, so shrinking one to card scale turns
+             that block into a slab across the right half. .th-btn2's wipe is
+             width:100%/height:inherit and rescales with the padding.
+             height:auto overrides .th-btn2's height:100%, which would
+             otherwise stretch it to the flex row. */
+          .industry-cta{
+            align-self:flex-end;
+            height:auto;font-size:14px;padding:13px 20px
+          }
+          .industry-entry__label{
+            display:block;margin-bottom:2px;
+            font-family:var(--body-font);font-size:13px;font-weight:400;
+            letter-spacing:.04em;text-transform:uppercase;color:var(--body-color)
+          }
+
+          /* ================================================================
              WORKFLOW TIMELINE
              Everything here is authored in its FINISHED state: rail drawn,
              dots lit, rows opaque. The dimmed/animated states hang off .wt-js,

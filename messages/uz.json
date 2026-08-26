@@ -257,6 +257,7 @@
     "title": "Sohalar",
     "subline": "Umumiy belgi sohada emas, jarayonda.",
     "entryLabel": "Boshlang‘ich nuqta",
+    "other": "Boshqa",
     "items": [
       {
         "name": "Ishlab chiqarish va zavodlar",
@@ -439,6 +440,7 @@
     "fields": {
       "name": "Ismingiz",
       "company": "Kompaniya",
+      "industry": "Soha (ixtiyoriy)",
       "phone": "Telefon",
       "problem": "Muammoingiz bir jumlada"
     },

@@ -1,6 +1,9 @@
 export type TelegramContact = {
   name: string;
   company: string;
+  /** Canonical Uzbek industry name, already resolved from the submitted key by
+   *  the API route. Empty when the visitor left the optional field unset. */
+  industry: string;
   phone: string;
   problem: string;
   createdAt: string;
@@ -25,6 +28,9 @@ function formatContactMessage(contact: TelegramContact) {
     "",
     `<b>Ismi:</b> ${escapeTelegramHtml(contact.name)}`,
     `<b>Kompaniya:</b> ${escapeTelegramHtml(contact.company)}`,
+    // The line is always present, even unanswered: a fixed set of lines is
+    // easier to scan down a channel than one that changes shape per message.
+    `<b>Soha:</b> ${contact.industry ? escapeTelegramHtml(contact.industry) : "—"}`,
     `<b>Telefon:</b> ${escapeTelegramHtml(contact.phone)}`,
     `<b>Muammo:</b> ${escapeTelegramHtml(contact.problem)}`,
     "",
