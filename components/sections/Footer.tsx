@@ -21,14 +21,15 @@ export default async function Footer() {
   return (
     <footer
       className="footer-wrapper footer-layout2 footer-layout8 background-image"
+      id="footer"
       style={{ backgroundImage: "url('/assets/img/bg/footer_bg_3_blue.png')" }}
     >
-      <div className="container th-container5">
-        <div className="row gy-4 justify-content-between pt-60">
+      <div className="container th-container5 pfc-footer-main">
+        <div className="row gy-4 justify-content-between">
           <div className="col-md-6 col-xl-4">
             <div className="widget footer-widget">
               <div className="th-widget-about">
-                <div className="about-logo mb-20">
+                <div className="footer-logo pfc-footer-logo mb-20">
                   <img src="/assets/img/logo-footer.svg" alt="PFC Solutions" />
                 </div>
                 <p className="about-text">{t("positioning")}</p>

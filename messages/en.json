@@ -372,6 +372,38 @@
     ],
     "closing": "When a client says \"we need a system like this\", we ask \"what for?\". A client unwilling to answer isn't our client."
   },
+  "homepageExtras": {
+    "trusted": {
+      "title": "Trusted by the best companies",
+      "logoAlt": "Partner company logo"
+    },
+    "technologies": {
+      "eyebrow": "[ Technologies ]",
+      "title": "Technologies We Use"
+    },
+    "testimonials": {
+      "eyebrow": "[ Testimonials ]",
+      "title": "What our Clients say About PFC Solutions",
+      "closing": "And hundreds of similar positive reviews",
+      "items": [
+        {
+          "body": "For several months, we conducted a comprehensive analysis of our company’s internal workflows and searched for an IT company capable of finding solutions to our problems. We spent considerable time discussing our business and work processes in detail with PFC Solutions. During those conversations, my initial assumption that PFC Solutions was a conventional team like other companies changed completely. Most interestingly, we did not have to adapt to the software they developed or study it separately at all. The system interface is intuitive, and its performance is exceptionally fast. I hope we will collaborate with PFC Solutions again in the future.",
+          "name": "Ahror Nazarov",
+          "role": "Manufacturing plant manager"
+        },
+        {
+          "body": "We already had our own internal software and also used 1C. In many cases, the financial indicators and calculations entered into 1C differed from the data in our internal system. Identifying and resolving these discrepancies alone used to take us several hours. During the Discovery process, PFC Solutions communicated with us actively, identified the problem quickly, and proposed an effective solution we had not expected. Their working process and team cohesion were clearly evident throughout our online meetings. I believe our partnership with PFC Solutions will continue for many years.",
+          "name": "Sardor Azimov",
+          "role": "Sales manager at a clothing factory"
+        },
+        {
+          "body": "Our construction company operated through a traditional, familiar system and used a CRM platform. We had hired several specialized professionals to analyze the data entered into the system and make business decisions based on it. Even so, the process took a great deal of time. Frankly, as a construction company, we did not know exactly which direction to take or what solution we needed. We therefore began looking for the best specialists in the field and discovered PFC Solutions. They developed an artificial intelligence agent tailored to our company’s needs. Our workflows are now approximately 45 percent faster. As a result, our existing workforce can complete almost twice as much work.",
+          "name": "Anvar Raximboyev",
+          "role": "HR specialist at Richard Blocks Construction Company"
+        }
+      ]
+    }
+  },
   "faq": {
     "title": "Frequently asked questions",
     "items": [

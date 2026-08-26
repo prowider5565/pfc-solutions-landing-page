@@ -3,16 +3,20 @@ import Header from "@/components/Header";
 import MobileMenu from "@/components/MobileMenu";
 import Preloader from "@/components/Preloader";
 import ScrollTop from "@/components/ScrollTop";
+import BrandSlider from "@/components/sections/BrandSlider";
+import Faq from "@/components/sections/Faq";
 import FinalCta from "@/components/sections/FinalCta";
 import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
+import Technologies from "@/components/sections/Technologies";
+import Testimonials from "@/components/sections/Testimonials";
 import WorkflowTimeline from "@/components/sections/WorkflowTimeline";
 
 /**
- * Multipage model: the homepage is a short landing — hero, the problem framing,
- * how we deliver, and the conversion action. Services, Industries, Work and
- * About each live on their own route.
+ * Multipage model: the homepage combines the core landing narrative with the
+ * restored template proof, technology, testimonial, and FAQ sections. Services,
+ * Industries, Work and About each continue to live on their own route.
  *
  * The workflow timeline is the one shared section: it appears here and on
  * /approach, but from a single component (WorkflowTimelineList) reading a
@@ -34,9 +38,13 @@ export default async function Home({
       <Header />
       <main>
         <Hero />
+        <BrandSlider />
         <Problem />
         <WorkflowTimeline />
+        <Technologies />
+        <Testimonials />
         <FinalCta />
+        <Faq />
       </main>
       <Footer />
       <ScrollTop />

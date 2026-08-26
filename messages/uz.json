@@ -372,6 +372,38 @@
     ],
     "closing": "Mijoz \"menga shunday tizim kerak\" deganda, biz \"nima uchun?\" deb so'raymiz. Bu savolga javob bermoqchi bo'lmagan mijoz — bizning mijozimiz emas."
   },
+  "homepageExtras": {
+    "trusted": {
+      "title": "Eng yaxshi kompaniyalar bizga ishonadi",
+      "logoAlt": "Hamkor kompaniya logotipi"
+    },
+    "technologies": {
+      "eyebrow": "[ Texnologiyalar ]",
+      "title": "Biz foydalanadigan texnologiyalar"
+    },
+    "testimonials": {
+      "eyebrow": "[ Mijozlar fikri ]",
+      "title": "Mijozlarimiz PFC Solutions haqida nima deydi",
+      "closing": "Va shunga o'xshash yuzlab ijobiy fikr-mulohazalar",
+      "items": [
+        {
+          "body": "Bir necha oy davomida kompaniyamizning ichki ish jarayonlarini keng qamrovli tahlil qilib, muammolarimizga yechim topa oladigan IT kompaniyani izladik. PFC Solutions kompaniyasi bilan ma’lum muddat davomida biznesimiz va ish jarayonlarimiz haqida batafsil suhbatlashdik. Ushbu muloqot davomida PFC Solutions ham boshqa kompaniyalar kabi an’anaviy jamoa degan dastlabki taxminim butunlay o‘zgardi. Eng qizig‘i, ular ishlab chiqqan dasturiy ta’minotga moslashishimiz yoki uni alohida o‘rganishimizga umuman hojat qolmadi. Tizim interfeysi intuitiv, ishlash tezligi esa juda yuqori. Kelajakda PFC Solutions bilan yana hamkorlik qilishga umid qilaman.",
+          "name": "Ahror Nazarov",
+          "role": "Ishlab chiqarish zavodi menejeri"
+        },
+        {
+          "body": "Bizda avvaldan mavjud ichki dasturiy ta’minot bo‘lib, qo‘shimcha ravishda 1C dasturidan ham foydalanardik. Ko‘p hollarda 1C tizimiga kiritilgan moliyaviy ko‘rsatkichlar va hisob-kitoblar ichki tizimimizdagi ma’lumotlardan farq qilardi. Bu tafovutlarni aniqlash va bartaraf etishning o‘ziga bir necha soat vaqt sarflardik. PFC Solutions kompaniyasi “Discovery” jarayonida biz bilan faol muloqot qilib, ushbu muammoni tezda aniqladi va biz kutmagan samarali yechimni taklif qildi. Ularning ish jarayoni va jamoaviy birdamligi onlayn uchrashuvlarimiz davomida yaqqol namoyon bo‘ldi. O‘ylaymanki, PFC Solutions bilan hamkorligimiz hali uzoq yillar davom etadi.",
+          "name": "Sardor Azimov",
+          "role": "Kiyim ishlab chiqarish zavodi sotuv menejeri"
+        },
+        {
+          "body": "Bizning qurilish kompaniyamiz an’anaviy va odatiy tizim asosida ishlardi hamda CRM platformasidan foydalanardik. Tizimga kiritilgan ma’lumotlarni tahlil qilish va ular asosida biznes qarorlarini qabul qilish uchun bir nechta maxsus mutaxassislarni yollagan edik. Shunga qaramay, bu jarayon ko‘p vaqt talab qilardi. Ochig‘ini aytganda, qurilish kompaniyasi sifatida qanday yo‘l tutishimiz va qanday yechim kerakligini aniq bilmasdik. Shu sababli soha bo‘yicha eng yaxshi mutaxassislarni izlay boshladik va PFC Solutions kompaniyasiga e’tiborimiz tushdi. Ular kompaniyamiz ehtiyojlariga moslashtirilgan sun’iy intellekt agentini ishlab chiqishdi. Hozirda ish jarayonlarimiz taxminan 45 foizga tezlashdi. Natijada mavjud ishchi kuchi bilan deyarli ikki baravar ko‘p ishni bajarishga ulguryapmiz.",
+          "name": "Anvar Raximboyev",
+          "role": "Richard Blocks Qurilish kompaniyasi HR mutaxasisi"
+        }
+      ]
+    }
+  },
   "faq": {
     "title": "Ko'p so'raladigan savollar",
     "items": [
