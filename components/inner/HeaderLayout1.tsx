@@ -1,7 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MainMenuList from "@/components/MainMenuList";
-import { Link } from "@/i18n/navigation";
 import { CTA_PATH, localeHref } from "@/lib/menu";
 
 /** Inner-page header (header-layout1). Differs from the homepage's
@@ -21,9 +20,9 @@ export default async function HeaderLayout1() {
               <div className="row align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="header-logo">
-                    <Link href="/">
+                    <a href={localeHref(locale)}>
                       <img src="/assets/img/logo.svg" alt="PFC Solutions" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="col-auto">

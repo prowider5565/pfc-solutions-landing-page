@@ -2,15 +2,37 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 type Variant = "dropdown" | "inline";
 
 /**
+ * next-intl's <Link> would normally do this for us, but we deliberately use a
+ * plain <a> (see the note on the component below), so the cookie its click
+ * handler writes has to be written here instead. Same shape as next-intl's
+ * default `localeCookie`: name NEXT_LOCALE, path /, SameSite=Lax, session.
+ * Without it, middleware's locale detection would keep sending a bare "/" to
+ * the previously chosen locale.
+ */
+function syncLocaleCookie(locale: string) {
+  document.cookie = `NEXT_LOCALE=${locale};path=/;sameSite=lax;`;
+}
+
+/**
  * CLAUDE.md §2 — language control that preserves the current path.
  * `usePathname` from i18n/navigation returns the pathname without the locale
  * prefix, so handing it back to <Link locale=…> swaps only the locale segment.
+ *
+ * Plain <a>, not next-intl's <Link>, and that is load-bearing. <Link> does a
+ * client-side navigation: React unmounts the whole tree and mounts a fresh one
+ * for the new locale. The template's jQuery/GSAP layer (main.js) initialises
+ * exactly once per document — Swiper instances, the .sticky-wrapper scroll
+ * handler and every ScrollTrigger stay bound to the DOM nodes React just threw
+ * away — so after a soft locale switch the sticky header never appears, the
+ * brand slider renders as a plain list and every pinned section is dead. An
+ * <a> forces a real document load, which re-runs main.js against the new DOM.
+ * Same reason MainMenuList and the header CTA use <a>.
  *
  * Two shapes:
  *  - "dropdown" (header): the template's round .icon-btn with a globe, opening a
@@ -30,6 +52,8 @@ export default function LanguageSwitcher({
   const active = useLocale();
   const pathname = usePathname();
   const t = useTranslations("nav");
+  const localizedHref = (locale: string) =>
+    `/${locale}${pathname === "/" ? "" : pathname}`;
 
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -62,15 +86,16 @@ export default function LanguageSwitcher({
     return (
       <div className="lang-switcher lang-switcher--inline" role="group" aria-label={t("language")}>
         {routing.locales.map((locale) => (
-          <Link
+          <a
             key={locale}
-            href={pathname}
-            locale={locale}
+            href={localizedHref(locale)}
+            hrefLang={locale}
             className={locale === active ? "is-active" : undefined}
             aria-current={locale === active ? "true" : undefined}
+            onClick={() => syncLocaleCookie(locale)}
           >
             {locale.toUpperCase()}
-          </Link>
+          </a>
         ))}
       </div>
     );
@@ -94,13 +119,16 @@ export default function LanguageSwitcher({
       <ul className={`lang-dropdown${open ? " is-open" : ""}`} role="menu">
         {routing.locales.map((locale) => (
           <li key={locale} role="none">
-            <Link
-              href={pathname}
-              locale={locale}
+            <a
+              href={localizedHref(locale)}
+              hrefLang={locale}
               role="menuitem"
               className={locale === active ? "is-active" : undefined}
               aria-current={locale === active ? "true" : undefined}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                syncLocaleCookie(locale);
+                setOpen(false);
+              }}
             >
               <img
                 className="lang-flag"
@@ -109,7 +137,7 @@ export default function LanguageSwitcher({
                 aria-hidden="true"
               />
               {locale.toUpperCase()}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

@@ -1,7 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MainMenuList from "@/components/MainMenuList";
-import { Link } from "@/i18n/navigation";
 import { CTA_PATH, localeHref } from "@/lib/menu";
 
 export default async function Header() {
@@ -22,7 +21,11 @@ export default async function Header() {
                       logo would sit on near-black. The light variant is the
                       same artwork filled #FFFFFF; CSS swaps them by width, so
                       only one is ever visible and the alt text lives on it. */}
-                  <Link className="icon-masking" href="/">
+                  {/* Plain <a>, like every other internal link here: a
+                      client-side navigation would remount the DOM out from
+                      under main.js's jQuery/GSAP bindings. See the note in
+                      LanguageSwitcher. */}
+                  <a className="icon-masking" href={localeHref(locale)}>
                     <img
                       className="zoom-130 logo-dark"
                       src="/assets/img/logo.svg"
@@ -33,7 +36,7 @@ export default async function Header() {
                       src="/assets/img/logo-footer.svg"
                       alt="PFC Solutions"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="col-auto">
