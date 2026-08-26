@@ -50,11 +50,19 @@ type MatchMediaLike = {
   revert: () => void;
 };
 type Tweenable = Element | Element[] | (Element | null)[] | null;
+type TimelineLike = {
+  from: (
+    target: Tweenable,
+    vars: Record<string, unknown>,
+    position?: string | number,
+  ) => TimelineLike;
+};
 type GsapLike = {
   matchMedia: (scope?: Element) => MatchMediaLike;
   set: (target: Tweenable, vars: Record<string, unknown>) => void;
   to: (target: Tweenable, vars: Record<string, unknown>) => void;
   from: (target: Tweenable, vars: Record<string, unknown>) => void;
+  timeline: (vars?: Record<string, unknown>) => TimelineLike;
   utils: { toArray: (target: string, scope?: Element) => Element[] };
 };
 type GsapWindow = Window & { gsap?: GsapLike; ScrollTrigger?: ScrollTriggerLike };
@@ -138,7 +146,12 @@ export default function WorkflowTimelineMotion({
           const fill = root.querySelector<HTMLElement>(".wt-rail__fill");
           const dots = gsap.utils.toArray(".wt-dot", root);
           const rows = gsap.utils.toArray(".wt-row", root);
-          const shift = ctx.conditions?.isNarrow ? 24 : 40;
+          const isNarrow = !!ctx.conditions?.isNarrow;
+          // Narrow is a single column beside a gutter rail, so there is no
+          // "own side" to come from — it rises. From lg up the two halves
+          // straddle the centre rail and each slides in from its outer edge.
+          const rise = isNarrow ? 24 : 0;
+          const slide = isNarrow ? 0 : 64;
 
           if (rail && fill) {
             gsap.set(fill, { scaleY: 0, transformOrigin: "top center" });
@@ -185,24 +198,39 @@ export default function WorkflowTimelineMotion({
           const fold = window.innerHeight;
           rows.forEach((row, i) => {
             if (row.getBoundingClientRect().top < fold * 0.88) return;
-            gsap.from(
-              [
-                row.querySelector<HTMLElement>(".wt-body"),
-                row.querySelector<HTMLElement>(".wt-media"),
-              ],
-              {
-                opacity: 0,
-                y: shift,
-                duration: 0.6,
-                ease: "power2.out",
+
+            const body = row.querySelector<HTMLElement>(".wt-body");
+            const media = row.querySelector<HTMLElement>(".wt-media");
+            // Which grid column each half occupies — the CSS puts .wt-body left
+            // and .wt-media right, and .wt-row--flip swaps them. Each half
+            // therefore travels inward toward the rail, so the row visibly
+            // assembles around its dot instead of drifting up as one block.
+            const flip = row.classList.contains("wt-row--flip");
+            const bodyX = flip ? slide : -slide;
+
+            // Lead with whichever half sits first in reading order: the image
+            // is stacked above the text below lg, side by side above it.
+            const lead = isNarrow ? media : body;
+            const follow = isNarrow ? body : media;
+            const leadX = isNarrow ? 0 : bodyX;
+            const followX = isNarrow ? 0 : -bodyX;
+
+            const REVEAL = { opacity: 0, duration: 0.7, ease: "power3.out" };
+
+            gsap
+              .timeline({
                 scrollTrigger: {
                   id: "wt-row-" + i,
                   trigger: row,
                   start: ROW_START,
                   once: true,
                 },
-              },
-            );
+              })
+              .from(lead, { ...REVEAL, x: leadX, y: rise })
+              // "<0.12" — 0.12s after the previous tween *starts*, not after it
+              // ends, so the two halves overlap into one gesture rather than
+              // reading as two separate reveals.
+              .from(follow, { ...REVEAL, x: followX, y: rise }, "<0.12");
           });
 
           // Runs on revert, media change and unmount.

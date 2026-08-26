@@ -55,7 +55,6 @@ export default async function Footer() {
         <div className="row gy-4 justify-content-between">
           <div className="col-md-6 col-xl-4">
             <div className="widget footer-widget">
-              <h3 className="widget_title">[ About us ]</h3>
               <div className="th-widget-about">
                 <p className="about-text">{t("positioning")}</p>
                 <div className="th-social pfc-footer-social">

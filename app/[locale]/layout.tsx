@@ -564,14 +564,26 @@ export default async function LocaleLayout({
           }
 
           /* --- states owned by JS ---------------------------------------- */
+          /* The dot pops as the rail head reaches it. Done in CSS rather than
+             with a tween in the is-lit callback: an animation created inside a
+             ScrollTrigger callback is not captured by the gsap.matchMedia
+             context, so mm.revert() on unmount would leave its inline
+             transform behind. A class transition has no such lifecycle.
+             Scaling is safe for the rail geometry - transform-origin is the
+             default centre, and measureRail and the dot triggers both key off
+             the dot's centre, which a centred scale leaves exactly where it
+             was. */
           .wt-js .wt-dot{
             background:var(--smoke-color2);color:var(--body-color);
+            transform:scale(.78);
             transition:background-color .35s ease,color .35s ease,
-              box-shadow .35s ease
+              box-shadow .35s ease,
+              transform .45s cubic-bezier(.34,1.56,.64,1)
           }
           .wt-js .wt-dot.is-lit{
             background:var(--theme-color);color:var(--white-color);
-            box-shadow:0 0 0 6px rgba(46,134,255,.16)
+            box-shadow:0 0 0 6px rgba(46,134,255,.16);
+            transform:scale(1)
           }
 
           /* --- mobile / tablet: rail in the left gutter, single column ---- */
