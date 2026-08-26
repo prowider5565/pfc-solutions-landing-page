@@ -270,6 +270,9 @@ export default async function LocaleLayout({
           .pfc-footer-main .th-widget-about{max-width:420px}
           .pfc-footer-main .footer-widget{margin-bottom:87px}
           .pfc-footer-social{margin-top:34px}
+          @media (min-width:1501px){
+            .footer-layout8{margin-top:40px}
+          }
 
           /* The white notch at the header's top-right is carved by the hero's
              corner radius, so its width is fixed. The localized CTA labels are
