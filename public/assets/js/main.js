@@ -1341,11 +1341,9 @@ window.addEventListener("DOMContentLoaded", () => {
 		const baseOptions = {
 			scrub: 1,
 			start: 'top 0%',
-			end: 'top 70%',
-			endTrigger: '.testimonial-closing',
+			end: 'bottom 80%',
+			endTrigger: '.testi-sec2',
 			pinSpacing: false,
-			anticipatePin: 1,
-			invalidateOnRefresh: true,
 			markers: false,
 		};
 	
@@ -1359,17 +1357,6 @@ window.addEventListener("DOMContentLoaded", () => {
 			}
 			});
 		});
-
-		document.querySelectorAll('.testimonial-title-area').forEach((title) => {
-			gsap.to(title, {
-			scrollTrigger: {
-				trigger: title,
-				pin: title,
-				...baseOptions,
-				start: 'top 120px',
-			}
-			});
-		});
 	
 		// For px-step-card with left/right rotation
 		document.querySelectorAll('.testi-card2').forEach((card, i) => {
@@ -1377,12 +1364,12 @@ window.addEventListener("DOMContentLoaded", () => {
 	
 			gsap.to(card, {
 			rotate: rotateValue,
-			ease: 'none',
 			scrollTrigger: {
 				trigger: card,
 				pin: card,
 				...baseOptions,
-				start: 'top 30%',
+				start: 'top 10%',
+				end: 'bottom 80%'
 			}
 			});
 		});
