@@ -24,15 +24,54 @@ export default async function Footer() {
       id="footer"
       style={{ backgroundImage: "url('/assets/img/bg/footer_bg_3_blue.png')" }}
     >
+      <div className="widget-area pfc-footer-top-area">
+        <div className="container th-container5">
+          <div className="footer-top">
+            <div className="row gx-40 gy-4 align-items-center justify-content-center justify-content-lg-between">
+              <div className="col-lg-5">
+                <div className="footer-logo pfc-footer-hero-logo">
+                  <img src="/assets/img/logo-footer.svg" alt="PFC Solutions" />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="ps-xl-5">
+                  <h2 className="box-title text-white">PFC Solutions</h2>
+                  <div className="btn-group justify-content-center justify-content-lg-start">
+                    <a href={localeHref(locale, "/contact")} className="th-btn2 btn-gradient">
+                      {tNav("cta")}
+                    </a>
+                    <a href={localeHref(locale, "/approach")} className="th-btn2 style3">
+                      Discovery
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container th-container5 pfc-footer-main">
         <div className="row gy-4 justify-content-between">
           <div className="col-md-6 col-xl-4">
             <div className="widget footer-widget">
+              <h3 className="widget_title">[ About us ]</h3>
               <div className="th-widget-about">
-                <div className="footer-logo pfc-footer-logo mb-20">
-                  <img src="/assets/img/logo-footer.svg" alt="PFC Solutions" />
-                </div>
                 <p className="about-text">{t("positioning")}</p>
+                <div className="th-social pfc-footer-social">
+                  <a href="https://t.me/pfcsolutions" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <i className="fab fa-telegram-plane" />
+                  </a>
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i className="fab fa-linkedin-in" />
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i className="fa-brands fa-instagram" />
+                  </a>
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i className="fab fa-facebook-f" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

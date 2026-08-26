@@ -14,12 +14,6 @@ const TECHNOLOGIES: Technology[] = [
   { name: "Kubernetes", slug: "kubernetes" },
   { name: "Slack", slug: "slack" },
   { name: "Trello", slug: "trello" },
-  { name: "PostgreSQL", slug: "postgresql" },
-  { name: "Redis", slug: "redis" },
-  { name: "VS Code", slug: "visualstudiocode" },
-  { name: "Linux", slug: "linux" },
-  { name: "ChatGPT", slug: "openai" },
-  { name: "Claude", slug: "claude" },
 ];
 
 export default async function Technologies() {
@@ -44,29 +38,29 @@ export default async function Technologies() {
         <div className="integration-area technology-template-area">
           <div className="integration-wrapp">
             <div>
-              <div className="integration-shape">
+              <div className="integration-shape" aria-hidden="true">
                 <img src="/assets/img/shape/line-shape3.png" alt="" />
               </div>
-              <div className="integration-logo">
-                <img src="/assets/img/shape/logo2.png" alt="" />
+              <div className="integration-logo pfc-integration-logo">
+                <img src="/assets/img/logo.svg" alt="PFC Solutions" />
               </div>
             </div>
           </div>
           <div className="box-wrapp technology-template-icons">
-          {TECHNOLOGIES.map((technology) => (
-            <div
-              className="integration-icon technology-icon"
-              aria-label={technology.name}
-              title={technology.name}
-              key={technology.name}
-            >
-              <img
-                src={`/assets/img/technologies/${technology.slug}.svg`}
-                alt=""
-                aria-hidden="true"
-              />
-            </div>
-          ))}
+            {TECHNOLOGIES.map((technology) => (
+              <div
+                className="integration-icon"
+                aria-label={technology.name}
+                title={technology.name}
+                key={technology.name}
+              >
+                <img
+                  src={`/assets/img/technologies/${technology.slug}.svg`}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

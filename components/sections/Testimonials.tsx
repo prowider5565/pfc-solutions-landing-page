@@ -29,7 +29,7 @@ export default async function Testimonials() {
       <div className="container th-container5">
         <div className="row gy-4 justify-content-center">
           <div className="col-xl-10">
-            <div className="title-area text-center">
+            <div className="title-area testimonial-title-area text-center">
               <h2
                 className="sec-title h3 text-anime-style-3"
                 id="testimonials-title"

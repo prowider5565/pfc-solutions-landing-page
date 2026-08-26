@@ -188,69 +188,88 @@ export default async function LocaleLayout({
             margin-top:64px
           }
           .technology-template-area .integration-shape img{
-            display:block;width:min(1099px,88vw);height:auto;margin:0 auto
+            display:block;max-width:100%;height:auto
           }
-          .technology-template-area .integration-logo{
-            position:absolute;top:-50px;left:50%;transform:translateX(-50%)
+          .technology-template-area .integration-wrapp .integration-logo{
+            position:absolute;top:-50px;left:50%;transform:translateX(-50%);z-index:3
           }
-          .technology-template-area .integration-logo img{
-            display:block;width:102px;height:102px
+          .technology-template-area .pfc-integration-logo{
+            width:102px;height:102px;border-radius:50%;display:flex;
+            align-items:center;justify-content:center;background:#E8F1FF;
+            box-shadow:0 0 0 10px rgba(232,241,255,.75),
+              0 0 0 20px rgba(45,45,45,.08)
+          }
+          .technology-template-area .pfc-integration-logo img{
+            display:block;width:92px;height:auto
           }
           .technology-template-area .box-wrapp{
-            display:flex;justify-content:center;align-items:flex-start;
-            margin-top:-40px
+            display:flex;justify-content:center;margin-top:-40px
           }
-          .technology-template-area .technology-icon{
-            position:relative;z-index:2;min-width:132px;width:132px;height:132px;
-            line-height:132px;text-align:center;background-color:#EBF3FF;
+          .technology-template-area .integration-icon{
+            position:relative;z-index:2;min-width:180px;height:180px;
+            line-height:180px;text-align:center;background-color:#EBF3FF;
             border-radius:50%;display:flex;align-items:center;justify-content:center;
             color:var(--title-color)
           }
-          .technology-template-area .technology-icon:nth-child(1){margin:-60px 0 0 0}
-          .technology-template-area .technology-icon:nth-child(2){margin:0 0 0 -28px;background-color:#EFFAFF}
-          .technology-template-area .technology-icon:nth-child(3){margin:-50px 0 0 -8px;background-color:#FFF1EE}
-          .technology-template-area .technology-icon:nth-child(4){margin:-30px -2px -30px -24px;background-color:#EDF5F3}
-          .technology-template-area .technology-icon:nth-child(5){margin:-60px 0 0 -8px;background-color:#E8F1FF}
-          .technology-template-area .technology-icon:nth-child(6){margin:0 0 0 -18px;background-color:#FFF2ED}
-          .technology-template-area .technology-icon:nth-child(7){margin:-60px 0 0 -34px;background-color:#E5FEFF}
-          .technology-template-area .technology-icon:nth-child(8){margin:0 0 0 -34px;background-color:#F4F7FF}
-          .technology-template-area .technology-icon:nth-child(9){margin:-60px 0 0 -34px;background-color:#EBF3FF}
-          .technology-template-area .technology-icon:nth-child(10){margin:0 0 0 -34px;background-color:#EFFAFF}
-          .technology-template-area .technology-icon:nth-child(11){margin:-50px 0 0 -34px;background-color:#FFF1EE}
-          .technology-template-area .technology-icon:nth-child(12){margin:-30px -2px -30px -34px;background-color:#EDF5F3}
-          .technology-template-area .technology-icon:nth-child(13){margin:-60px 0 0 -34px;background-color:#E8F1FF}
-          .technology-template-area .technology-icon:nth-child(14){margin:0 0 0 -34px;background-color:#FFF2ED}
-          .technology-icon img{
-            width:clamp(38px,4.5vw,62px);height:clamp(38px,4.5vw,62px);
+          .technology-template-area .integration-icon:nth-child(1){margin:-60px 0 0 60px}
+          .technology-template-area .integration-icon:nth-child(2){
+            margin:0 0 0 -40px;background-color:#EFFAFF
+          }
+          .technology-template-area .integration-icon:nth-child(3){
+            margin:-50px 0 0 -10px;background-color:#FFF1EE
+          }
+          .technology-template-area .integration-icon:nth-child(4){
+            margin:-30px -2px -30px -30px;background-color:#EDF5F3
+          }
+          .technology-template-area .integration-icon:nth-child(5){
+            margin:-60px 0 0 0;background-color:#E8F1FF
+          }
+          .technology-template-area .integration-icon:nth-child(6){
+            margin:0;background-color:#FFF2ED
+          }
+          .technology-template-area .integration-icon:nth-child(7){
+            margin:-60px 0 0 -50px;background-color:#E5FEFF
+          }
+          .technology-template-area .integration-icon:nth-child(8){
+            margin:0 0 0 -50px;background-color:#F4F7FF
+          }
+          .technology-template-area .integration-icon img{
+            width:clamp(34px,3.4vw,52px);height:clamp(34px,3.4vw,52px);
             object-fit:contain
           }
 
           /* Closing proof line added beneath the template's pinned cards. */
           .testimonial-closing{
-            margin:58px auto 0;max-width:1120px;
+            margin:96px auto 0;max-width:1120px;
             font-family:var(--title-font);font-size:22px;font-weight:600;
             color:var(--title-color)
           }
           .testimonial-section .testi-card2{
-            width:1120px;max-width:100%
+            width:1120px;max-width:100%;transform-origin:center center;
+            will-change:transform;backface-visibility:hidden
           }
           .testimonial-section .testi-card2 .box-text,
           .testimonial-section .testi-card2 .box-info{
             padding-left:clamp(34px,4vw,64px)
           }
 
-          /* Match the download-version footer logo9.svg implementation:
-             its intrinsic and rendered box is 428x96. The PFC artwork keeps
-             that exact desktop footprint and scales down on narrow screens. */
-          .pfc-footer-main{
-            padding-top:calc(var(--section-space) * 1.5);
-            padding-bottom:80px
+          /* Template footer structure: a large logo lives in footer-top, not
+             inside a narrow widget column. The PFC logo has a different aspect
+             ratio than logo9.svg, so width matches the template while height
+             stays natural instead of being flattened. */
+          .pfc-footer-top-area{
+            padding-top:90px!important;padding-bottom:72px!important;
+            border-bottom:1px solid rgba(255,255,255,.2);margin-bottom:57px
           }
-          .pfc-footer-main .th-widget-about{max-width:428px}
-          .pfc-footer-main .footer-widget{margin-bottom:130px}
-          .pfc-footer-logo img{
-            display:block;width:428px;height:96px;max-width:100%;object-fit:fill
+          .pfc-footer-hero-logo{width:428px;max-width:none}
+          .pfc-footer-hero-logo img{
+            display:block;width:428px!important;height:auto!important;
+            max-width:none!important
           }
+          .pfc-footer-main{padding-top:0;padding-bottom:126px}
+          .pfc-footer-main .th-widget-about{max-width:420px}
+          .pfc-footer-main .footer-widget{margin-bottom:102px}
+          .pfc-footer-social{margin-top:34px}
 
           /* The white notch at the header's top-right is carved by the hero's
              corner radius, so its width is fixed. The localized CTA labels are
@@ -412,25 +431,31 @@ export default async function LocaleLayout({
             .th-container4,.th-container5{
               padding-left:20px;padding-right:20px
             }
-            .technology-template-area .integration-wrapp{margin-top:34px}
-            .technology-template-area .integration-shape{display:none}
-            .technology-template-area .integration-logo{display:none}
+            .technology-template-area{height:auto}
+            .technology-template-area .integration-wrapp{display:none}
             .technology-template-area .box-wrapp{
-              flex-wrap:wrap;gap:12px;margin-top:0
+              display:flex;flex-wrap:wrap;gap:12px;margin-top:0
             }
-            .technology-template-area .technology-icon{
-              min-width:78px;width:78px;height:78px;line-height:78px;margin:0!important
+            .technology-template-area .integration-icon{
+              position:relative;
+              min-width:78px;width:78px;height:78px;line-height:78px;
+              margin:0!important
             }
-            .technology-icon img{width:36px;height:36px}
+            .technology-template-area .pfc-integration-logo img{width:54px}
+            .technology-template-area .integration-icon img{width:36px;height:36px}
             .testimonial-section .testi-card2 .box-text,
             .testimonial-section .testi-card2 .box-info{padding-left:0}
-            .testimonial-closing{margin-top:36px;font-size:19px;line-height:1.5}
-            .pfc-footer-main{
-              padding-top:calc(var(--section-space-mobile) * 1.5);
-              padding-bottom:40px
+            .testimonial-closing{margin-top:64px;font-size:19px;line-height:1.5}
+            .pfc-footer-top-area{
+              padding-top:42px!important;padding-bottom:35px!important;
+              margin-bottom:30px
             }
+            .pfc-footer-hero-logo{width:100%;max-width:360px;margin:0 auto}
+            .pfc-footer-hero-logo img{
+              width:100%!important;height:auto!important;max-width:100%!important
+            }
+            .pfc-footer-main{padding-top:0;padding-bottom:42px}
             .pfc-footer-main .footer-widget{margin-bottom:40px}
-            .pfc-footer-logo img{height:auto}
           }
 
           /* --- Header logo contrast ---------------------------------------
