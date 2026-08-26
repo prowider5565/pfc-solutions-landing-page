@@ -555,20 +555,19 @@ export default async function LocaleLayout({
             font-family:var(--title-font);font-size:15px;font-weight:600;
             line-height:1.5;color:var(--title-color)
           }
-          /* .th-btn2, the site's primary CTA - the header button and the
-             contact submit are the same thing, which is the point: CLAUDE.md
-             acceptance criterion 7 allows one CTA repeating, not a second
-             competing style. Deliberately NOT the reference's .th-btn
-             .th-border: its sliding fill is a fixed 56x56 block geometrically
-             tied to a full-height button, so shrinking one to card scale turns
-             that block into a slab across the right half. .th-btn2's wipe is
-             width:100%/height:inherit and rescales with the padding.
-             height:auto overrides .th-btn2's height:100%, which would
-             otherwise stretch it to the flex row. */
-          .industry-cta{
-            align-self:flex-end;
-            height:auto;font-size:14px;padding:13px 20px
-          }
+          /* The reference's .th-btn.th-border, untouched apart from the two
+             lines below. Its size is deliberately NOT reduced: the fill is
+             .th-btn:before/:after, a pair of 56x56 blocks pinned top-right
+             (style.css:2834) whose height is hard-coded to the button's
+             natural height rather than inherited. Shrink the padding and
+             those blocks keep their 56px and overflow the button box, which
+             overflow:hidden then clips into a slab across the right half.
+             So: leave the geometry alone and let the card accommodate it. */
+          .industry-cta{align-self:flex-end}
+          /* .th-btn capitalizes every word, which is invisible on the
+             reference's own "View Details" but renders our CTA as "Записаться
+             На Встречу" / "Book A Call". Same cancellation .box-title needs. */
+          .industry-cta{text-transform:none}
           .industry-entry__label{
             display:block;margin-bottom:2px;
             font-family:var(--body-font);font-size:13px;font-weight:400;

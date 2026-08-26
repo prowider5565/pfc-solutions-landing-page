@@ -79,7 +79,15 @@ export default async function Industries() {
                       </span>
                       {item.entry}
                     </p>
-                    {/* Inert for now — no handler and no href, per the brief.
+                    {/* The template's own card button, markup for markup:
+                        features.html:478 is `.th-btn.th-border` with a trailing
+                        `.icon` span wrapping arrow-right.svg. Both pseudo
+                        elements that make up its fill are geometrically tied to
+                        that structure and to the button's natural 56px height,
+                        so it is left at its designed size — see the note in
+                        layout.tsx.
+
+                        Inert for now — no handler and no href, per the brief.
                         A real <button> rather than a disabled one, so it stays
                         in the tab order and reads normally; the accessible name
                         is the site-wide CTA label, and aria-describedby points
@@ -87,10 +95,17 @@ export default async function Industries() {
                         of the five identical buttons this is. */}
                     <button
                       type="button"
-                      className="th-btn2 industry-cta"
+                      className="th-btn th-border industry-cta"
                       aria-describedby={`industry-${index}-title`}
                     >
-                      {tNav("cta")}
+                      {tNav("cta")}{" "}
+                      <span className="icon">
+                        <img
+                          src="/assets/img/icon/arrow-right.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </span>
                     </button>
                   </div>
                 </div>
