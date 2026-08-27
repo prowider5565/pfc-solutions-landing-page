@@ -400,6 +400,38 @@ export default async function LocaleLayout({
             to{opacity:0}
           }
 
+          /* --- Contact area, template layout ------------------------------
+             The template's contact form carries only an h3; PFC also keeps the
+             "30-minute conversation, not a pitch" line, so it gets its own
+             class rather than .box-text, which style.css:17046 caps at 390px
+             for the privacy note sitting beside the button. */
+          .contact-form .title{margin-bottom:14px}
+          .contact-form__intro{
+            max-width:630px;margin-bottom:34px;color:var(--body-color)
+          }
+          @media (max-width:991px){
+            .contact-form__intro{max-width:550px}
+          }
+
+          /* Bootstrap gives the three info columns equal widths, but each card
+             sizes to its own copy, so the phone card (two links) sat lower
+             than the other two. Same fix as the Problem cards above. */
+          .contact-media{height:100%}
+          /* .box-title is capitalize site-wide (style.css:3749), which title-
+             cases the demo's English headings. Uzbek wants "Telefon raqami",
+             not "Telefon Raqami"; EN and RU read identically either way. */
+          .contact-media .box-title{text-transform:none}
+
+          /* The pull-quote card is a <figure>/<figcaption> rather than the
+             template's plain divs, so the browser's default figure margin has
+             to go. capitalize (style.css:17119) is meant for the demo's
+             title-case English quote and mangles a real sentence in Cyrillic
+             and Latin alike. */
+          .contact-review{margin:0}
+          .contact-review .box-text{margin:0 0 24px;text-transform:none}
+          .contact-review .box-info{margin:0}
+          .contact-review .box-quote img{display:block}
+
           /* ================================================================
              RESPONSIVE — mobile & tablet
              Lives here rather than in style.css so template regeneration
@@ -545,6 +577,9 @@ export default async function LocaleLayout({
              .box-text pushes the footer to the card floor, that lifts the rule
              to a different height in each card of the same row. Stacking is
              one line taller and identical in all three locales. */
+          /* Stacked by default; side by side only where the card is wide
+             enough to hold both — see the xl block at the end of this
+             section. */
           .industry-foot{
             padding-top:18px;
             border-top:1px solid rgba(6,5,11,.08);
@@ -555,19 +590,50 @@ export default async function LocaleLayout({
             font-family:var(--title-font);font-size:15px;font-weight:600;
             line-height:1.5;color:var(--title-color)
           }
-          /* The reference's .th-btn.th-border, untouched apart from the two
-             lines below. Its size is deliberately NOT reduced: the fill is
-             .th-btn:before/:after, a pair of 56x56 blocks pinned top-right
-             (style.css:2834) whose height is hard-coded to the button's
-             natural height rather than inherited. Shrink the padding and
-             those blocks keep their 56px and overflow the button box, which
-             overflow:hidden then clips into a slab across the right half.
-             So: leave the geometry alone and let the card accommodate it. */
-          .industry-cta{align-self:flex-end}
+          /* The reference's .th-btn.th-border, scaled to card size.
+             .th-btn is built for a page-level CTA: at full size it is 269px
+             wide in Russian, which in a 371px card floor leaves 86px for the
+             entry point and shreds it over six lines. So it is scaled - but
+             scaled COHERENTLY, which is the part that matters. Its fill is
+             .th-btn:before/:after (style.css:2834), a pair of 56x56 blocks
+             pinned top-right whose height is hard-coded rather than
+             inherited, so changing the padding alone leaves them at 56px,
+             overflowing the button box for overflow:hidden to clip into a
+             slab across the right half. Every number below is the template's
+             own, multiplied through:
+               height   56 -> 44   (padding 15 + 15 + line-height 1 x 14px)
+               blocks   56 -> 44   square, radius 32 -> 22
+               gap      38 -> 24   keeps the label clear of the 44px block:
+               the label ends 24 + 11 + 17 = 52px from the right edge, so it
+               clears the block by 8px. At 18px it grazed it.
+               padding-right 24 -> 17, which re-centres the 11px arrow on the
+               block (17 + 11/2 = 22.5 ~= 44/2)
+             The hover wipe is left entirely alone: .th-btn.th-border:hover
+             beats these on specificity, so :after still fills to 100% and
+             :before to 28%, exactly as the template does it. */
+          .industry-cta{
+            font-size:14px;padding:15px 17px 15px 20px;gap:24px
+          }
+          .industry-cta:before,.industry-cta:after{
+            width:44px;height:44px;border-radius:0 22px 22px 0
+          }
           /* .th-btn capitalizes every word, which is invisible on the
              reference's own "View Details" but renders our CTA as "Записаться
              На Встречу" / "Book A Call". Same cancellation .box-title needs. */
           .industry-cta{text-transform:none}
+
+          /* Entry point and CTA share one line only from xl up, where the grid
+             is 3-up and a card floor is ~371px. Below that the cards are
+             col-md-6 or full width and the Russian CTA alone would take most
+             of the row, so they stack instead. */
+          @media (min-width:1200px){
+            .industry-foot{
+              flex-direction:row;flex-wrap:nowrap;
+              align-items:center;justify-content:space-between;gap:16px
+            }
+            .industry-entry{flex:1 1 auto;min-width:0}
+            .industry-cta{flex:0 0 auto}
+          }
           .industry-entry__label{
             display:block;margin-bottom:2px;
             font-family:var(--body-font);font-size:13px;font-weight:400;

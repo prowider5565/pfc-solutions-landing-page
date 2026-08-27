@@ -2,15 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { localeHref, navRoutes } from "@/lib/menu";
 
-/**
- * CLAUDE.md §4.12 — logo + positioning line · navigation · services · contact,
- * with a bottom bar carrying the copyright, a privacy link and a repeat of the
- * language switcher.
- *
- * The positioning statement and the contact details live in `messages/*.json`;
- * phone, email and Telegram are the same value in every locale, only their
- * labels are translated.
- */
+
 export default async function Footer() {
   const locale = await getLocale();
   const t = await getTranslations("footer");

@@ -4,6 +4,10 @@ import { FormEvent, useEffect, useState } from "react";
 
 type ContactFormProps = {
   labels: {
+    /** Rendered as the form's own heading, the way the template does it —
+     *  there is no separate title-area above the two-column contact area. */
+    title: string;
+    intro: string;
     name: string;
     company: string;
     industry: string;
@@ -15,13 +19,19 @@ type ContactFormProps = {
     error: string;
     privacy: string;
   };
+  /** Id the enclosing section points at with aria-labelledby. */
+  titleId: string;
   /** Built server-side from the `industries` messages so no copy ships in this
    *  client bundle. `value` is an IndustryKey; the API validates against the
    *  same list. */
   industries: { value: string; label: string }[];
 };
 
-export default function ContactForm({ labels, industries }: ContactFormProps) {
+export default function ContactForm({
+  labels,
+  titleId,
+  industries,
+}: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
@@ -68,6 +78,23 @@ export default function ContactForm({ labels, industries }: ContactFormProps) {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {/* h2, not the template's h3: this is the section heading on both the
+          homepage and /contact, and heading levels must not skip. `.h3` keeps
+          the template's type scale, `.title` its 630px measure.
+
+          aria-label is not redundant: main.js runs SplitText over
+          .text-anime-style-3 and shreds the heading into one element per
+          character, so without it the section's aria-labelledby target would
+          have a character-by-character accessible name. Same reason as
+          WorkflowTimeline. */}
+      <h2
+        className="title h3 text-anime-style-3"
+        id={titleId}
+        aria-label={labels.title}
+      >
+        {labels.title}
+      </h2>
+      <p className="contact-form__intro">{labels.intro}</p>
       <div className="row">
         <div className="form-group col-md-6">
           <label className="visually-hidden" htmlFor="contact-name">
@@ -100,6 +127,22 @@ export default function ContactForm({ labels, industries }: ContactFormProps) {
           />
         </div>
         <div className="form-group col-md-6">
+          <label className="visually-hidden" htmlFor="contact-phone">
+            {labels.phone}
+          </label>
+          <input
+            type="tel"
+            className="form-control"
+            name="phone"
+            id="contact-phone"
+            placeholder={labels.phone}
+            autoComplete="tel"
+            minLength={7}
+            maxLength={40}
+            required
+          />
+        </div>
+        <div className="form-group col-md-6">
           <label className="visually-hidden" htmlFor="contact-industry">
             {labels.industry}
           </label>
@@ -123,34 +166,15 @@ export default function ContactForm({ labels, industries }: ContactFormProps) {
             ))}
           </select>
         </div>
-        <div className="form-group col-md-6">
-          <label className="visually-hidden" htmlFor="contact-phone">
-            {labels.phone}
-          </label>
-          <input
-            type="tel"
-            className="form-control"
-            name="phone"
-            id="contact-phone"
-            placeholder={labels.phone}
-            autoComplete="tel"
-            minLength={7}
-            maxLength={40}
-            required
-          />
-        </div>
-        {/* Full width, not col-md-6: five fields in a two-up grid would leave
-            the last one stranded beside a gap, and this is the one field whose
-            answer is a sentence. */}
         <div className="form-group col-12">
           <label className="visually-hidden" htmlFor="contact-problem">
             {labels.problem}
           </label>
-          <input
-            type="text"
+          <textarea
             className="form-control"
             name="problem"
             id="contact-problem"
+            rows={3}
             placeholder={labels.problem}
             maxLength={1200}
             required
@@ -169,11 +193,13 @@ export default function ContactForm({ labels, industries }: ContactFormProps) {
           />
         </div>
 
-        <div className="form-btn col-12 text-center">
+        {/* Template layout: privacy note on the left, button on the right,
+            stacking on small screens (style.css:17076). */}
+        <div className="form-btn col-12">
+          <p className="box-text">{labels.privacy}</p>
           <button type="submit" className="th-btn2" disabled={status === "sending"}>
             {status === "sending" ? labels.sending : labels.submit}
           </button>
-          <p className="box-text mt-2 mb-0">{labels.privacy}</p>
         </div>
       </div>
       {status === "success" && (

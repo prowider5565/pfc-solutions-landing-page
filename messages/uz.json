@@ -444,6 +444,16 @@
       "phone": "Telefon",
       "problem": "Muammoingiz bir jumlada"
     },
+    "info": {
+      "locationTitle": "Manzil",
+      "emailTitle": "Pochta",
+      "phoneTitle": "Telefon raqami"
+    },
+    "review": {
+      "body": "Tizim interfeysi intuitiv, ishlash tezligi esa juda yuqori.",
+      "name": "Ahror Nazarov",
+      "role": "Ishlab chiqarish zavodi menejeri"
+    },
     "privacy": "Ma'lumotlaringiz uchinchi tomonga berilmaydi.",
     "sending": "Yuborilmoqda...",
     "success": "Rahmat! Murojaatingiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.",

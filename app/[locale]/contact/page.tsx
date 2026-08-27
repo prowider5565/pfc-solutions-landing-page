@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageShell from "@/components/inner/PageShell";
+import ContactInfoCards from "@/components/sections/ContactInfoCards";
 import FinalCta from "@/components/sections/FinalCta";
 
 export async function generateMetadata({
@@ -24,6 +25,9 @@ export default async function ContactPage({
 
   return (
     <PageShell title={t("cta")}>
+      {/* Template order on contact.html: breadcrumb → contact info cards →
+          contact form → map. The map ships inside FinalCta. */}
+      <ContactInfoCards />
       <FinalCta />
     </PageShell>
   );

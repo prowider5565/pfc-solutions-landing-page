@@ -444,6 +444,16 @@
       "phone": "Phone",
       "problem": "Your problem in one sentence"
     },
+    "info": {
+      "emailTitle": "Email",
+      "phoneTitle": "Phone Number",
+      "locationTitle": "Location"
+    },
+    "review": {
+      "body": "The system interface is intuitive, and its performance is exceptionally fast.",
+      "name": "Ahror Nazarov",
+      "role": "Manufacturing plant manager"
+    },
     "privacy": "We don't share your data with third parties.",
     "sending": "Sending...",
     "success": "Thank you! Your message has been received. We’ll contact you soon.",
