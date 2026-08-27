@@ -1,6 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { CTA_PATH, localeHref, navRoutes } from "@/lib/menu";
+import { localeHref, navRoutes } from "@/lib/menu";
 
 export default async function MobileMenu() {
   const locale = await getLocale();
@@ -29,18 +29,14 @@ export default async function MobileMenu() {
         </div>
 
         {/* The header's .header-button block is d-none d-xl-block, so below
-            1200px this drawer is the only place the language control and the
-            primary CTA exist. CLAUDE.md §4.1 requires the language control
-            here; the CTA follows it because §8.7 asks for one primary call to
-            action that repeats through the page, and below xl the header has
-            none. */}
+            1200px this drawer is the only language control on the page.
+            CLAUDE.md §4.1 requires it in the collapsible nav.
+
+            No CTA button here by request — the drawer stays navigation plus
+            language only. The primary CTA still repeats through the page
+            body (hero, final CTA, footer). */}
         <div className="mt-30">
           <LanguageSwitcher variant="inline" />
-        </div>
-        <div className="mt-30 pfc-menu-cta">
-          <a href={localeHref(locale, CTA_PATH)} className="th-btn2">
-            {t("cta")}
-          </a>
         </div>
       </div>
     </div>

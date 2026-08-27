@@ -1238,26 +1238,35 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (!awardArea || awards.length === 0) return;
 
-  // Hide all first
-  gsap.set(awards, { autoAlpha: 0, y: 100 });
+  // Phones only get the plain stack. This effect pins .award-area and scrubs
+  // through the cards over awards.length * 400px of scroll, revealing one at a
+  // time from autoAlpha:0 — which on a narrow screen reads as a very long
+  // stretch of empty section with nothing in it. gsap.matchMedia is used
+  // rather than a bare width check so the set() and the pin are reverted
+  // cleanly if the viewport crosses the breakpoint.
+  const awardMM = gsap.matchMedia();
+  awardMM.add("(min-width: 768px)", () => {
+    // Hide all first
+    gsap.set(awards, { autoAlpha: 0, y: 100 });
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: awardArea,
-      start: "top top",
-      end: "+=" + awards.length * 400,
-      pin: true,
-      scrub: true,
-      markers: false
-    }
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: awardArea,
+        start: "top top",
+        end: "+=" + awards.length * 400,
+        pin: true,
+        scrub: true,
+        markers: false
+      }
+    });
 
-  awards.forEach((award) => {
-    tl.to(award, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out"
+    awards.forEach((award) => {
+      tl.to(award, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      });
     });
   });
 });

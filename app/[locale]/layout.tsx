@@ -166,19 +166,6 @@ export default async function LocaleLayout({
           .footer-wrapper .lang-switcher--inline a.is-active{color:var(--theme-color2)}
           .th-menu-wrapper .lang-switcher--inline a{color:var(--title-color)}
           .th-menu-wrapper .lang-switcher--inline a.is-active{color:var(--theme-color)}
-          /* Drawer CTA. .th-menu-area is text-center, but .th-btn2 is
-             inline-flex and would still hug its text at the centre without a
-             floor on the tap target. The drawer is 310px wide
-             (style.css:2380) and the Russian label is "Записаться на встречу",
-             so the button has to be allowed to wrap rather than run past the
-             panel edge. */
-          .pfc-menu-cta{padding:0 20px 40px}
-          .pfc-menu-cta .th-btn2{
-            display:inline-flex;align-items:center;justify-content:center;
-            min-height:48px;max-width:100%;
-            white-space:normal;text-align:center;line-height:1.3
-          }
-
           /* Logo +10%. logo.svg has an intrinsic 213x80 and no CSS width, so
              it rendered at 213px; 234px is that plus 10%. Applies to both
              header layouts (homepage header-layout8 and the inner
@@ -595,6 +582,107 @@ export default async function LocaleLayout({
           @media (max-width:1199.98px){
             .header-layout8 .header-logo .logo-dark{display:none}
             .header-layout8 .header-logo .logo-light{display:inline-block}
+          }
+
+          /* ================================================================
+             PHONE LAYOUT (<=767.98px)
+             Content and chrome decisions that only apply to phones and small
+             tablets. Grouped so the phone treatment reads in one place rather
+             than being scattered through the sections above.
+             ================================================================ */
+
+          /* The sticky bar paints itself white (style.css:8357). Below xl the
+             header logo is the white variant, because the hero card behind it
+             is dark — so the moment the bar went sticky the logo turned white
+             on white and vanished. Sticky wins over the width rule. */
+          @media (max-width:1199.98px){
+            .header-layout8 .sticky-wrapper.sticky .header-logo .logo-dark{
+              display:inline-block
+            }
+            .header-layout8 .sticky-wrapper.sticky .header-logo .logo-light{
+              display:none
+            }
+            /* style.css:9275 zeroes .menu-area padding once sticky. At desktop
+               widths the nav's own 37px link padding still gives the bar its
+               height, but below xl the nav is a drawer and the only things
+               left are the logo and the burger — so the bar collapsed and
+               clipped the top of the logo (the PFC mark sat 16px above it,
+               leaving just the underline and SOLUTIONS visible). Give it back
+               the vertical padding the nav used to supply. */
+            .header-layout8 .sticky-wrapper.sticky .menu-area{padding:10px 0}
+          }
+
+          @media (max-width:767.98px){
+            /* Header: logo + burger only. header-layout8 already hides its
+               button block below xl; header-layout1 (every inner page, and
+               its sticky bar) showed logo + flag + CTA + burger, which wrapped
+               onto a second row. The language control lives in the drawer. */
+            .header-layout1 .header-button > .lang-switcher,
+            .header-layout1 .header-button > .th-btn2{display:none}
+
+            /* Hero: headline and buttons only. The sub-headline repeats
+               downstream and the brain is decorative, and on a phone the two
+               of them pushed the CTAs below the fold. display:none does not
+               stop the GIF being fetched — it is a visual removal, not a
+               transfer saving. */
+            .hero-style8 .hero-text{display:none}
+            .hero-8 .hero-img7{display:none}
+
+            /* Both hero CTAs to one width, centred. The labels differ in
+               length by roughly 2x, so a shared max-width is what makes them
+               equal — the buttons are inline-flex and would otherwise each
+               hug their own text. */
+            .hero-style8 .btn-group{
+              flex-direction:column;align-items:center;gap:14px
+            }
+            .hero-style8 .btn-group .th-btn2{
+              width:100%;max-width:340px;
+              justify-content:center;text-align:center
+            }
+
+            /* Testimonial card. Its white background is a mask
+               (style.css:21111, testi-shape4.png) drawn mask-size:100% 100%,
+               so the shape only holds at the source 460x436. PFC's
+               testimonials run several hundred words, making the card ~1100px
+               tall on a phone — the mask stretched 2.5x and its decorative
+               notch swung across the bottom-left, leaving the author's name
+               sitting off the card. Same failure as the hero background. A
+               plain rounded rectangle instead, and symmetric padding now that
+               there is no notch to clear. */
+            .testi-card2:before{
+              -webkit-mask-image:none;mask-image:none;border-radius:24px
+            }
+            .testi-card2{padding:32px 24px}
+            .testimonial-section .testi-card2 .box-text,
+            .testimonial-section .testi-card2 .box-info{padding-left:0}
+
+            /* Differentiator cards (/about). The template stacks these at 575
+               but never cancels the -15deg rotation, so at full width the
+               rotated corners overhung the container and the copy spilled out.
+               The tilt stays — it is the point of the section — but the cards
+               are narrowed so the rotated bounding box fits, and heights go
+               auto so the longer Uzbek and Russian copy is not clipped. The
+               pinned reveal is disabled for this width in main.js, so all five
+               are simply visible. */
+            .award-wrapp{
+              flex-direction:column;align-items:center;
+              min-height:0;gap:52px
+            }
+            .award-item,
+            .award-item:nth-child(2),
+            .award-item:nth-child(3),
+            .award-item:nth-child(4){
+              width:min(300px,82%);height:auto;margin-left:0;
+              padding:26px 22px
+            }
+            .award-item .box-title{font-size:17px}
+            /* .box-content is a two-up row (body left, PROOF right). At 300px
+               that gives each side ~130px, which shredded both into narrow
+               ribbons that ran past the card. Stack them instead. */
+            .award-item .box-content{
+              flex-direction:column;align-items:flex-start;gap:10px
+            }
+            .award-item .box-content .year{font-size:15px}
           }
 
           /* --- Touch targets ----------------------------------------------
