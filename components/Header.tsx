@@ -40,10 +40,19 @@ export default async function Header() {
                 </div>
               </div>
               <div className="col-auto">
-                <nav className="main-menu d-none d-lg-inline-block">
+                {/* xl, not the template's lg. Between 992 and 1199 the
+                    template shows the nav while .header-button stays
+                    d-none d-xl-block, so the CTA and the language switcher
+                    both vanish with no drawer to reach them — and PFC's five
+                    localized labels are wider than the demo's, so the nav
+                    also spilled off the hero's white notch. Switching the
+                    drawer on at the same breakpoint the buttons appear at
+                    closes that gap, and matches HeaderLayout1, which the
+                    template itself builds on xl. */}
+                <nav className="main-menu d-none d-xl-inline-block">
                   <MainMenuList />
                 </nav>
-                <button type="button" className="th-menu-toggle d-block d-lg-none">
+                <button type="button" className="th-menu-toggle d-block d-xl-none">
                   <i className="far fa-bars"></i>
                 </button>
               </div>

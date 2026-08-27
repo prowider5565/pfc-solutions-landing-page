@@ -166,12 +166,35 @@ export default async function LocaleLayout({
           .footer-wrapper .lang-switcher--inline a.is-active{color:var(--theme-color2)}
           .th-menu-wrapper .lang-switcher--inline a{color:var(--title-color)}
           .th-menu-wrapper .lang-switcher--inline a.is-active{color:var(--theme-color)}
+          /* Drawer CTA. .th-menu-area is text-center, but .th-btn2 is
+             inline-flex and would still hug its text at the centre without a
+             floor on the tap target. The drawer is 310px wide
+             (style.css:2380) and the Russian label is "Записаться на встречу",
+             so the button has to be allowed to wrap rather than run past the
+             panel edge. */
+          .pfc-menu-cta{padding:0 20px 40px}
+          .pfc-menu-cta .th-btn2{
+            display:inline-flex;align-items:center;justify-content:center;
+            min-height:48px;max-width:100%;
+            white-space:normal;text-align:center;line-height:1.3
+          }
 
           /* Logo +10%. logo.svg has an intrinsic 213x80 and no CSS width, so
              it rendered at 213px; 234px is that plus 10%. Applies to both
              header layouts (homepage header-layout8 and the inner
              header-layout1), which share the .header-logo wrapper. */
           .header-logo img{width:234px;max-width:100%;height:auto}
+          /* 234px is a desktop number. The template caps the wrapper at 150px
+             below 576 (style.css:8920) but says nothing between there and the
+             desktop header, so the logo jumped straight from 150 to 234 at
+             576 — 43% of a 540px container, with the SOLUTIONS wordmark too
+             small to read at that scale. This is the missing middle step. */
+          @media (max-width:1199.98px){
+            .header-logo img{width:196px}
+          }
+          @media (max-width:575.98px){
+            .header-logo img{width:150px}
+          }
 
           /* Problem cards: Bootstrap columns already give equal widths, but the
              card inside each column only grew to fit its own text, so heights
@@ -269,6 +292,15 @@ export default async function LocaleLayout({
           .pfc-footer-main{padding-top:0;padding-bottom:107px}
           .pfc-footer-main .th-widget-about{max-width:420px}
           .pfc-footer-main .footer-widget{margin-bottom:87px}
+          /* 87px separates four columns standing side by side. From lg down
+             they wrap to two, and then it is vertical space between stacked
+             blocks — which left a hand-sized hole between the social icons and
+             the Services column at 768. Phones already stepped this to 34px;
+             this is the tablet rung. */
+          @media (max-width:1199.98px){
+            .pfc-footer-main{padding-bottom:64px}
+            .pfc-footer-main .footer-widget{margin-bottom:48px}
+          }
           .pfc-footer-social{margin-top:34px}
           @media (min-width:1501px){
             .footer-layout8{margin-top:40px}
@@ -280,6 +312,14 @@ export default async function LocaleLayout({
              встречу" vs "Start Free Trial"), which widened .header-button and
              pushed the globe left onto the black curve. Trimming the button
              group keeps it inside the notch in every locale. */
+          /* style.css:9297 hides this CTA below 1300. In the template that is
+             harmless — the nav appears at lg and the button is a nicety. Here
+             the drawer stops at 1199, so 1200-1299 was the one band with no
+             CTA and no drawer to reach one. The trimmed sizing below already
+             makes room for it at 1200. */
+          @media (min-width:1200px) and (max-width:1299.98px){
+            .header-layout8 .header-button .th-btn2{display:inline-flex}
+          }
           @media (min-width:1200px){
             .header-layout8 .header-button .th-btn2{font-size:16px;padding-left:22px;padding-right:22px}
             /* 39px = 46px − 15%. */
@@ -466,18 +506,6 @@ export default async function LocaleLayout({
             .th-container4,.th-container5{
               padding-left:20px;padding-right:20px
             }
-            .technology-template-area{height:auto}
-            .technology-template-area .integration-wrapp{display:none}
-            .technology-template-area .box-wrapp{
-              display:flex;flex-wrap:wrap;gap:12px;margin-top:0
-            }
-            .technology-template-area .integration-icon{
-              position:relative;
-              min-width:78px;width:78px;height:78px;line-height:78px;
-              margin:0!important
-            }
-            .technology-template-area .pfc-integration-logo img{width:54px}
-            .technology-template-area .integration-icon img{width:36px;height:36px}
             .testimonial-section .testi-card2 .box-text,
             .testimonial-section .testi-card2 .box-info{padding-left:0}
             .testimonial-closing{margin-top:84px;font-size:19px;line-height:1.5}
@@ -493,14 +521,78 @@ export default async function LocaleLayout({
             .pfc-footer-main .footer-widget{margin-bottom:34px}
           }
 
+          /* --- Hero card shape --------------------------------------------
+             hero_bg_8_blue.png is not a texture, it is the card: a 1838x1028
+             bitmap with the rounded corners and the two header notches (small
+             one for the logo, wide one for the buttons) carved into its alpha.
+             .hero-8 paints it background-size:100% 100%, so the shape is only
+             correct at the source aspect ratio (1.79:1). Narrower than that
+             the notches slide inward and the radii shear — which is the black
+             tab that appeared mid-header from 375 up to 1199.
+
+             Below xl the notches have nothing to hold anyway: .header-button
+             is d-none d-xl-block and the nav is a drawer, so the header is
+             just logo + burger. So the card goes full-bleed and flat, painted
+             from hero_bg_8_blue_plain.jpg — the same artwork cropped below the
+             notch band (y>=150) and drawn background-size:cover, so the grid
+             and the blue glow keep their proportions at any width. */
+          @media (max-width:1199.98px){
+            .hero-8{
+              margin:0;border-radius:0;
+              background-image:url('/assets/img/bg/hero_bg_8_blue_plain.jpg')!important;
+              background-size:cover;background-position:center top;
+              background-color:#0A0A0A
+            }
+          }
+
+          /* --- Technology cluster ------------------------------------------
+             The desktop composition is a hand-placed constellation: eight
+             180px circles positioned by per-child negative margins around a
+             decorative arc (.integration-wrapp). Those offsets are absolute
+             pixel values tuned to the full-width layout, so below xl the
+             circles walked straight out of the container — by 89px at 1200
+             and 389px at 576. The arc is dropped and the circles become an
+             ordinary centred wrap, which is the same content in a shape that
+             survives a narrow column. Sizes step down once more on phones.
+
+             The cut is at 1400, not 1200: the composition is authored for the
+             template's own wide container (--main-container:1320px, which
+             only applies from 1370 up), and at 1200 the circles still cleared
+             the container by 89px. */
+          @media (max-width:1399.98px){
+            .technology-template-area{height:auto}
+            .technology-template-area .integration-wrapp{display:none}
+            .technology-template-area .box-wrapp{
+              display:flex;flex-wrap:wrap;justify-content:center;
+              gap:20px;margin-top:0
+            }
+            .technology-template-area .integration-icon{
+              position:relative;
+              min-width:110px;width:110px;height:110px;line-height:110px;
+              margin:0!important
+            }
+            .technology-template-area .integration-icon img{width:52px;height:52px}
+            .technology-template-area .pfc-integration-logo img{width:70px}
+          }
+          @media (max-width:575.98px){
+            .technology-template-area .box-wrapp{gap:12px}
+            .technology-template-area .integration-icon{
+              min-width:78px;width:78px;height:78px;line-height:78px
+            }
+            .technology-template-area .integration-icon img{width:36px;height:36px}
+            .technology-template-area .pfc-integration-logo img{width:54px}
+          }
+
           /* --- Header logo contrast ---------------------------------------
-             header-layout8 sits over the hero. Above ~992px the logo lands on
+             header-layout8 sits over the hero. From xl up the logo lands on
              the hero card's white notch, but below that the card is
-             full-bleed and the black logo falls on near-black (#0A0A0A) —
-             about 1.1:1, invisible. logo-footer.svg is the same 213x80
-             artwork with fill #FFFFFF, so it is a drop-in swap. */
+             full-bleed dark (see the hero card note above) and the black logo
+             falls on near-black (#0A0A0A) — about 1.1:1, invisible.
+             logo-footer.svg is the same 213x80 artwork with fill #FFFFFF, so
+             it is a drop-in swap. The breakpoint tracks the card, not the
+             nav: both switch at xl. */
           .header-layout8 .header-logo .logo-light{display:none}
-          @media (max-width:991.98px){
+          @media (max-width:1199.98px){
             .header-layout8 .header-logo .logo-dark{display:none}
             .header-layout8 .header-logo .logo-light{display:inline-block}
           }
